@@ -72,12 +72,20 @@ It passes if the session names, without being told:
 
 - what the project is and what shipped or published last,
 - what is in flight and what is queued but deliberately not started,
-- which facts in `NEXT.md` are dated and need re-checking before use, and ideally runs
-  those checks,
-- at least one decision that was made and should not be reopened.
+- at least one decision that was made and should not be reopened,
+- **which of its statements it read and which it verified**, kept apart rather than
+  presented as one kind of fact,
+- **which specific facts it would re-check before acting**, named individually, not the
+  general observation that the file is dated. Better still, it runs those checks first.
 
 It fails if the session asks a question the files answer, restates the last commit message
-as though it were the state, or acts on a dated fact without re-checking it.
+as though it were the state, acts on a dated fact without re-checking it, or **presents a
+dated fact as current without saying when it was checked**.
+
+That last one is the criterion that matters. Every expensive failure in the project this
+came from was a stale claim being trusted, not a missing one. A session can recite the
+state file perfectly, be correct as of the date on every line, and still be wrong about the
+world right now. Reciting is not the skill being tested.
 
 **Record the result here**, pass or fail, with the date and what was missing. A fail is more
 useful than a pass: it names the thing the template does not prompt for, which is the only
@@ -85,7 +93,10 @@ way this improves. Nobody remembers to run a test that lives in a conversation.
 
 ### Results
 
-<!-- YYYY-MM-DD, repo, pass or fail, what it got wrong. Empty until the first run. -->
+<!-- One line per run: date, repo, pass or fail, what it got wrong, and whether anything in
+     NEXT.md was actually stale at the time. A run against a file written hours earlier
+     proves much less than one a week later, when the store, the registry or the deploy has
+     moved underneath it. Say which it was. Empty until the first run. -->
 
 ## What the kit cannot carry
 
