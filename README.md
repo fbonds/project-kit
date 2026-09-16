@@ -59,6 +59,34 @@ A global instruction file covers only the sessions belonging to the person who w
 Keep both copies if you have a global one. They will drift eventually; when they do, the
 repo copy wins for work in that repo, because it is the one a stranger can see.
 
+## The test, which has not been run yet
+
+Nothing here has been proven to work on a session that did not help write it. The test is
+cheap and it only happens if it is written down, so:
+
+**The next time a session starts cold in a repo using this kit, the owner asks what it
+concludes about the state before telling it anything.** Nothing else in the first message:
+no context, no correction, no hint about what is in flight.
+
+It passes if the session names, without being told:
+
+- what the project is and what shipped or published last,
+- what is in flight and what is queued but deliberately not started,
+- which facts in `NEXT.md` are dated and need re-checking before use, and ideally runs
+  those checks,
+- at least one decision that was made and should not be reopened.
+
+It fails if the session asks a question the files answer, restates the last commit message
+as though it were the state, or acts on a dated fact without re-checking it.
+
+**Record the result here**, pass or fail, with the date and what was missing. A fail is more
+useful than a pass: it names the thing the template does not prompt for, which is the only
+way this improves. Nobody remembers to run a test that lives in a conversation.
+
+### Results
+
+<!-- YYYY-MM-DD, repo, pass or fail, what it got wrong. Empty until the first run. -->
+
 ## What the kit cannot carry
 
 The kit is the method. It is not the knowledge, and on day one a new project has none of
