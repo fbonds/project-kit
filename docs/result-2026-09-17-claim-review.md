@@ -19,8 +19,15 @@ corrected one, so anyone can see what was read and what was concluded.
 ## What was reviewed
 
 The repository as published on GitHub. `main` was `38b601f` from the moment the repo was
-created, and `9b89bbb`, which added the license, was pushed at 14:22 UTC on 17 September.
-The review saw one of those two states.
+created, and `9b89bbb`, which added the license, was pushed at 14:23 UTC on 17 September.
+The review saw `9b89bbb`.
+
+The basis is the review's own statement that the repository "is currently only five
+commits". `38b601f` is the fourth commit and `9b89bbb` the fifth. The next push, at 16:21
+UTC, took `main` to nine commits and came after the review had been committed here at 15:08
+UTC, so five commits matches only `9b89bbb`. Nothing else in the review tells the two states
+apart: it does not mention the license. This rests on one assumption, that the reviewer
+counted the commits correctly.
 
 **The prompt given to the reviewer is not recorded.** Without it a reader cannot judge how
 much of the review's shape was set by the question.
