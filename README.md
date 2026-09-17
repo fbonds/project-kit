@@ -1,8 +1,7 @@
 # project-kit
 
-Three files you copy into a new repo on day one, plus the reasoning behind them. They set
-how an agentic coding session records what it verified, what it only read, and what it never
-checked at all.
+Three files you copy into a new repo on day one, plus the reasoning behind them. They change 
+what counts as an answer when an agent tells you it checked something.
 
 The failure this addresses is not that the agent is unreliable. It is that it is confidently
 wrong in a small number of recognisable shapes, and almost every one reduces to a claim
