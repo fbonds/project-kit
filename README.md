@@ -49,9 +49,10 @@ Three files, in `template/`.
 only reliable place to put anything. It says to read the state file first and treat its facts
 as dated. It then restates the five standards that come up most as bullets, names the other
 five in a sentence, and points at `NEXT.md` for all ten with their failures attached. Below
-that sit a writing section and four working rules: how to work, confirm which repo you are in
-before acting, do not guess, and do not start queued work unprompted. The writing rules are
-preferences rather than checks, which is why they are kept out of the standards.
+that sit the working rules: how to work, confirm which repo you are in before acting, do not
+guess, and do not start queued work unprompted. The writing section comes last, so it can be
+deleted without taking anything else with it. The writing rules are preferences rather than
+checks, which is why they are kept out of the standards.
 
 **`HOWTOSAVESTATE.md`** is the end-of-session procedure. Check the external world now and
 record each fact with its date and method. Write it into the state file. Check stored

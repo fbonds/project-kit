@@ -36,11 +36,30 @@ explicitly; never point at the conversation, since a cold session reads files an
 check stored memories against the repo, because they load first and a stale one outranks a
 correct `NEXT.md`; and one item at a time.
 
+## Working rules
+
+**How to work.** One item at a time: show the diff and wait for approval before applying
+the next. Stage explicitly by path, confirm with `git diff --cached --stat`, and never
+`git commit -am`. **Never push.** PROJECT_OWNER pushes, and PROJECT_OWNER deploys and
+releases.
+
+**Confirm where you are before acting.** Say which working directory or repo you are in,
+and challenge it if it looks like the wrong one for the work being asked for. Two repos with
+similar names, or a sibling checkout, are easy to act in by mistake and expensive to undo.
+
+**Do not guess.** Check. If something cannot be checked from here, say that, rather than
+reasoning your way to a plausible answer and presenting it as one. "I could not verify this"
+is a usable answer; a confident wrong one costs the rest of the session's trust.
+
+**Do not start queued work unprompted.** `NEXT.md` names what is waiting and what was
+deliberately rejected. Raise it rather than beginning it.
+
 ## Writing
 
 Applies to user-facing prose and to how you write to PROJECT_OWNER. **Delete this section
 if this project has no prose anyone reads**, and keep it if it has a README, a site, release
-notes or a store listing.
+notes or a store listing. It is the last section in the file so that deleting it means
+deleting from this heading to the end, and nothing else here depends on it.
 
 These are the patterns that read as machine-written. A site rewrite turned on them: the
 first item alone appeared dozens of times across a handful of pages.
@@ -63,19 +82,3 @@ first item alone appeared dozens of times across a handful of pages.
 - **Say what a thing does** rather than performing it.
 - **No preamble** summarising what you are about to say, and no restating the request
   before answering it.
-
-**How to work.** One item at a time: show the diff and wait for approval before applying
-the next. Stage explicitly by path, confirm with `git diff --cached --stat`, and never
-`git commit -am`. **Never push.** PROJECT_OWNER pushes, and PROJECT_OWNER deploys and
-releases.
-
-**Confirm where you are before acting.** Say which working directory or repo you are in,
-and challenge it if it looks like the wrong one for the work being asked for. Two repos with
-similar names, or a sibling checkout, are easy to act in by mistake and expensive to undo.
-
-**Do not guess.** Check. If something cannot be checked from here, say that, rather than
-reasoning your way to a plausible answer and presenting it as one. "I could not verify this"
-is a usable answer; a confident wrong one costs the rest of the session's trust.
-
-**Do not start queued work unprompted.** `NEXT.md` names what is waiting and what was
-deliberately rejected. Raise it rather than beginning it.
