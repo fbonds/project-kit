@@ -214,8 +214,8 @@ item at a time with approval:
 6. The vendor-stripping claim in `docs/review-2026-09-17-original.md`, narrowed to what is
    true and paired with a plain statement that the history shows the vendor. Done,
    `3a8f006`.
-7. What two cold reads of the README and the result doc found, fixed in both files. This
-   commit.
+7. What two cold reads of the README and the result doc found, fixed in both files. Done,
+   `8dcb360`.
 
 Nothing is left in this pass. What the pass did not touch is in Open.
 
@@ -232,16 +232,18 @@ all known and cannot be reused.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-09-17 18:51 UTC, when this was last updated.
+As of 2026-09-17 19:20 UTC, re-checked against the remote at that time.
 
-**Uncommitted.** The fixes from the two cold reads, awaiting approval as item 7.
+**Uncommitted.** Nothing. The working tree is clean.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
-fetch. Snapshot, not to be trusted: GitHub `main` at `70aa935`, local `main` six commits
-ahead, the last being `3a8f006`, and item 7's commit will make seven.
+fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
+Snapshot, not to be trusted: at 19:20 UTC GitHub `main` and local `main` were both
+`8dcb360`, so nothing was unpushed. The owner pushes, so this moves with no commit here to
+record it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
-GitHub releases, no issues and no pull requests as of the time above.
+GitHub releases, no issues and no pull requests, each read at 19:20 UTC.
 
 ## Open, not blocking
 
