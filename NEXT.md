@@ -121,6 +121,16 @@ section gets tested by deleting it and searching for what was lost.
 **Commit time is not push time.** The result doc gave `9b89bbb`'s commit time, 14:22 UTC, as
 its push time, which the activity log records as 14:23:12 UTC. Fixed in `029310d`.
 
+**A check that cannot stop what it is checking.** A script rewrote this file and asserted on
+the text before writing, so a wrong assumption about the line wrapping would abort the
+write. The assertion tripped, the write never happened, and the `git commit` after it ran
+anyway, because the two were separated by a newline rather than chained. The commit went in
+with the edit missing, and the reply that described the edit was wrong until the file was
+read back. This is rule 1 in the tooling rather than in the product: the guard could not
+fail in a way that stopped anything. Recognise it: any command chain where a verification
+step and the action it guards are separated by `;` or a newline rather than `&&`, and any
+edit whose success is reported from the writing step rather than by re-reading the file.
+
 ## Decided, do not redo
 
 **No explicit state model or `verified: true` field.** Proposed by the external review and
@@ -239,8 +249,8 @@ As of 2026-09-17 19:20 UTC, re-checked against the remote at that time.
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
 Snapshot, not to be trusted: at 19:20 UTC GitHub `main` and local `main` were both
-`8dcb360`, so nothing was unpushed. The owner pushes, so this moves with no commit here to
-record it.
+`8dcb360`, and the commits carrying this sentence and the one before it are the only ones
+ahead of that. The owner pushes, so this moves with no commit here to record it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
 GitHub releases, no issues and no pull requests, each read at 19:20 UTC.
