@@ -208,6 +208,22 @@ So the sentence was read four times by three parties, and what none of them did 
 whether it had been public when the review ran. That is worth recording about the defect: the
 template is read as the kit rather than as a set of claims about the kit.
 
+## How this write-up differs from the reviewer's draft
+
+The reviewer drafted a write-up for recording this result. It is in the third message in
+`review-2026-09-17-followup.md`. This file starts from that draft and changes four things:
+
+1. It separates the real miss from the false charge rather than listing them as equals. The
+   draft listed two items as equals, and one of them was the charge.
+2. It quotes rule 3 as the template writes it, "Check claims against the artifact, not the
+   description of it", where the draft paraphrased it as "Don't claim what you haven't
+   checked".
+3. It uses the count the artifact supports rather than the count the reviewer was given.
+4. It records the fix status of each defect, which the draft did not.
+
+These four were stated in the message of commit `e6dbdb9` and nowhere in this file, while
+`docs/README.md` said they were all listed here. They are now.
+
 ## What this result establishes, and what it does not
 
 It establishes that one external review of this repository verified the conceptual argument

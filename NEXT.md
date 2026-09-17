@@ -58,13 +58,26 @@ rather than from `git show origin/main:<path>` after a fetch, or from GitHub its
 the false charge in the first result.
 
 **The README's description of the template does not match the template.** It has happened
-twice, both introduced in the README rewrite in `38b601f`: "the standards live elsewhere"
-about a `template/CLAUDE.md` that already restated five of them, and "Nine of the ten" when
-rule 4 carried saves. It nearly happened a third time from the other direction in `eda6f3e`,
-where moving the working rules above the Writing section reversed the order the README
-describes, and was caught before commit. Recognise it: any diff touching `template/`, or the
-README's "What the kit contains" section, gets the other read beside it before it is shown
-for approval.
+three times. Two were introduced in the README rewrite in `38b601f`: "the standards live
+elsewhere" about a `template/CLAUDE.md` that already restated five of them, and "Nine of the
+ten" when rule 4 carried saves. The third was introduced in `8dcb360` and fixed in
+`ecd858d`: the README said two fill-ins in `HOWTOSAVESTATE.md` carry no placeholder string,
+when one of the two is the numbered line naming the project's own files, which is the only
+line the setup grep prints for that file. It nearly happened a fourth time from the other
+direction in `eda6f3e`, where moving the working rules above the Writing section reversed
+the order the README describes, and was caught before commit. Recognise it: any diff
+touching `template/`, or the README's "What the kit contains" section, gets the other read
+beside it before it is shown for approval. The third was in neither. It is in "How to use
+it", and it was found by running the command that section gives rather than by reading the
+sentence, so the rule now covers every README sentence that describes a template file, and
+a command the README gives is run rather than read.
+
+`8dcb360` was itself a pass correcting other claims, which is the shape the next entry
+records for claims about the standards. Its message states the same wrong count as one of
+its fixes: "The grep was called the fill-in list when two fill-ins carry no placeholder." A
+reader who follows that ID will find it. It cannot be corrected, because a commit message
+changes only by rewriting history, which is rejected here for the reason in Decided. The
+same already applies to the count in `38b601f`'s message.
 
 **Correcting a claim about the standards has created it somewhere else, five times.**
 `38b601f` introduced two: the README's description of `template/CLAUDE.md`, and "Nine of the
@@ -95,9 +108,10 @@ member.
 
 **A pointer to where something is listed, when the target does not list it.**
 `docs/README.md`, in its entry for the follow-up exchange, says the four ways the recorded
-write-up departs from the reviewer's draft are "all listed in the result file". They are not
-in it. They are in the message of commit `e6dbdb9`. Recognise it: "listed in", "see",
-"recorded in"; open the target and find the thing. Still unfixed.
+write-up departs from the reviewer's draft are "all listed in the result file". They were
+not in it. They were in the message of commit `e6dbdb9`, and the result file now lists them,
+so the pointer is true. Recognise it: "listed in", "see", "recorded in"; open the target and
+find the thing.
 
 **Framing around a verbatim record goes stale when the conclusion changes.** The header of
 `docs/review-2026-09-17-original.md` said the review "missed two factual ones", written when
@@ -227,7 +241,17 @@ item at a time with approval:
 7. What two cold reads of the README and the result doc found, fixed in both files. Done,
    `8dcb360`.
 
-Nothing is left in this pass. What the pass did not touch is in Open.
+Nothing is left in that pass. What it did not touch is below.
+
+A second pass the same day, by another session that read the repository cold and then ran
+the README's own setup grep:
+
+8. The README's claim that two fill-ins in `HOWTOSAVESTATE.md` carry no placeholder string.
+   Done, `ecd858d`.
+9. This file's state block and its Traps entry for the README and the template, the record
+   of the wrong count in `8dcb360`'s message, and both items that were in Open. Done. A
+   commit cannot carry its own ID, so this one goes unnamed here until something later
+   names it.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -242,31 +266,36 @@ all known and cannot be reused.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-09-17 19:20 UTC, re-checked against the remote at that time.
+As of 2026-09-17 21:00 UTC, re-checked against the remote at that time.
 
 **Uncommitted.** Nothing. The working tree is clean.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
-Snapshot, not to be trusted: at 19:20 UTC GitHub `main` and local `main` were both
-`8dcb360`, and the commits carrying this sentence and the one before it are the only ones
-ahead of that. The owner pushes, so this moves with no commit here to record it.
+Snapshot, not to be trusted: at 21:00 UTC GitHub `main` and local `main` were both
+`ecd858d`, and the commit carrying this sentence is the only one ahead of that. The owner
+pushes, so this moves with no commit here to record it.
+
+The remote moved twice between the 19:20 reading and this one, and the two moves have
+different origins. `13c6349`, pushed at 20:54:02 UTC, rewrote the README's opening sentence
+and was made by the owner in GitHub's web editor, outside any session working here.
+`ecd858d`, pushed at 20:55:54 UTC, is the fix to the README's fill-in claim, committed in a
+session here as `104a709` and given a new ID when the owner rebased it onto `13c6349`. A
+commit ID written into this file is the ID at the time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
-GitHub releases, no issues and no pull requests, each read at 19:20 UTC.
+GitHub releases, no issues and no pull requests, each read at 21:00 UTC.
 
 ## Open, not blocking
 
-**`docs/README.md` points at a list that is not there.** Its entry for the follow-up
-exchange says the four departures from the reviewer's draft are listed in the result file.
-They are only in the message of commit `e6dbdb9`: separating the real miss from the false
-charge, quoting rule 3 correctly, using the count the artifact supports, and recording fix
-status.
-
-**The follow-up file's header miscounts its own messages.**
-`docs/review-2026-09-17-followup.md` says "Two messages, verbatim", and its sections are
-headed "Second message" and "Third message", with no first. Noticed while correcting the
-count of misses. Not checked against the original exchange, which is not in this repository.
+**The GitHub repository description still carries the clause the README dropped.** The
+description reads "Three files that set how an agentic coding session records what it
+verified, what it only read, and what it never checked", read from the API at 21:00 UTC on
+2026-09-17. The README's opening carried that clause until `13c6349` replaced it with "They
+change what counts as an answer when an agent tells you it checked something". The
+description is not in the repository and no commit changes it, so it is the owner's to
+change or to leave. The same clause survives inside `docs/review-2026-09-17-original.md`, in
+the page title the reviewer's link carried, where it is part of a verbatim record and stays.
 
 **Raised by the review, not decided:** whether the memory rule should generalise to any
 external context, whether rule 10 belongs in a separate operating-policy section, and

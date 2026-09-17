@@ -1,7 +1,14 @@
 # External AI review of project-kit, follow-up exchange, 17 September 2026
 
-The same reviewer, after being told what it missed. Two messages, verbatim.
-The second contains a write-up it drafted for recording this result.
+The same reviewer, after being told what it missed. Two messages, verbatim,
+headed "Second message" and "Third message". What the numbering counts from is
+not recorded here, and the original exchange is not in this repository, so it
+cannot be checked. The count is of what this file holds. The third message
+contains the write-up the reviewer drafted for recording this result.
+
+An earlier version of this header gave no account of the numbering, and placed
+the drafted write-up in the second message. It is in the third. Nothing in the
+messages themselves is changed.
 
 Companion to review-2026-09-17-original.md.
 
