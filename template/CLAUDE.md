@@ -13,10 +13,11 @@ at the top of `NEXT.md` has the commands that re-check the moving parts. Stored 
 load before any file is read and go stale the same way, so check those against the repo
 too.
 
-**The standards are written down.** `NEXT.md` has all ten under "Standards", each with the
-failure that produced it, and `HOWTOSAVESTATE.md` has the procedure for verifying state and
-saving it at the end of a session, plus what each file here is for. The five that come up
-constantly:
+**The standards are written down.** `NEXT.md` has all ten under "Standards", each with its
+reason. In this template the reason is the failure that produced it, except rule 4, which
+carries two occasions it caught something, and rule 10, which says it has none.
+`HOWTOSAVESTATE.md` has the procedure for verifying state and saving it at the end of a
+session, plus what each file here is for. The five that come up constantly:
 
 - **No check counts as verified until it has been shown failing** on deliberately broken
   input, and the report says what was broken.

@@ -28,11 +28,13 @@ A saved note told a future session that four agreed items "were agreed but not r
 recover them from the original list." The original list was in a chat log. Nothing that
 reads that note can read a chat log.
 
-None of those were caught by the agent being careful. They were caught by asking a narrower
-question: not "did the check pass" but "have you shown this check failing." Every rule in
-the kit came out of one of those moments, and each is written with the reason attached,
-because a rule without its reason reads as taste and gets dropped the first time it is
-inconvenient.
+The first three were caught by asking a narrower question than "did the check pass", such as
+"have you shown this check failing". Care alone had missed them. The fourth was never caught.
+The session that arrived afterward paid for it, went looking for a list that was not there,
+and had to rebuild it from the README, the changelog and the git log.
+
+Each rule in the kit is written with its reason attached, because a rule without its reason
+reads as taste and gets dropped the first time it is inconvenient.
 
 Those four happened in a private repository. You cannot check them from here, and neither can
 I. They are attested by the author rather than verifiable by a reader, which makes them the
@@ -239,7 +241,7 @@ about it before pasting a `CLAUDE.md` into a project.
 Three things, from anyone who has run agents against real repos long enough to have their own
 list.
 
-**Which standards are missing.** These ten came out of one project's failures, so the list has
+**Which standards are missing.** These ten came out of one project, so the list has
 the shape of that project. The failures you hit are the ones I have not.
 
 **Which you would cut.** Some may be ceremony that survived because nobody tested whether

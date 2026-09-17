@@ -21,8 +21,10 @@ of them.
 
 ## Standards
 
-How work is done here, and why. Each one carries the failure that produced it, or it reads
-as taste and gets dropped under time pressure.
+How work is done here, and why. Each one carries its reason, or it reads as taste and gets
+dropped under time pressure. In this template the reason is the failure that produced it,
+except rule 4, which carries two occasions it caught something before it was built, and rule
+10, which says plainly that no failure sits behind it.
 
 The examples below come from the project this kit was built in. **Replace each with your own
 the first time this project produces one**, since a local failure argues better than a
