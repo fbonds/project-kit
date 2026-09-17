@@ -7,11 +7,14 @@ ones, which is the first empirical data point this project has.
 The model and vendor are deliberately unnamed. Naming them turns a methodology
 note into a model comparison.
 
+One edit to the text below: a tracking parameter appended to the repository link
+named the vendor, and it was stripped. The reviewer did not write that string, so
+removing it does not break the record. Nothing else is changed.
+
 ## The prompt given to the reviewer
 
-[PASTE THE PROMPT YOU GAVE IT, VERBATIM. If you no longer have it, replace this
-section with: "Not recorded. Without it a reader cannot judge whether a
-conceptual answer to a conceptual question constitutes a miss at all."]
+Not recorded. Without it a reader cannot judge whether a conceptual answer to a
+conceptual question constitutes a miss at all.
 
 ## The review, verbatim
 
@@ -425,7 +428,7 @@ without making the project fundamentally about `CLAUDE.md`.
 
 The repository is currently only five commits, has no issues or pull requests, and is explicitly asking other people who have experience with coding agents to contribute their own failure patterns. ([GitHub][1])
 
-[View your project-kit repository on GitHub](https://github.com/fbonds/project-kit?utm_source=chatgpt.com)
+[View your project-kit repository on GitHub](https://github.com/fbonds/project-kit)
 
 **Bottom line:** I think you've identified a real problem, and the repo has a better conceptual foundation than its tiny size suggests. The next important step isn't adding more rules... it's **running the cold-session experiment on several real projects and documenting what happens.**
 
