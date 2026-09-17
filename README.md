@@ -115,9 +115,10 @@ fill-in is a commented line in the block at the top of `NEXT.md`, reading "add t
 that checks what this project publishes or deploys". Replace it with that command. Until it
 exists, the staleness warning has nothing behind it.
 
-Two further fill-ins carry no placeholder string, so the `grep` will not find them: in
-`HOWTOSAVESTATE.md`, the commands for whatever the project publishes or deploys, and the list
-of the project's own files.
+One further fill-in carries no placeholder string, so the `grep` will not find it: in
+`HOWTOSAVESTATE.md`, the commands for whatever the project publishes or deploys. The list of
+the project's own files, in the same file, does carry one. It is the single line the `grep`
+prints there.
 
 The `CLAUDE.md` and `NEXT.md` at the root of this repository are its own working files,
 filled in for it, and are not the kit. Run the `grep` straight after copying, before filling
