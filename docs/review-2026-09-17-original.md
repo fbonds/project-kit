@@ -9,12 +9,16 @@ and are listed in `result-2026-09-17-claim-review.md`. An earlier version of thi
 header said two, the number of charges the reviewer was given. One of those
 charges was false, and two defects nobody had charged it with were found later.
 
-The model and vendor are deliberately unnamed. Naming them turns a methodology
-note into a model comparison.
+The model and vendor are not named in the prose here, because naming them turns a
+methodology note into a model comparison. Nothing in the record depends on which
+reviewer it was.
 
-One edit to the text below: a tracking parameter appended to the repository link
-named the vendor, and it was stripped. The reviewer did not write that string, so
-removing it does not break the record. Nothing else is changed.
+This is not anonymity. A tracking parameter appended to the repository link named
+the vendor, and it was stripped when this file was first committed. The diff in
+`e6dbdb9` still contains it, and the repository is public, so anyone reading the
+history can see which vendor it was. The reviewer did not write that string, so
+removing it from the text does not break the record. Nothing else in the text
+below is changed.
 
 ## The prompt given to the reviewer
 

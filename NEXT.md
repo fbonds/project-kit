@@ -96,9 +96,10 @@ re-reading every header and index entry that states the conclusion, including th
 the preserved records.
 
 **Removing text from a file in a public git repository does not remove it.** The preserved
-review's header says a tracking parameter naming the vendor was stripped. The diff in
-`e6dbdb9` shows the parameter, so the vendor is discoverable. Recognise it: any claim that
-an edit hides, redacts or anonymises something already committed. Being fixed in this pass.
+review's header said a tracking parameter naming the vendor was stripped, which read as
+anonymity while the diff in `e6dbdb9` still showed it. The header now says the history shows
+the vendor. Recognise it: any claim that an edit hides, redacts or anonymises something
+already committed.
 
 **A section the template says to delete held rules that must not be deleted.** The working
 rules, including never push, sat under the Writing heading that tells a project with no
@@ -119,8 +120,11 @@ Recorded in `docs/result-2026-09-17-claim-review.md`.
 promises a specification, semantics and conformance that do not exist.
 
 **The review's model and vendor are not named in the prose**, because naming them turns a
-methodology note into a model comparison. What the files claim about hiding the vendor is
-being corrected in this pass: see In flight.
+methodology note into a model comparison. That is a scope, not anonymity: the stripped
+tracking parameter that named the vendor is still in the diff of `e6dbdb9`, in a public
+repository, and the files now say so. Rewriting the history to remove it was rejected: it
+would change every commit ID from `e6dbdb9` onward, invalidate the IDs cited throughout
+these files, need a force push, and still not reach clones, forks or caches.
 
 **The failed review is preserved verbatim, not corrected.** Any edit is declared in its
 header. The prompt that produced it was not kept, and the files say so rather than
@@ -179,9 +183,10 @@ item at a time with approval:
    `dd4b5a8`.
 5. The count of real misses corrected to three, with one false charge, everywhere it is
    stated. This commit.
-6. The vendor-stripping claim in `docs/review-2026-09-17-original.md`: drop it to what is
-   true or say plainly that history shows the vendor. Not started. **Update this section
-   when it commits.**
+6. The vendor-stripping claim in `docs/review-2026-09-17-original.md`, narrowed to what is
+   true and paired with a plain statement that the history shows the vendor. This commit.
+
+Nothing is left in this pass. What the pass did not touch is in Open.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -196,13 +201,13 @@ all known and cannot be reused.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-09-17 17:27 UTC, when this was last updated.
+As of 2026-09-17 18:36 UTC, when this was last updated.
 
-**Uncommitted.** The correction of the count of misses, awaiting approval as item 5.
+**Uncommitted.** The vendor wording, awaiting approval as item 6.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
-fetch. Snapshot, not to be trusted: GitHub `main` at `70aa935`, local `main` four commits
-ahead (`eda6f3e`, `239226f`, `029310d`, `dd4b5a8`), and item 5's commit will make five.
+fetch. Snapshot, not to be trusted: GitHub `main` at `70aa935`, local `main` five commits
+ahead, the last being `76108c2`, and item 6's commit will make six.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
 GitHub releases, no issues and no pull requests as of the time above.

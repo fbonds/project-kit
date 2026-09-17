@@ -13,8 +13,9 @@ reconstruct a project's state from its files. This asks a different question wit
 ground truth: whether an agent reviewing a repository verifies the claims that repository
 makes about itself. The cold-session test has still not been run.
 
-The model and vendor are not named. Naming them turns a methodology note into a model
-comparison, and nothing here depends on which reviewer it was.
+The model and vendor are not named in these files, because naming them turns a methodology
+note into a model comparison, and nothing here depends on which reviewer it was. The git
+history does name the vendor: `review-2026-09-17-original.md` explains where and why.
 
 The review is preserved in full at `review-2026-09-17-original.md`, and the exchange after
 the correction at `review-2026-09-17-followup.md`. The failed version is kept rather than a
