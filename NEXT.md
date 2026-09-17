@@ -34,15 +34,17 @@ against them, where it has one:
 **Rule 2, never verify through a path that can resolve to your own development copy.** A
 charge that the published README claimed every standard carried its failure was made by
 checking a zip of the working tree that predated the fix, and reported as a live defect in
-the published repository. It was never on GitHub. Recorded in
+the published repository. The README never published it. A similar claim was published in
+the template, and is counted separately as a real miss. Recorded in
 `docs/result-2026-09-17-claim-review.md`.
 
-**Rule 3, check claims against the artifact.** Twice, both on GitHub from repo creation
-until the push at 16:21 UTC on 2026-09-17. The README's description of `template/CLAUDE.md`
-did not match the file, and an external review did not catch it. The README also said "Nine
-of the ten carry the failure that produced them" while rule 4 in the template carried two
-saves rather than a failure, which was wrong when written, not stale. Corrected to "Eight"
-in `5531e49`.
+**Rule 3, check claims against the artifact.** Three times, all on GitHub from repo
+creation, and all missed by the external review. The README's description of
+`template/CLAUDE.md` did not match the file, until `5531e49`. The README said "Nine of the
+ten carry the failure that produced them" while rule 4 in the template carried two saves
+rather than a failure, which was wrong when written, not stale, until `5531e49`. And both
+template files said every standard carries the failure that produced it, while rule 10 in
+`template/NEXT.md` said none sits behind it, until `239226f`.
 
 ## Traps
 
@@ -86,9 +88,12 @@ in it. They are in the message of commit `e6dbdb9`. Recognise it: "listed in", "
 "recorded in"; open the target and find the thing. Still unfixed.
 
 **Framing around a verbatim record goes stale when the conclusion changes.** The header of
-`docs/review-2026-09-17-original.md` still says the review "missed two factual ones",
-written before one of the two was shown to be a false charge. The review text must not
-change, and the header around it is easy to forget for that reason. Still unfixed.
+`docs/review-2026-09-17-original.md` said the review "missed two factual ones", written when
+two was the count. The count then became one, then two, then three, and the header was not
+re-read at any of those moves. The review text must not change, and the header around it is
+easy to forget for that reason. Recognise it: a change to what a result concludes means
+re-reading every header and index entry that states the conclusion, including the headers of
+the preserved records.
 
 **Removing text from a file in a public git repository does not remove it.** The preserved
 review's header says a tracking parameter naming the vendor was stripped. The diff in
@@ -131,6 +136,14 @@ sentence is not itself an example, so replacing examples does not fix it (`23922
 **The review saw `9b89bbb`**, on the basis of its own "five commits", assuming it counted
 correctly (`029310d`).
 
+**The review missed three real defects and was charged with one it did not miss.** The three
+are the README's description of `template/CLAUDE.md`, the README's "Nine of the ten", and
+the template's claim that every standard carries its failure. Separate findings count
+separately even when they touch the same claim. The false charge stays false: it named the
+README and gave a count of three, and both were wrong, and a similar claim elsewhere does
+not make a wrong charge right. The count moved from two to one to two to three before this,
+and `docs/result-2026-09-17-claim-review.md` says so.
+
 **Root working files are named `CLAUDE.md` and `NEXT.md`**, the names the kit tells users to
 use, so this repository uses the kit the way a copier would. Each opens with a visible
 notice that it is not the template, in plain text rather than an HTML comment, which Claude
@@ -162,8 +175,11 @@ item at a time with approval:
    README's claim that all four opening failures were caught by a narrower question. Done,
    `239226f`.
 3. Which state the review saw, and the push timestamp, in the result doc. Done, `029310d`.
-4. These two root files and the README sentence about copying them by mistake. This commit.
-5. The vendor-stripping claim in `docs/review-2026-09-17-original.md`: drop it to what is
+4. These two root files and the README sentence about copying them by mistake. Done,
+   `dd4b5a8`.
+5. The count of real misses corrected to three, with one false charge, everywhere it is
+   stated. This commit.
+6. The vendor-stripping claim in `docs/review-2026-09-17-original.md`: drop it to what is
    true or say plainly that history shows the vendor. Not started. **Update this section
    when it commits.**
 
@@ -180,13 +196,13 @@ all known and cannot be reused.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-09-17 16:57 UTC, when this was written.
+As of 2026-09-17 17:27 UTC, when this was last updated.
 
-**Uncommitted.** This file, `CLAUDE.md` and one README change, awaiting approval as item 4.
+**Uncommitted.** The correction of the count of misses, awaiting approval as item 5.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
-fetch. Snapshot, not to be trusted: GitHub `main` at `70aa935`, local `main` three commits
-ahead (`eda6f3e`, `239226f`, `029310d`), and item 4's commit will make four.
+fetch. Snapshot, not to be trusted: GitHub `main` at `70aa935`, local `main` four commits
+ahead (`eda6f3e`, `239226f`, `029310d`, `dd4b5a8`), and item 5's commit will make five.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
 GitHub releases, no issues and no pull requests as of the time above.
@@ -199,23 +215,16 @@ They are only in the message of commit `e6dbdb9`: separating the real miss from 
 charge, quoting rule 3 correctly, using the count the artifact supports, and recording fix
 status.
 
-**The preserved review's header is stale.** `docs/review-2026-09-17-original.md`, in its
-opening paragraph, says the review "missed two factual ones". The result doc says one was
-real and one was a false charge.
+**The follow-up file's header miscounts its own messages.**
+`docs/review-2026-09-17-followup.md` says "Two messages, verbatim", and its sections are
+headed "Second message" and "Third message", with no first. Noticed while correcting the
+count of misses. Not checked against the original exchange, which is not in this repository.
 
 **Whether the external review counts as a run of the claim-review test.** The README says
 the test "has been run once" and also calls the review "a result of a different kind". The
-test requires ground truth set before asking. Here it was set afterward, and one of its two
-items was wrong. The owner decides.
-
-**Whether the review missed two real defects, not one.** Found while writing this file. The
-result doc quotes the published README's "Nine of the ten carry the failure that produced
-them" as the corrected wording, in "The false charge", and says under "Ground truth for
-future runs" that the standards wording "was corrected in `38b601f`". But rule 4 carried
-saves then, and the README now counts it that way ("Eight", since `5531e49`). By that
-standard the published count was wrong when reviewed, and the review did not catch it. The
-result doc itself says this depends on whether an example of a rule working counts as the
-failure that produced it, at the end of "The false charge". The owner decides.
+test requires ground truth set before asking. Here it was set afterward, and it changed
+three times: one of the two charges first put to the reviewer was false, and two further
+misses were found later. The owner decides.
 
 **Raised by the review, not decided:** whether the memory rule should generalise to any
 external context, whether rule 10 belongs in a separate operating-policy section, and

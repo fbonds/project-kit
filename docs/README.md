@@ -3,10 +3,11 @@
 Results and the material behind them. The kit itself is in `template/`, and the argument for
 it is in the repository README.
 
-**`result-2026-09-17-claim-review.md`** is the first recorded empirical result: an external AI
-review that verified the argument and did not verify one claim the README made about its own
-template, plus a second discrepancy it was accused of missing which turned out not to have
-been in the repository at all. Linked from the README's Results section.
+**`result-2026-09-17-claim-review.md`** is the first recorded empirical result: an external
+AI review that verified the argument and missed three defects in what the repository said
+about its own files, plus a charge that it missed a fourth, which the README had never
+published. It also records that the count of real misses changed three times on the way.
+Linked from the README's Results section.
 
 **`review-2026-09-17-original.md`** is that review, preserved in full rather than summarised,
 so anyone can see what was read and what was concluded. One tracking parameter was stripped

@@ -175,17 +175,19 @@ claim yourself, against the files, and write down which ones are wrong. Check th
 the reviewer will see rather than a copy of it: a stale zip or an unpushed working tree will
 manufacture a defect that is not there, which is what happened the first time.
 
-The two discrepancies from the first run are both fixed, so they cannot be reused as ground
-truth. A later run needs its own.
+The three defects the first run missed, and the wording behind its false charge, are all
+fixed, so none of them can be reused as ground truth. A later run needs its own.
 
 ## Results
 
 No cold-session run yet.
 
 One result of a different kind, from an external AI review on 17 September 2026: it verified
-the argument and did not verify one claim the README made about its own template, and one of
-the two defects it was then told it had missed turned out to have been fixed before the repo
-was public. Written up in
+the argument and missed three defects in what the repository said about its own files. It
+was also charged with a fourth that it did not miss, because the README never published it.
+The count of real misses changed three times before reaching three, each time after checking
+something the previous count had not been checked against, and the write-up says so.
+Written up in
 [docs/result-2026-09-17-claim-review.md](docs/result-2026-09-17-claim-review.md), with the
 review preserved beside it in [docs/](docs/).
 

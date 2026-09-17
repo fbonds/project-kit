@@ -1,8 +1,13 @@
 # External AI review of project-kit, 17 September 2026
 
 An external AI review of this repository, preserved verbatim. Not a cold-session
-test result. Recorded because it found conceptual issues and missed two factual
-ones, which is the first empirical data point this project has.
+test result. Recorded because it found conceptual issues and missed three factual
+defects, which is the first empirical data point this project has.
+
+The three were established by checking `9b89bbb`, the version the reviewer saw,
+and are listed in `result-2026-09-17-claim-review.md`. An earlier version of this
+header said two, the number of charges the reviewer was given. One of those
+charges was false, and two defects nobody had charged it with were found later.
 
 The model and vendor are deliberately unnamed. Naming them turns a methodology
 note into a model comparison.

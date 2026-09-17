@@ -19,6 +19,11 @@ files:
 Both are failures of the repository's own rule 3: check claims against the
 artifact, not the description of it.
 
+Added after this exchange: only the first was a real miss. The second was a false
+charge, because the README the reviewer saw never made that claim and three of ten
+was the wrong count. The reviewer also missed two defects it was never told about.
+It accepted both charges below. `result-2026-09-17-claim-review.md` has the detail.
+
 ## Second message, verbatim
 
 That's a very useful correction, and I think your distinction between **conceptual review** and **artifact verification** is the important takeaway.
