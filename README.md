@@ -115,6 +115,10 @@ the top of `NEXT.md`, reading "add the command that checks what this project pub
 deploys". Replace it with that command. Until it exists, the staleness warning has nothing
 behind it.
 
+The `CLAUDE.md` and `NEXT.md` at the root of this repository are its own working files,
+filled in for it, and are not the kit. If the `grep` prints no lines for `CLAUDE.md` or
+`NEXT.md`, you copied those instead of the ones in `template/`.
+
 Delete any rule you will not enforce. A rule nobody enforces teaches the next reader that the
 rest are optional.
 

@@ -1,0 +1,225 @@
+# Where we are
+
+**This is project-kit's own working state, filled in for this repository. It is not the
+template.** To use the kit in another repo, copy the three files in `template/`.
+
+> **Read this before acting on anything below.** Every fact in this file is dated and may
+> be stale. It records what was true when it was checked, not what is true now. The owner
+> pushes, and GitHub moves without a commit here to show it, so re-check first:
+>
+> ```sh
+> git ls-remote --heads --tags origin                    # what GitHub actually has
+> git fetch -q origin && git rev-list --left-right --count origin/main...main   # left = behind, right = unpushed
+> git status -sb
+> gh api repos/fbonds/project-kit/activity --jq '.[] | [.timestamp, .activity_type, .after[0:7]] | @tsv' | head
+> gh issue list --state all; gh pr list --state all
+> ```
+>
+> The activity log gives push times. A commit's own timestamp is when it was made, not when
+> it reached GitHub, and the two have already been confused once here.
+>
+> The end-of-session procedure is `template/HOWTOSAVESTATE.md`. Stored memories load before
+> any file and go stale the same way: check them against the repo rather than trusting them.
+
+Updated 2026-09-17. Working state for project-kit. `README.md` is the public argument and
+the only documentation. `template/` is the kit itself. `docs/` is the record of results,
+indexed in `docs/README.md`. There is no design document and no roadmap; this file holds
+what is queued.
+
+## Standards
+
+The ten are in `template/NEXT.md` and apply here as written. This repository's own failures
+against them, where it has one:
+
+**Rule 2, never verify through a path that can resolve to your own development copy.** A
+charge that the published README claimed every standard carried its failure was made by
+checking a zip of the working tree that predated the fix, and reported as a live defect in
+the published repository. It was never on GitHub. Recorded in
+`docs/result-2026-09-17-claim-review.md`.
+
+**Rule 3, check claims against the artifact.** Twice, both on GitHub from repo creation
+until the push at 16:21 UTC on 2026-09-17. The README's description of `template/CLAUDE.md`
+did not match the file, and an external review did not catch it. The README also said "Nine
+of the ten carry the failure that produced them" while rule 4 in the template carried two
+saves rather than a failure, which was wrong when written, not stale. Corrected to "Eight"
+in `5531e49`.
+
+## Traps
+
+Each of these has happened in this repository. The detail is there to recognise the next
+one.
+
+**The working tree is not what a reader sees.** A zip, a local checkout or an unpushed
+commit can differ from the tip of `main` on GitHub, and a check against it reports a defect
+that is not published, or misses one that is. Recognise it: evidence that came from a file
+rather than from `git show origin/main:<path>` after a fetch, or from GitHub itself. Caused
+the false charge in the first result.
+
+**The README's description of the template does not match the template.** It has happened
+twice, both introduced in the README rewrite in `38b601f`: "the standards live elsewhere"
+about a `template/CLAUDE.md` that already restated five of them, and "Nine of the ten" when
+rule 4 carried saves. It nearly happened a third time from the other direction in `eda6f3e`,
+where moving the working rules above the Writing section reversed the order the README
+describes, and was caught before commit. Recognise it: any diff touching `template/`, or the
+README's "What the kit contains" section, gets the other read beside it before it is shown
+for approval.
+
+**A claim corrected in one file survives in another.** "Every standard carries the failure
+that produced it" was corrected in the README and survived in `template/CLAUDE.md`,
+`template/NEXT.md` and two more README lines, until `239226f`. Recognise it: after
+correcting a wording, search the whole repository for the claim, not the sentence, since
+the survivors are phrased differently ("each with the failure", "every rule came out of",
+"came out of one project's failures").
+
+**Universal claims about the rules or the incidents.** Two defects here were a claim about a
+whole set with an exception in it. "Every standard carries the failure that produced it"
+missed rule 10, which has none, and rule 4, which has saves. "None of those were caught by
+the agent being careful. They were caught by asking a narrower question" covered all four of
+the README's failures, and the chat-log note was never caught by any question. Recognise it:
+any sentence quantifying over the ten rules or the four failures gets checked against each
+member.
+
+**A pointer to where something is listed, when the target does not list it.**
+`docs/README.md`, in its entry for the follow-up exchange, says the four ways the recorded
+write-up departs from the reviewer's draft are "all listed in the result file". They are not
+in it. They are in the message of commit `e6dbdb9`. Recognise it: "listed in", "see",
+"recorded in"; open the target and find the thing. Still unfixed.
+
+**Framing around a verbatim record goes stale when the conclusion changes.** The header of
+`docs/review-2026-09-17-original.md` still says the review "missed two factual ones",
+written before one of the two was shown to be a false charge. The review text must not
+change, and the header around it is easy to forget for that reason. Still unfixed.
+
+**Removing text from a file in a public git repository does not remove it.** The preserved
+review's header says a tracking parameter naming the vendor was stripped. The diff in
+`e6dbdb9` shows the parameter, so the vendor is discoverable. Recognise it: any claim that
+an edit hides, redacts or anonymises something already committed. Being fixed in this pass.
+
+**A section the template says to delete held rules that must not be deleted.** The working
+rules, including never push, sat under the Writing heading that tells a project with no
+prose to delete the section. Fixed in `eda6f3e`. Recognise it: any instruction to delete a
+section gets tested by deleting it and searching for what was lost.
+
+**Commit time is not push time.** The result doc gave `9b89bbb`'s commit time, 14:22 UTC, as
+its push time, which the activity log records as 14:23:12 UTC. Fixed in `029310d`.
+
+## Decided, do not redo
+
+**No explicit state model or `verified: true` field.** Proposed by the external review and
+rejected: a field produces the appearance of verification without the adversarial question
+("have you shown that failing") that catches the problem. The reviewer agreed on reflection.
+Recorded in `docs/result-2026-09-17-claim-review.md`.
+
+**Not positioned as a protocol.** Also proposed by the review and rejected: "protocol"
+promises a specification, semantics and conformance that do not exist.
+
+**The review's model and vendor are not named in the prose**, because naming them turns a
+methodology note into a model comparison. What the files claim about hiding the vendor is
+being corrected in this pass: see In flight.
+
+**The failed review is preserved verbatim, not corrected.** Any edit is declared in its
+header. The prompt that produced it was not kept, and the files say so rather than
+reconstructing it.
+
+**The README's four opening failures are stated as attested, not checkable.** They happened
+in a private repository (`70aa935`).
+
+**The template's exception sentences say "in this template".** A sentence naming rules 4
+and 10 as exceptions goes stale in every copy once its examples are replaced, and that
+sentence is not itself an example, so replacing examples does not fix it (`239226f`).
+
+**The review saw `9b89bbb`**, on the basis of its own "five commits", assuming it counted
+correctly (`029310d`).
+
+**Root working files are named `CLAUDE.md` and `NEXT.md`**, the names the kit tells users to
+use, so this repository uses the kit the way a copier would. Each opens with a visible
+notice that it is not the template, in plain text rather than an HTML comment, which Claude
+Code strips and GitHub hides. Neither contains the template's placeholder strings, so the
+README's setup grep prints no lines for them if they are copied by mistake. It still prints
+one for `HOWTOSAVESTATE.md`, because there is no root copy of that file and whoever copies
+these two by mistake has to take it from `template/`. Renaming, and moving `CLAUDE.md` to
+`.claude/CLAUDE.md`, were rejected: both mean the repository does not use its own kit as
+written.
+
+**No `claudeMdExcludes` setting for `template/CLAUDE.md`.** Claude Code loads a
+subdirectory's `CLAUDE.md` when a session reads files there, so a session editing
+`template/` gets both files. Excluding it was rejected: it mitigates something that has not
+happened, and whether it took effect cannot be observed from inside a session. If a session
+working on `template/` misbehaves because both loaded, that goes in Traps with the detail.
+
+**No `HOWTOSAVESTATE.md` at the root, and the writing rules are a pointer.** Both would be
+second copies of files in `template/`, and two copies of a fact drift. The root `CLAUDE.md`
+points at `template/HOWTOSAVESTATE.md` and at the Writing section of `template/CLAUDE.md`.
+
+## In flight
+
+A pass fixing defects found by a session that read the repository cold on 2026-09-17, one
+item at a time with approval:
+
+1. Working rules moved out of the deletable Writing section of `template/CLAUDE.md`. Done,
+   `eda6f3e`.
+2. The "every standard carries its failure" claim, in the templates and the README, and the
+   README's claim that all four opening failures were caught by a narrower question. Done,
+   `239226f`.
+3. Which state the review saw, and the push timestamp, in the result doc. Done, `029310d`.
+4. These two root files and the README sentence about copying them by mistake. This commit.
+5. The vendor-stripping claim in `docs/review-2026-09-17-original.md`: drop it to what is
+   true or say plainly that history shows the vendor. Not started. **Update this section
+   when it commits.**
+
+## Queued, unscheduled, and not to be started unprompted
+
+**The cold-session test.** The README defines it. It has not been run. A session asked the
+question on 2026-09-17 before this file existed, which does not count: the repository did
+not use its own kit then. A run means a session that starts cold with this file in place,
+and it proves more if this file is days old and something has moved underneath it.
+
+**A second claim-review run.** It needs its own ground truth, written down before anyone is
+asked, checked against GitHub rather than a local copy. The discrepancies found so far are
+all known and cannot be reused.
+
+## Committed, pushed, released: three separate questions
+
+As of 2026-09-17 16:57 UTC, when this was written.
+
+**Uncommitted.** This file, `CLAUDE.md` and one README change, awaiting approval as item 4.
+
+**Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
+fetch. Snapshot, not to be trusted: GitHub `main` at `70aa935`, local `main` three commits
+ahead (`eda6f3e`, `239226f`, `029310d`), and item 4's commit will make four.
+
+**Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
+GitHub releases, no issues and no pull requests as of the time above.
+
+## Open, not blocking
+
+**`docs/README.md` points at a list that is not there.** Its entry for the follow-up
+exchange says the four departures from the reviewer's draft are listed in the result file.
+They are only in the message of commit `e6dbdb9`: separating the real miss from the false
+charge, quoting rule 3 correctly, using the count the artifact supports, and recording fix
+status.
+
+**The preserved review's header is stale.** `docs/review-2026-09-17-original.md`, in its
+opening paragraph, says the review "missed two factual ones". The result doc says one was
+real and one was a false charge.
+
+**Whether the external review counts as a run of the claim-review test.** The README says
+the test "has been run once" and also calls the review "a result of a different kind". The
+test requires ground truth set before asking. Here it was set afterward, and one of its two
+items was wrong. The owner decides.
+
+**Whether the review missed two real defects, not one.** Found while writing this file. The
+result doc quotes the published README's "Nine of the ten carry the failure that produced
+them" as the corrected wording, in "The false charge", and says under "Ground truth for
+future runs" that the standards wording "was corrected in `38b601f`". But rule 4 carried
+saves then, and the README now counts it that way ("Eight", since `5531e49`). By that
+standard the published count was wrong when reviewed, and the review did not catch it. The
+result doc itself says this depends on whether an example of a rule working counts as the
+failure that produced it, at the end of "The false charge". The owner decides.
+
+**Raised by the review, not decided:** whether the memory rule should generalise to any
+external context, whether rule 10 belongs in a separate operating-policy section, and
+whether the ten should split into always-on rules and procedures. The follow-up exchange
+also mentions a vendor-neutral note on the instruction file's name, proposed by the owner.
+The owner's own wording is not in this repository. The only version here is the reviewer's
+paraphrase in `docs/review-2026-09-17-followup.md`. None of these is queued.
