@@ -182,6 +182,12 @@ So the honest expectation for day one: the kit prevents the structural failures,
 resuming blind, state living in a chat log, a list of unpushed commits that rots. It does not
 prevent the first ten specific mistakes. It gives them somewhere to be written down.
 
+## License
+
+MIT-0, which is MIT with the attribution clause removed. Copy these files into your own
+repo, change them, ship them, and carry no notice. The point is that nobody has to think
+about it before pasting a `CLAUDE.md` into a project.
+
 ## What I am asking for
 
 Three things, from anyone who has run agents against real repos long enough to have their own
