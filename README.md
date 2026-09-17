@@ -30,9 +30,16 @@ reads that note can read a chat log.
 
 None of those were caught by the agent being careful. They were caught by asking a narrower
 question: not "did the check pass" but "have you shown this check failing." Every rule in
-the kit came out of one of those moments, and each is written with the failure attached,
+the kit came out of one of those moments, and each is written with the reason attached,
 because a rule without its reason reads as taste and gets dropped the first time it is
 inconvenient.
+
+Those four happened in a private repository. You cannot check them from here, and neither can
+I. They are attested by the author rather than verifiable by a reader, which makes them the
+weakest evidence in this file, and a file about checking claims should say so rather than let
+a reader assume the examples were open to inspection. The claims about this repository, its
+files and its history are a different matter: those are checkable, and the second test below
+exists to have them checked.
 
 ## What the kit contains
 
