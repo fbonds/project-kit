@@ -66,6 +66,18 @@ describes, and was caught before commit. Recognise it: any diff touching `templa
 README's "What the kit contains" section, gets the other read beside it before it is shown
 for approval.
 
+**Correcting a claim about the standards has created it somewhere else, five times.**
+`38b601f` introduced two: the README's description of `template/CLAUDE.md`, and "Nine of the
+ten carry the failure that produced them". `5531e49` fixed both and introduced a third in
+the same commit, "points at `NEXT.md` for all ten with their failures attached". Both
+template files had carried "each carries the failure that produced it" since creation.
+`239226f` fixed the template files and two more README lines, and left the one `5531e49` had
+introduced. This pass fixed that one, and replaced the result doc's summary of the gap,
+which had overstated it in the same shape. Recognise it: after correcting any claim about
+the ten standards, read every sentence in the README, the template and `docs/` that
+describes them as a group, and check it against the members one by one. The pattern is not
+that the claim is hard to fix. It is that fixing it in one place writes it somewhere else.
+
 **A claim corrected in one file survives in another.** "Every standard carries the failure
 that produced it" was corrected in the README and survived in `template/CLAUDE.md`,
 `template/NEXT.md` and two more README lines, until `239226f`. Recognise it: after
@@ -148,6 +160,22 @@ README and gave a count of three, and both were wrong, and a similar claim elsew
 not make a wrong charge right. The count moved from two to one to two to three before this,
 and `docs/result-2026-09-17-claim-review.md` says so.
 
+**The external review is not a run of the claim-review test.** The test asks for ground
+truth written down before anyone is asked. Here it was written afterwards and moved four
+times, so calling it a run is the overclaim the rest of these files avoid. The README's
+heading, its scoring paragraph and its Results section now all say so, and the question is
+off the open list.
+
+**The README tells the guard, and the template tells the test of the guard.** Two moments in
+one attested incident: the guard could not fail, and separately a test of that guard ran
+against a stale build and reported a pass. The README's "someone broke the tree on purpose"
+clause was cut, because it belongs to the test rather than to the guard.
+
+**How the first three failures were caught is left partly unsaid.** The release was caught
+by asking whether the check had been shown failing, and the notices count by opening the
+published file. No single question covers all three, so the README keeps "such as" and no
+question is invented for the third.
+
 **Root working files are named `CLAUDE.md` and `NEXT.md`**, the names the kit tells users to
 use, so this repository uses the kit the way a copier would. Each opens with a visible
 notice that it is not the template, in plain text rather than an HTML comment, which Claude
@@ -182,9 +210,12 @@ item at a time with approval:
 4. These two root files and the README sentence about copying them by mistake. Done,
    `dd4b5a8`.
 5. The count of real misses corrected to three, with one false charge, everywhere it is
-   stated. This commit.
+   stated. Done, `76108c2`.
 6. The vendor-stripping claim in `docs/review-2026-09-17-original.md`, narrowed to what is
-   true and paired with a plain statement that the history shows the vendor. This commit.
+   true and paired with a plain statement that the history shows the vendor. Done,
+   `3a8f006`.
+7. What two cold reads of the README and the result doc found, fixed in both files. This
+   commit.
 
 Nothing is left in this pass. What the pass did not touch is in Open.
 
@@ -201,13 +232,13 @@ all known and cannot be reused.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-09-17 18:36 UTC, when this was last updated.
+As of 2026-09-17 18:51 UTC, when this was last updated.
 
-**Uncommitted.** The vendor wording, awaiting approval as item 6.
+**Uncommitted.** The fixes from the two cold reads, awaiting approval as item 7.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
-fetch. Snapshot, not to be trusted: GitHub `main` at `70aa935`, local `main` five commits
-ahead, the last being `76108c2`, and item 6's commit will make six.
+fetch. Snapshot, not to be trusted: GitHub `main` at `70aa935`, local `main` six commits
+ahead, the last being `3a8f006`, and item 7's commit will make seven.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
 GitHub releases, no issues and no pull requests as of the time above.
@@ -224,12 +255,6 @@ status.
 `docs/review-2026-09-17-followup.md` says "Two messages, verbatim", and its sections are
 headed "Second message" and "Third message", with no first. Noticed while correcting the
 count of misses. Not checked against the original exchange, which is not in this repository.
-
-**Whether the external review counts as a run of the claim-review test.** The README says
-the test "has been run once" and also calls the review "a result of a different kind". The
-test requires ground truth set before asking. Here it was set afterward, and it changed
-three times: one of the two charges first put to the reviewer was false, and two further
-misses were found later. The owner decides.
 
 **Raised by the review, not decided:** whether the memory rule should generalise to any
 external context, whether rule 10 belongs in a separate operating-policy section, and

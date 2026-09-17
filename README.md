@@ -21,8 +21,8 @@ been correct when written and was falsified by a build change nobody re-read it 
 
 A build guard, written to fail when the installed dependency tree drifted from the lockfile,
 could not fail. The success line printed unconditionally, and the failure path queued a
-message for a check that ran after the build. It reported success for as long as it existed,
-until someone broke the tree on purpose to watch it catch.
+message for a check that ran after the build. It reported success for as long as it
+existed.
 
 A saved note told a future session that four agreed items "were agreed but not restated;
 recover them from the original list." The original list was in a chat log. Nothing that
@@ -33,15 +33,15 @@ The first three were caught by asking a narrower question than "did the check pa
 The session that arrived afterward paid for it, went looking for a list that was not there,
 and had to rebuild it from the README, the changelog and the git log.
 
-Each rule in the kit is written with its reason attached, because a rule without its reason
-reads as taste and gets dropped the first time it is inconvenient.
-
 Those four happened in a private repository. You cannot check them from here, and neither can
 I. They are attested by the author rather than verifiable by a reader, which makes them the
 weakest evidence in this file, and a file about checking claims should say so rather than let
 a reader assume the examples were open to inspection. The claims about this repository, its
-files and its history are a different matter: those are checkable, and the second test below
-exists to have them checked.
+files and its history are a different matter: those are checkable, and the claim-review
+test below exists to have them checked.
+
+Each rule in the kit is written with its reason attached, because a rule without its reason
+reads as taste and gets dropped the first time it is inconvenient.
 
 ## What the kit contains
 
@@ -50,7 +50,7 @@ Three files, in `template/`.
 **`CLAUDE.md`** is read at the start of every session without being asked, which makes it the
 only reliable place to put anything. It says to read the state file first and treat its facts
 as dated. It then restates the five standards that come up most as bullets, names the other
-five in a sentence, and points at `NEXT.md` for all ten with their failures attached. Below
+five in a sentence, and points at `NEXT.md` for all ten with their reasons. Below
 that sit the working rules: how to work, confirm which repo you are in before acting, do not
 guess, and do not start queued work unprompted. The writing section comes last, so it can be
 deleted without taking anything else with it. The writing rules are preferences rather than
@@ -104,23 +104,35 @@ Numbering is stable, so a rule can be named by number across projects.
 cp /path/to/project-kit/template/CLAUDE.md .
 cp /path/to/project-kit/template/HOWTOSAVESTATE.md .
 cp /path/to/project-kit/template/NEXT.md .
-grep -rn 'PROJECT\|PROJECT_OWNER\|YYYY-MM-DD' CLAUDE.md HOWTOSAVESTATE.md NEXT.md
+grep -n 'PROJECT\|YYYY-MM-DD' CLAUDE.md HOWTOSAVESTATE.md NEXT.md
 git add CLAUDE.md HOWTOSAVESTATE.md NEXT.md
 git diff --cached --stat
-git commit
+git commit -m 'Add the working-state files'
 ```
 
-The `grep` is the fill-in list. Three placeholders, plus one commented line in the block at
-the top of `NEXT.md`, reading "add the command that checks what this project publishes or
-deploys". Replace it with that command. Until it exists, the staleness warning has nothing
-behind it.
+The `grep` finds the placeholder strings: `PROJECT`, `PROJECT_OWNER` and `YYYY-MM-DD`. The
+first pattern matches the second, which is why two patterns cover three strings. One more
+fill-in is a commented line in the block at the top of `NEXT.md`, reading "add the command
+that checks what this project publishes or deploys". Replace it with that command. Until it
+exists, the staleness warning has nothing behind it.
+
+Two further fill-ins carry no placeholder string, so the `grep` will not find them: in
+`HOWTOSAVESTATE.md`, the commands for whatever the project publishes or deploys, and the list
+of the project's own files.
 
 The `CLAUDE.md` and `NEXT.md` at the root of this repository are its own working files,
-filled in for it, and are not the kit. If the `grep` prints no lines for `CLAUDE.md` or
-`NEXT.md`, you copied those instead of the ones in `template/`.
+filled in for it, and are not the kit. Run the `grep` straight after copying, before filling
+anything in: if it prints no lines for `CLAUDE.md` or `NEXT.md`, you copied this repository's
+files rather than the ones in `template/`. Once the placeholders are filled it prints nothing
+either way, so the check only works at the start.
+
+Those two root files are also the only worked example of the kit in use. This repository is a
+documentation repository with nothing to build, so they are what the method looks like
+applied to something small, rather than what it looks like on a product.
 
 Delete any rule you will not enforce. A rule nobody enforces teaches the next reader that the
-rest are optional.
+rest are optional. Leave the gap in the numbering rather than closing it, so rule 7 still
+means rule 7 when someone names it across projects.
 
 ## The cold-session test, which has not been run yet
 
@@ -153,9 +165,12 @@ Reciting is not the skill being tested.
 Record the result below, pass or fail, with the date and what was missing. A fail is worth
 more than a pass, because it names what the template does not prompt for.
 
-## The claim-review test, which has been run once
+## The claim-review test, which has not been run
 
-This one can run today, on any repo using the kit, and it does not need a fresh session.
+This one can run today, on any repo using the kit, and it does not need a fresh session. It
+has not been run here. An external review of this repository in September 2026 missed three
+defects in its claims, and that was not a run of this test: the ground truth was written
+afterwards, and it moved four times. Recorded under Results.
 
 Give an agent the repository and ask it to audit every externally verifiable claim in the
 README against the artifact that claim describes. Do not say which claims are suspect, do not
@@ -173,28 +188,35 @@ around it is coherent.
 **Scoring needs ground truth you establish before you ask.** Go through the README claim by
 claim yourself, against the files, and write down which ones are wrong. Check the artifact
 the reviewer will see rather than a copy of it: a stale zip or an unpushed working tree will
-manufacture a defect that is not there, which is what happened the first time.
+manufacture a defect that is not there, which is what happened when this repository's own
+claims were checked without ground truth. For this repository the artifact is the tip of
+`main` at https://github.com/fbonds/project-kit.
 
-The three defects the first run missed, and the wording behind its false charge, are all
-fixed, so none of them can be reused as ground truth. A later run needs its own.
+The three defects the external review missed, and the wording behind the charge it was
+wrongly given, are all fixed, so none of them can be reused as ground truth. A run here needs
+its own.
 
 ## Results
 
 No cold-session run yet.
 
-One result of a different kind, from an external AI review on 17 September 2026: it verified
-the argument and missed three defects in what the repository said about its own files. It
-was also charged with a fourth that it did not miss, because the README never published it.
-The count of real misses changed three times before reaching three, each time after checking
-something the previous count had not been checked against, and the write-up says so.
-Written up in
-[docs/result-2026-09-17-claim-review.md](docs/result-2026-09-17-claim-review.md), with the
-review preserved beside it in [docs/](docs/).
+No claim-review run either. What there is instead: an external AI review of this repository
+on 17 September 2026 checked the reasoning and missed three defects in what the repository
+said about its own files. One further defect it was charged with was not a defect at all.
+That is not a run of the claim-review test, because the ground truth was written after the
+review rather than before, and it changed four times while being written.
 
-<!-- Cold-session runs: one line per run. Date, repo, pass or fail, what it got wrong, and
-     whether anything in NEXT.md was actually stale at the time. A run against a file written
-     hours earlier proves much less than one a week later, when the registry or the deploy has
-     moved underneath it. Say which it was. -->
+Written up in
+[docs/result-2026-09-17-claim-review.md](docs/result-2026-09-17-claim-review.md). The review
+itself is preserved at
+[docs/review-2026-09-17-original.md](docs/review-2026-09-17-original.md), and the exchange
+after it was told what it had missed, including its reply, at
+[docs/review-2026-09-17-followup.md](docs/review-2026-09-17-followup.md).
+
+Record each run here, one line: the date, the repo, pass or fail, what it got wrong, and
+whether anything in `NEXT.md` was actually stale at the time. A run against a file written
+hours earlier proves much less than one a week later, when the registry or the deploy has
+moved underneath it, so say which it was.
 
 ## What the kit cannot carry
 
@@ -232,9 +254,11 @@ from doing it together, being caught being wrong, and tightening the standard ea
 kit can tell a new session to show a check failing before believing it. It cannot supply the
 history that makes the instruction feel obvious rather than pedantic.
 
-So the honest expectation for day one: the kit prevents the structural failures, a session
-resuming blind, state living in a chat log, a list of unpushed commits that rots. It does not
-prevent the first ten specific mistakes. It gives them somewhere to be written down.
+So the honest expectation for day one: the kit is aimed at the structural failures, a session
+resuming blind, state living in a chat log, a list of unpushed commits that rots. Nothing
+here shows yet that it prevents them, and the test that would show it has not been run. It
+certainly does not prevent the first ten specific mistakes. It gives them somewhere to be
+written down.
 
 ## License
 
@@ -247,8 +271,8 @@ about it before pasting a `CLAUDE.md` into a project.
 Three things, from anyone who has run agents against real repos long enough to have their own
 list.
 
-**Which standards are missing.** These ten came out of one project, so the list has
-the shape of that project. The failures you hit are the ones I have not.
+**Which standards are missing.** These ten came out of one project, so the list has the shape
+of that project. The failures you hit are the ones I have not.
 
 **Which you would cut.** Some may be ceremony that survived because nobody tested whether
 dropping them cost anything. Rule 10 is the one I would defend least: it is the only one that
