@@ -39,10 +39,12 @@ inconvenient.
 Three files, in `template/`.
 
 **`CLAUDE.md`** is read at the start of every session without being asked, which makes it the
-only reliable place to put anything. It is short on purpose: read the state file first, treat
-its facts as dated, the standards live elsewhere, one item at a time, stage explicitly, never
-push. It also carries the writing rules, which are preferences rather than checks and are
-kept apart from the standards for that reason.
+only reliable place to put anything. It says to read the state file first and treat its facts
+as dated. It then restates the five standards that come up most as bullets, names the other
+five in a sentence, and points at `NEXT.md` for all ten with their failures attached. Below
+that sit a writing section and four working rules: how to work, confirm which repo you are in
+before acting, do not guess, and do not start queued work unprompted. The writing rules are
+preferences rather than checks, which is why they are kept out of the standards.
 
 **`HOWTOSAVESTATE.md`** is the end-of-session procedure. Check the external world now and
 record each fact with its date and method. Write it into the state file. Check stored
@@ -52,17 +54,18 @@ of what every file in the repo is for, which is what stops a document written on
 from being invisible by Friday.
 
 **`NEXT.md`** is the working state, and the only file that answers "where were we". The
-template ships with headings and no content: Standards, Traps, Decided, In flight, Queued, a
-section answering committed, pushed and released as three separate questions, and Open. At
-the top is a block saying every fact below is dated, with the commands that re-check the
-moving parts.
+template ships with the ten standards written out and the other sections empty apart from
+instructions: Traps, Decided, In flight, Queued, a section answering committed, pushed and
+released as three separate questions, and Open. At the top is a block saying every fact below
+is dated, with the commands that re-check the moving parts.
 
 ### The ten standards
 
-Nine of the ten carry the failure that produced them, written out in the template. The tenth
-says plainly that it has none. The summaries here are shorter than what a repo should keep,
-and the template asks you to replace each example with your own the first time this project
-produces one.
+Eight of the ten carry a failure that happened, written out in the template. Rule 4 carries
+the opposite, two occasions where it caught something before it was built, and rule 10 says
+plainly that nothing sits behind it. The summaries here are shorter than what a repo should
+keep, and the template asks you to replace each example with your own the first time this
+project produces one.
 
 1. No check counts as verified until it has been shown failing on deliberately broken input,
    and the report says what was broken.
@@ -97,14 +100,15 @@ git diff --cached --stat
 git commit
 ```
 
-The `grep` is the fill-in list. Three placeholders, plus one blank line at the top of
-`NEXT.md` where the project's own check goes: the command that reads what this project
-publishes or deploys. Until that line exists, the staleness warning has nothing behind it.
+The `grep` is the fill-in list. Three placeholders, plus one commented line in the block at
+the top of `NEXT.md`, reading "add the command that checks what this project publishes or
+deploys". Replace it with that command. Until it exists, the staleness warning has nothing
+behind it.
 
 Delete any rule you will not enforce. A rule nobody enforces teaches the next reader that the
 rest are optional.
 
-## The test, which has not been run yet
+## The cold-session test, which has not been run yet
 
 Nothing here has been proven to work on a session that did not help write it. The test is
 cheap and it only happens if it is written down, so:
@@ -135,12 +139,46 @@ Reciting is not the skill being tested.
 Record the result below, pass or fail, with the date and what was missing. A fail is worth
 more than a pass, because it names what the template does not prompt for.
 
-### Results
+## The claim-review test, which has been run once
 
-<!-- One line per run: date, repo, pass or fail, what it got wrong, and whether anything in
-     NEXT.md was actually stale at the time. A run against a file written hours earlier
-     proves much less than one a week later, when the registry or the deploy has moved
-     underneath it. Say which it was. Empty until the first run. -->
+This one can run today, on any repo using the kit, and it does not need a fresh session.
+
+Give an agent the repository and ask it to audit every externally verifiable claim in the
+README against the artifact that claim describes. Do not say which claims are suspect, do not
+say how many discrepancies there are, and do not say whether there are any.
+
+A claim is externally verifiable when something in or reachable from the repo settles it: a
+description of what a file contains, a count, a statement about what the template holds, a
+command that is supposed to work, a link that is supposed to resolve.
+
+It passes if it finds the discrepancies that are there and says, for each claim it clears,
+which artifact it opened. It fails if it reports the README as accurate without opening the
+files, reviews the argument instead of the claims, or accepts a claim because the document
+around it is coherent.
+
+**Scoring needs ground truth you establish before you ask.** Go through the README claim by
+claim yourself, against the files, and write down which ones are wrong. Check the artifact
+the reviewer will see rather than a copy of it: a stale zip or an unpushed working tree will
+manufacture a defect that is not there, which is what happened the first time.
+
+The two discrepancies from the first run are both fixed, so they cannot be reused as ground
+truth. A later run needs its own.
+
+## Results
+
+No cold-session run yet.
+
+One result of a different kind, from an external AI review on 17 September 2026: it verified
+the argument and did not verify one claim the README made about its own template, and one of
+the two defects it was then told it had missed turned out to have been fixed before the repo
+was public. Written up in
+[docs/result-2026-09-17-claim-review.md](docs/result-2026-09-17-claim-review.md), with the
+review preserved beside it in [docs/](docs/).
+
+<!-- Cold-session runs: one line per run. Date, repo, pass or fail, what it got wrong, and
+     whether anything in NEXT.md was actually stale at the time. A run against a file written
+     hours earlier proves much less than one a week later, when the registry or the deploy has
+     moved underneath it. Say which it was. -->
 
 ## What the kit cannot carry
 
@@ -197,8 +235,10 @@ list.
 the shape of that project. The failures you hit are the ones I have not.
 
 **Which you would cut.** Some may be ceremony that survived because nobody tested whether
-dropping them cost anything. Rule 10 is the one I would defend least: it is the only one with
-no failure behind it, and it is there because it suits how I review.
+dropping them cost anything. Rule 10 is the one I would defend least: it is the only one that
+says outright that nothing went wrong to produce it, and it is there because it suits how I
+review. Rule 4 is the next weakest on that test, since what it carries is two occasions where
+it caught something rather than a failure that produced it.
 
 **Whether anyone has a better answer for what the kit admits it cannot carry**, particularly
 the first two. If you have found a way to give a new project a useful traps list on day one,
