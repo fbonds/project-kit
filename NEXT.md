@@ -255,10 +255,10 @@ the README's own setup grep:
 
 ## Queued, unscheduled, and not to be started unprompted
 
-**The cold-session test.** The README defines it. It has not been run. A session asked the
-question on 2026-09-17 before this file existed, which does not count: the repository did
-not use its own kit then. A run means a session that starts cold with this file in place,
-and it proves more if this file is days old and something has moved underneath it.
+**Recording cold-session runs.** The README defines the test. The owner reported on
+2026-10-26 that it has been run at least once a week since 2026-09-17, in repositories using
+the kit, all passing, and the README's Results now says so as attested. None of those runs
+was recorded with a date or a repository. The next one gets its own line in Results.
 
 **A second claim-review run.** It needs its own ground truth, written down before anyone is
 asked, checked against GitHub rather than a local copy. The discrepancies found so far are

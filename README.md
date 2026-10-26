@@ -134,10 +134,10 @@ Delete any rule you will not enforce. A rule nobody enforces teaches the next re
 rest are optional. Leave the gap in the numbering rather than closing it, so rule 7 still
 means rule 7 when someone names it across projects.
 
-## The cold-session test, which has not been run yet
+## The cold-session test
 
-Nothing here has been proven to work on a session that did not help write it. The test is
-cheap and it only happens if it is written down, so:
+It checks whether the kit works on a session that did not help write it. The test is cheap
+and it only happens if it is written down, so:
 
 **The next time a session starts cold in a repo using this kit, the owner asks what it
 concludes about the state before telling it anything.** Nothing else in the first message: no
@@ -198,7 +198,11 @@ its own.
 
 ## Results
 
-No cold-session run yet.
+Cold-session runs since 17 September 2026: at least once a week, in repositories using the
+kit, all passing with no issues. That is the owner's report, made on 26 October 2026, and
+like the four failures at the top of this file it is attested rather than checkable. It
+also lacks the detail asked for below: no dates, no repositories named, and no note of
+whether `NEXT.md` was stale at the time. Runs from 26 October 2026 onward get one line each.
 
 No claim-review run either. What there is instead: an external AI review of this repository
 on 17 September 2026 checked the reasoning and missed three defects in what the repository
@@ -255,10 +259,10 @@ kit can tell a new session to show a check failing before believing it. It canno
 history that makes the instruction feel obvious rather than pedantic.
 
 So the honest expectation for day one: the kit is aimed at the structural failures, a session
-resuming blind, state living in a chat log, a list of unpushed commits that rots. Nothing
-here shows yet that it prevents them, and the test that would show it has not been run. It
-certainly does not prevent the first ten specific mistakes. It gives them somewhere to be
-written down.
+resuming blind, state living in a chat log, a list of unpushed commits that rots. The
+cold-session runs under Results are the evidence for the first of those, and they are
+attested rather than recorded. It certainly does not prevent the first ten specific
+mistakes. It gives them somewhere to be written down.
 
 ## License
 
