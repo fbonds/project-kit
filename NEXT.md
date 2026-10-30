@@ -21,7 +21,7 @@ template.** To use the kit in another repo, copy the three files in `template/`.
 > The end-of-session procedure is `template/HOWTOSAVESTATE.md`. Stored memories load before
 > any file and go stale the same way: check them against the repo rather than trusting them.
 
-Updated 2026-09-17. Working state for project-kit. `README.md` is the public argument and
+Updated 2026-10-30. Working state for project-kit. `README.md` is the public argument and
 the only documentation. `template/` is the kit itself. `docs/` is the record of results,
 indexed in `docs/README.md`. There is no design document and no roadmap; this file holds
 what is queued.
@@ -85,7 +85,7 @@ ten carry the failure that produced them". `5531e49` fixed both and introduced a
 the same commit, "points at `NEXT.md` for all ten with their failures attached". Both
 template files had carried "each carries the failure that produced it" since creation.
 `239226f` fixed the template files and two more README lines, and left the one `5531e49` had
-introduced. This pass fixed that one, and replaced the result doc's summary of the gap,
+introduced. `8dcb360` fixed that one, and replaced the result doc's summary of the gap,
 which had overstated it in the same shape. Recognise it: after correcting any claim about
 the ten standards, read every sentence in the README, the template and `docs/` that
 describes them as a group, and check it against the members one by one. The pattern is not
@@ -222,43 +222,40 @@ points at `template/HOWTOSAVESTATE.md` and at the Writing section of `template/C
 
 ## In flight
 
-A pass fixing defects found by a session that read the repository cold on 2026-09-17, one
-item at a time with approval:
+A pass on 2026-10-30, fixing what a review of the repository found, one item at a time
+with approval. The two earlier passes, both on 2026-09-17, ended at `a0f13c0`, and their
+items are in the git log.
 
-1. Working rules moved out of the deletable Writing section of `template/CLAUDE.md`. Done,
-   `eda6f3e`.
-2. The "every standard carries its failure" claim, in the templates and the README, and the
-   README's claim that all four opening failures were caught by a narrower question. Done,
-   `239226f`.
-3. Which state the review saw, and the push timestamp, in the result doc. Done, `029310d`.
-4. These two root files and the README sentence about copying them by mistake. Done,
-   `dd4b5a8`.
-5. The count of real misses corrected to three, with one false charge, everywhere it is
-   stated. Done, `76108c2`.
-6. The vendor-stripping claim in `docs/review-2026-09-17-original.md`, narrowed to what is
-   true and paired with a plain statement that the history shows the vendor. Done,
-   `3a8f006`.
-7. What two cold reads of the README and the result doc found, fixed in both files. Done,
-   `8dcb360`.
-
-Nothing is left in that pass. What it did not touch is below.
-
-A second pass the same day, by another session that read the repository cold and then ran
-the README's own setup grep:
-
-8. The README's claim that two fill-ins in `HOWTOSAVESTATE.md` carry no placeholder string.
-   Done, `ecd858d`.
-9. This file's state block and its Traps entry for the README and the template, the record
-   of the wrong count in `8dcb360`'s message, and both items that were in Open. Done. A
-   commit cannot carry its own ID, so this one goes unnamed here until something later
-   names it.
+1. "Changed four times" corrected to three in four sentences. Done, `7370899`.
+2. A dated note in the result doc where it says the cold-session test is unrun. Done,
+   `ba231a4`.
+3. The GitHub repository description replaced by the owner's choice, outside the
+   repository, and read back from the API at 23:13 UTC on 2026-10-30. It now reads "Three
+   files for Claude Code that change what counts as an answer when an agent says it checked
+   something, and let a new session resume from the repo's files."
+4. This file brought up to date. Done in the commit carrying this list.
+5. The README's Results to carry the owner's condition on the cold-session runs, below
+   under Queued. Approved, not started.
+6. Overhead: the history of the September review moved out of the README into `docs/`,
+   leaving one line and a link in its place. Approved, not started.
+7. Enforcement: an optional `template/.claude/settings.json`, with deny rules for
+   `git push`, `git add -A`, `git add .` and `git commit -am`, and a SessionStart hook that
+   runs the re-check block at the top of `NEXT.md`. Approved as a proposal. The settings
+   syntax is to be verified against Claude Code's documentation and tested in a scratch
+   repository before a diff is shown.
+8. Portability: one README sentence saying the kit is written for Claude Code and what to
+   rename for another agent, and rule 9 qualified for agents without stored memories.
+   Approved, not started.
 
 ## Queued, unscheduled, and not to be started unprompted
 
 **Recording cold-session runs.** The README defines the test. The owner reported on
 2026-10-26 that it has been run at least once a week since 2026-09-17, in repositories using
-the kit, all passing, and the README's Results now says so as attested. None of those runs
-was recorded with a date or a repository. The next one gets its own line in Results.
+the kit, all passing, and on 2026-10-30 that it has been used dozens of times and "works
+flawlessly", with the condition that the session before it was told to save state before
+quitting. The README's Results says the first as attested; the condition is item 5 under
+In flight. None of those runs was recorded with a date or a repository. The next one gets
+its own line in Results.
 
 **A second claim-review run.** It needs its own ground truth, written down before anyone is
 asked, checked against GitHub rather than a local copy. The discrepancies found so far are
@@ -266,40 +263,26 @@ all known and cannot be reused.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-09-17 21:00 UTC, re-checked against the remote at that time.
+As of 2026-10-30 23:13 UTC, re-checked against the remote at that time.
 
-**Uncommitted.** Nothing. The working tree is clean.
+**Uncommitted.** Nothing apart from this file's edit, which is in the commit carrying it.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
-Snapshot, not to be trusted: at 21:00 UTC GitHub `main` and local `main` were both
-`ecd858d`, and the commit carrying this sentence is the only one ahead of that. The owner
-pushes, so this moves with no commit here to record it.
-
-The remote moved twice between the 19:20 reading and this one, and the two moves have
-different origins. `13c6349`, pushed at 20:54:02 UTC, rewrote the README's opening sentence
-and was made by the owner in GitHub's web editor, outside any session working here.
-`ecd858d`, pushed at 20:55:54 UTC, is the fix to the README's fill-in claim, committed in a
-session here as `104a709` and given a new ID when the owner rebased it onto `13c6349`. A
-commit ID written into this file is the ID at the time of writing, and a rebase replaces it.
+Snapshot, not to be trusted: at 23:13 UTC GitHub `main` was `967ac7b`, and local `main` was
+`7370899` and `ba231a4` ahead of it, plus the commit carrying this sentence. The owner
+pushes, so this moves with no commit here to record it. A commit ID written into this file
+is the ID at the time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
-GitHub releases, no issues and no pull requests, each read at 21:00 UTC.
+GitHub releases, no issues and no pull requests, each read at 23:13 UTC.
 
 ## Open, not blocking
 
-**The GitHub repository description still carries the clause the README dropped.** The
-description reads "Three files that set how an agentic coding session records what it
-verified, what it only read, and what it never checked", read from the API at 21:00 UTC on
-2026-09-17. The README's opening carried that clause until `13c6349` replaced it with "They
-change what counts as an answer when an agent tells you it checked something". The
-description is not in the repository and no commit changes it, so it is the owner's to
-change or to leave. The same clause survives inside `docs/review-2026-09-17-original.md`, in
-the page title the reviewer's link carried, where it is part of a verbatim record and stays.
-
 **Raised by the review, not decided:** whether the memory rule should generalise to any
 external context, whether rule 10 belongs in a separate operating-policy section, and
-whether the ten should split into always-on rules and procedures. The follow-up exchange
-also mentions a vendor-neutral note on the instruction file's name, proposed by the owner.
-The owner's own wording is not in this repository. The only version here is the reviewer's
-paraphrase in `docs/review-2026-09-17-followup.md`. None of these is queued.
+whether the ten should split into always-on rules and procedures. The vendor-neutral note
+on the instruction file's name, which the follow-up exchange says the owner proposed, is
+now item 8 under In flight. The owner's own wording is not in this repository. The only
+version here is the reviewer's paraphrase in `docs/review-2026-09-17-followup.md`. None of
+the other three is queued.
