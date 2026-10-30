@@ -130,6 +130,9 @@ Those two root files are also the only worked example of the kit in use. This re
 documentation repository with nothing to build, so they are what the method looks like
 applied to something small, rather than what it looks like on a product.
 
+End every session by asking it to save state. `HOWTOSAVESTATE.md` is the procedure it
+follows, and the cold-session runs under Results passed only when it had been done.
+
 Delete any rule you will not enforce. A rule nobody enforces teaches the next reader that the
 rest are optional. Leave the gap in the numbering rather than closing it, so rule 7 still
 means rule 7 when someone names it across projects.
@@ -198,10 +201,10 @@ its own.
 
 ## Results
 
-Cold-session runs since 17 September 2026: at least once a week, in repositories using the
-kit, all passing with no issues. That is the owner's report, made on 26 October 2026, and
-like the four failures at the top of this file it is attested rather than checkable. It
-also lacks the detail asked for below: no dates, no repositories named, and no note of
+Cold-session runs since 17 September 2026: dozens, at least once a week, in repositories
+using the kit. All passed, on one condition: the session before had been told to save state
+before it ended. That is the owner's report, made on 26 and 30 October 2026, and like the
+four failures at the top of this file it is attested rather than checkable. It also lacks the detail asked for below: no dates, no repositories named, and no note of
 whether `NEXT.md` was stale at the time. Runs from 26 October 2026 onward get one line each.
 
 No claim-review run either. What there is instead: an external AI review of this repository
