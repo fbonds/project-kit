@@ -20,7 +20,7 @@ reconstruct a project's state from its files, and it has still not been run. The
 claim-review test asks whether an agent reviewing a repository verifies the claims that
 repository makes about itself, which is the question this file is about, but a run of it
 needs ground truth written down before anyone is asked. Here the ground truth was written
-afterwards and changed four times, so this is an observation rather than a run. The file is
+afterwards and changed three times, so this is an observation rather than a run. The file is
 named for the question, not for the test.
 
 The model and vendor are not named in this file or in the preserved review, because naming

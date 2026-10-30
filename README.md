@@ -170,7 +170,7 @@ more than a pass, because it names what the template does not prompt for.
 This one can run today, on any repo using the kit, and it does not need a fresh session. It
 has not been run here. An external review of this repository in September 2026 missed three
 defects in its claims, and that was not a run of this test: the ground truth was written
-afterwards, and it moved four times. Recorded under Results.
+afterwards, and it moved three times. Recorded under Results.
 
 Give an agent the repository and ask it to audit every externally verifiable claim in the
 README against the artifact that claim describes. Do not say which claims are suspect, do not
@@ -208,7 +208,7 @@ No claim-review run either. What there is instead: an external AI review of this
 on 17 September 2026 checked the reasoning and missed three defects in what the repository
 said about its own files. One further defect it was charged with was not a defect at all.
 That is not a run of the claim-review test, because the ground truth was written after the
-review rather than before, and it changed four times while being written.
+review rather than before, and it changed three times while being written.
 
 Written up in
 [docs/result-2026-09-17-claim-review.md](docs/result-2026-09-17-claim-review.md). The review

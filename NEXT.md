@@ -185,7 +185,7 @@ not make a wrong charge right. The count moved from two to one to two to three b
 and `docs/result-2026-09-17-claim-review.md` says so.
 
 **The external review is not a run of the claim-review test.** The test asks for ground
-truth written down before anyone is asked. Here it was written afterwards and moved four
+truth written down before anyone is asked. Here it was written afterwards and moved three
 times, so calling it a run is the overclaim the rest of these files avoid. The README's
 heading, its scoring paragraph and its Results section now all say so, and the question is
 off the open list.
