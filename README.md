@@ -171,9 +171,7 @@ more than a pass, because it names what the template does not prompt for.
 ## The claim-review test, which has not been run
 
 This one can run today, on any repo using the kit, and it does not need a fresh session. It
-has not been run here. An external review of this repository in September 2026 missed three
-defects in its claims, and that was not a run of this test: the ground truth was written
-afterwards, and it moved three times. Recorded under Results.
+has not been run here.
 
 Give an agent the repository and ask it to audit every externally verifiable claim in the
 README against the artifact that claim describes. Do not say which claims are suspect, do not
@@ -191,34 +189,22 @@ around it is coherent.
 **Scoring needs ground truth you establish before you ask.** Go through the README claim by
 claim yourself, against the files, and write down which ones are wrong. Check the artifact
 the reviewer will see rather than a copy of it: a stale zip or an unpushed working tree will
-manufacture a defect that is not there, which is what happened when this repository's own
-claims were checked without ground truth. For this repository the artifact is the tip of
+manufacture a defect that is not there. For this repository the artifact is the tip of
 `main` at https://github.com/fbonds/project-kit.
-
-The three defects the external review missed, and the wording behind the charge it was
-wrongly given, are all fixed, so none of them can be reused as ground truth. A run here needs
-its own.
 
 ## Results
 
 Cold-session runs since 17 September 2026: dozens, at least once a week, in repositories
 using the kit. All passed, on one condition: the session before had been told to save state
 before it ended. That is the owner's report, made on 26 and 30 October 2026, and like the
-four failures at the top of this file it is attested rather than checkable. It also lacks the detail asked for below: no dates, no repositories named, and no note of
-whether `NEXT.md` was stale at the time. Runs from 26 October 2026 onward get one line each.
+four failures at the top of this file it is attested rather than checkable. It also lacks
+the detail asked for below: no dates, no repositories named, and no note of whether
+`NEXT.md` was stale at the time. Runs from 26 October 2026 onward get one line each.
 
-No claim-review run either. What there is instead: an external AI review of this repository
-on 17 September 2026 checked the reasoning and missed three defects in what the repository
-said about its own files. One further defect it was charged with was not a defect at all.
-That is not a run of the claim-review test, because the ground truth was written after the
-review rather than before, and it changed three times while being written.
-
-Written up in
-[docs/result-2026-09-17-claim-review.md](docs/result-2026-09-17-claim-review.md). The review
-itself is preserved at
-[docs/review-2026-09-17-original.md](docs/review-2026-09-17-original.md), and the exchange
-after it was told what it had missed, including its reply, at
-[docs/review-2026-09-17-followup.md](docs/review-2026-09-17-followup.md).
+No claim-review run either. An external AI review on 17 September 2026 missed three defects
+in what this repository said about its own files, but its ground truth was written
+afterwards, so it does not count as a run. The write-up, the review and the exchange after
+it are in [docs/](docs/README.md).
 
 Record each run here, one line: the date, the repo, pass or fail, what it got wrong, and
 whether anything in `NEXT.md` was actually stale at the time. A run against a file written
