@@ -159,6 +159,12 @@ Delete any rule you will not enforce. A rule nobody enforces teaches the next re
 rest are optional. Leave the gap in the numbering rather than closing it, so rule 7 still
 means rule 7 when someone names it across projects.
 
+The kit is written for Claude Code. For another agent, rename `CLAUDE.md` to the file that
+agent reads at the start of a session, such as `AGENTS.md`, and change the name in the setup
+commands. Claude Code reads `AGENTS.md` too when there is no `CLAUDE.md`, from version
+2.1.277. Only Claude Code reads the optional settings file. If the agent keeps no memories
+between sessions, delete rule 9 and step 3 of `HOWTOSAVESTATE.md`.
+
 ## The cold-session test
 
 It checks whether the kit works on a session that did not help write it. The test is cheap
