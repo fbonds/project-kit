@@ -23,6 +23,10 @@ needs ground truth written down before anyone is asked. Here the ground truth wa
 afterwards and changed three times, so this is an observation rather than a run. The file is
 named for the question, not for the test.
 
+**Written 17 September 2026.** Where this file says the cold-session test has not been run,
+here and in the closing section, that was true then. The owner has since reported runs, and
+the README's Results section records them as attested.
+
 The model and vendor are not named in this file or in the preserved review, because naming
 them turns a methodology note into a model comparison, and nothing here depends on which
 reviewer it was. The git history does name the vendor: the header of
