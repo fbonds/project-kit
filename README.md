@@ -44,7 +44,7 @@ reads as taste and gets dropped the first time it is inconvenient.
 
 ## What the kit contains
 
-Three files, in `template/`.
+Three files, in `template/`, and an optional fourth.
 
 **`CLAUDE.md`** is read at the start of every session without being asked, which makes it the
 only reliable place to put anything. It says to read the state file first and treat its facts
@@ -67,6 +67,17 @@ template ships with the ten standards written out and the other sections empty a
 instructions: Traps, Decided, In flight, Queued, a section answering committed, pushed and
 released as three separate questions, and Open. At the top is a block saying every fact below
 is dated, with the commands that re-check the moving parts.
+
+**`.claude/settings.json`** is optional, and is the one part that does not depend on the
+agent choosing to comply. Its deny rules block `git push`, `git add -A`, `git add --all`,
+`git add .`, `git commit -a` and `git commit -am`. Its SessionStart hook fetches from
+`origin` and prints the branch status, the behind and unpushed counts against `origin/main`,
+and the `Updated` line of `NEXT.md`, and Claude Code adds that output to the session's
+context. A deny rule matches the command as written, so `git -C . push` gets past it: it
+stops the usual form and is not a security boundary. Tested on 2026-10-30 in a scratch
+repository: the hook's output reached the session; `git push`, the same after `cd . &&`,
+`git add -A`, `git add .` and `git commit -am` were blocked; `git -C . push` went through.
+The `--all` and `-a` rules were not tested.
 
 ### The ten standards
 
@@ -129,6 +140,17 @@ either way, so the check only works at the start.
 Those two root files are also the only worked example of the kit in use. This repository is a
 documentation repository with nothing to build, so they are what the method looks like
 applied to something small, rather than what it looks like on a product.
+
+The optional settings file goes in `.claude/`:
+
+```
+mkdir -p .claude
+cp -n /path/to/project-kit/template/.claude/settings.json .claude/
+```
+
+`cp -n` will not overwrite. If the repo already has `.claude/settings.json`, merge the deny
+list and the `SessionStart` hook into it by hand. The hook assumes a remote named `origin`, a
+branch named `main`, and a line in `NEXT.md` starting `Updated`.
 
 End every session by asking it to save state. `HOWTOSAVESTATE.md` is the procedure it
 follows, and the cold-session runs under Results passed only when it had been done.
