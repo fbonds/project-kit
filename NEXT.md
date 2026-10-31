@@ -177,8 +177,8 @@ these files, need a force push, and still not reach clones, forks or caches.
 header. The prompt that produced it was not kept, and the files say so rather than
 reconstructing it.
 
-**The README's four opening failures are stated as attested, not checkable.** They happened
-in a private repository (`70aa935`).
+**The README's four failures, under "Where the rules came from", are stated as attested,
+not checkable.** They happened in a private repository (`70aa935`).
 
 **The template's exception sentences say "in this template".** A sentence naming rules 4
 and 10 as exceptions goes stale in every copy once its examples are replaced, and that
@@ -250,6 +250,10 @@ with a note pointing at the README's Results (`ba231a4`).
 test, never run, and "What I am asking for", which invited issues and pull requests, were
 removed. The result and both reviews stay in `docs/` as the record.
 
+**The README speaks in the owner's first person and states the private-repository caveat
+once** (`e2a3eb4`). Its success claims are the owner's experience. Repeating the caveat in
+every section made them read as doubted.
+
 ## In flight
 
 A pass on 2026-10-30, fixing what a review of the repository found, one item at a time
@@ -275,8 +279,10 @@ with approval. All of it is done. The two earlier passes, both on 2026-09-17, en
 10. That line rewrapped. `08f9410`.
 11. The owner's fuller report on the cold-session runs, in the README's Results. `f39bd63`.
 12. This file brought up to date again. `29d503c`.
-13. The claim-review test and "What I am asking for" removed from the README. Done in the
-    commit carrying this line.
+13. The claim-review test and "What I am asking for" removed from the README. `5e3415c`.
+14. The README rewritten to lead with what the kit does, with the owner's before and after.
+    `e2a3eb4`.
+15. This file brought up to date. Done in the commit carrying this line.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -292,19 +298,19 @@ repository or with whether `NEXT.md` was stale. The next one gets its own line i
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-10-31 00:27 UTC, re-checked against the remote at that time.
+As of 2026-10-31 00:53 UTC, re-checked against the remote at that time.
 
 **Uncommitted.** Nothing apart from this file's edit, which is in the commit carrying it.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
-Snapshot, not to be trusted: at 00:27 UTC GitHub `main` and local `main` were both
-`f39bd63`, and the commit carrying this sentence is the only one ahead of it. The owner
-pushes, so this moves with no commit here to record it. A commit ID written into this file
-is the ID at the time of writing, and a rebase replaces it.
+Snapshot, not to be trusted: at 00:53 UTC GitHub `main` was `f39bd63`, and local `main` had
+`29d503c`, `5e3415c` and `e2a3eb4` ahead of it, plus the commit carrying this sentence. The
+owner pushes, so this moves with no commit here to record it. A commit ID written into this
+file is the ID at the time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
-GitHub releases, no issues and no pull requests, each read at 00:27 UTC.
+GitHub releases, no issues and no pull requests, each read at 00:53 UTC.
 
 ## Open, not blocking
 
