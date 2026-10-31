@@ -6,7 +6,8 @@ README's "How to use it" section shows.
 
 **Read `NEXT.md` first**, the one in this directory. It is this repository's working state:
 what is pushed, what is in flight, what is decided, the traps, and what is open. Every fact
-in it is dated. Re-check with the block at its top before acting on any of them.
+in it is dated. Re-check with the block at its top before acting on any of them. Then say
+that you have, and report what is in flight and what is uncommitted.
 
 ## What this repository is
 

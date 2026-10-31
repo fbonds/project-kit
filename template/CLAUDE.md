@@ -4,8 +4,9 @@
      should be something you would enforce, because a rule nobody enforces teaches the
      next reader that the rest are optional too. -->
 
-**Read `NEXT.md` first.** It is the working state: what shipped, what is in flight, what is
-decided, what is queued. Read it before proposing anything.
+**Read `NEXT.md` first, and say that you have.** It is the working state: what shipped, what
+is in flight, what is decided, what is queued. Read it before proposing anything, then report
+what is in flight and what is uncommitted before doing anything else.
 
 **Treat its facts as dated, not current.** Every claim in it records what was true when it
 was checked. Anything outside this repo moves without a commit here to show it. The block

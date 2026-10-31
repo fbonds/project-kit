@@ -22,10 +22,11 @@ back, and each one now has a file or a rule against it:
 
 I have used the kit since 16 September 2026 on a wide range of projects: a Chrome extension,
 an overhaul of SharePoint Power Automate workflows, mobile games and home automation, several
-of them in development at the same time. That whole list of headaches is gone. I start a
-session, it reads `NEXT.md`, and we carry on from where the last session stopped. I do not
-bring it up to speed, and it does not re-evaluate the repo from scratch first. The one
-condition is that the session before was told to save state before it ended.
+of them in development at the same time. That whole list of headaches is gone. It takes two
+habits. At the end of a session I tell it to save state. At the start of the next I tell it
+to read `CLAUDE.md` and comply, and it reads `NEXT.md` and tells me what is in flight, what
+is next and what is uncommitted. I do not bring it up to speed, and it does not re-evaluate
+the repo from scratch first.
 
 ## Where the rules came from
 
@@ -67,14 +68,14 @@ reads as taste and gets dropped the first time it is inconvenient.
 
 Three files, in `template/`, and an optional fourth.
 
-**`CLAUDE.md`** is read at the start of every session without being asked, which makes it the
-only reliable place to put anything. It says to read the state file first and treat its facts
-as dated. It then restates the five standards that come up most as bullets, names the other
-five in a sentence, and points at `NEXT.md` for all ten with their reasons. Below
-that sit the working rules: how to work, confirm which repo you are in before acting, do not
-guess, and do not start queued work unprompted. The writing section comes last, so it can be
-deleted without taking anything else with it. The writing rules are preferences rather than
-checks, which is why they are kept out of the standards.
+**`CLAUDE.md`** is read at the start of every session without being asked, which makes it
+the only reliable place to put anything. It says to read the state file first and report
+what it found, and to treat its facts as dated. It then restates the five standards that
+come up most as bullets, names the other five in a sentence, and points at `NEXT.md` for all
+ten with their reasons. Below that sit the working rules: how to work, confirm which repo
+you are in before acting, do not guess, and do not start queued work unprompted. The writing
+section comes last, so it can be deleted without taking anything else with it. The writing
+rules are preferences rather than checks, which is why they are kept out of the standards.
 
 **`HOWTOSAVESTATE.md`** is the end-of-session procedure. Check the external world now and
 record each fact with its date and method. Write it into the state file. Check stored
@@ -164,9 +165,12 @@ cp -n /path/to/project-kit/template/.claude/settings.json .claude/
 list and the `SessionStart` hook into it by hand. The hook assumes a remote named `origin`, a
 branch named `main`, and a line in `NEXT.md` starting `Updated`.
 
-End every session by asking it to save state. `HOWTOSAVESTATE.md` is the procedure it
-follows, and the cold-session runs under Results passed only when it had been done. If the
-conversation is compacted mid-session, tell it to read `CLAUDE.md` again and comply.
+Start every session by telling it to read `CLAUDE.md` and comply. Claude Code loads
+`CLAUDE.md` into every session by itself, but a session can still start work without reading
+`NEXT.md` first or saying that it has, and the instruction is what makes it do both. End
+every session by asking it to save state. `HOWTOSAVESTATE.md` is the procedure it follows.
+The cold-session runs under Results passed with both habits in place. If the conversation is
+compacted mid-session, tell it to read `CLAUDE.md` again and comply.
 
 Delete any rule you will not enforce. A rule nobody enforces teaches the next reader that the
 rest are optional. Leave the gap in the numbering rather than closing it, so rule 7 still
@@ -183,9 +187,9 @@ between sessions, delete rule 9 and step 3 of `HOWTOSAVESTATE.md`.
 It checks whether the kit works on a session that did not help write it. The test is cheap
 and it only happens if it is written down, so:
 
-**The next time a session starts cold in a repo using this kit, the owner asks what it
-concludes about the state before telling it anything.** Nothing else in the first message: no
-context, no correction, no hint about what is in flight.
+**The next time a session starts cold in a repo using this kit, the owner's first message is
+"Read CLAUDE.md and comply."** Nothing else: no context, no correction, no hint about what is
+in flight. The session should report the state on its own.
 
 It passes if the session names, without being told:
 
@@ -211,9 +215,9 @@ the skill being tested.
 Cold-session runs since 16 September 2026: dozens, on most days of most weeks, including 29
 and 30 October, across several private repositories for different projects, all in
 development at the same time. All passed when the session before had been told to save state
-before it ended. Each picked up where the last session left off. That is my report, and it
-lacks dates for most runs, the repositories, which are private, and whether `NEXT.md` was
-stale at the time.
+and the new one was told to read `CLAUDE.md` and comply. Each picked up where the last
+session left off. That is my report, and it lacks dates for most runs, the repositories,
+which are private, and whether `NEXT.md` was stale at the time.
 
 Record each run here, one line: the date, the repo, pass or fail, what it got wrong, and
 whether anything in `NEXT.md` was actually stale at the time. A run against a file written
