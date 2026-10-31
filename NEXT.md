@@ -21,7 +21,7 @@ template.** To use the kit in another repo, copy the three files in `template/`.
 > The end-of-session procedure is `template/HOWTOSAVESTATE.md`. Stored memories load before
 > any file and go stale the same way: check them against the repo rather than trusting them.
 
-Updated 2026-10-30. Working state for project-kit. `README.md` is the public argument and
+Updated 2026-10-31. Working state for project-kit. `README.md` is the public argument and
 the only documentation. `template/` is the kit itself. `docs/` is the record of results,
 indexed in `docs/README.md`. There is no design document and no roadmap; this file holds
 what is queued.
@@ -268,7 +268,10 @@ with approval. All of it is done. The two earlier passes, both on 2026-09-17, en
    checked against Claude Code's documentation and tested in a scratch repository.
    `e1c68ed`.
 8. A portability paragraph in How to use it. The template is unchanged. `973cf51`.
-9. This save-state pass. Done in the commit carrying this list.
+9. The save-state pass. `c2fb5f9`, which left one Queued line past the file's width.
+10. That line rewrapped. `08f9410`.
+11. The owner's fuller report on the cold-session runs, in the README's Results. `f39bd63`.
+12. This file brought up to date again. Done in the commit carrying this list.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -276,8 +279,11 @@ with approval. All of it is done. The two earlier passes, both on 2026-09-17, en
 2026-10-26 that it has been run at least once a week since 2026-09-17, in repositories using
 the kit, all passing, and on 2026-10-30 that it has been used dozens of times and "works
 flawlessly", with the condition that the session before it was told to save state before
-quitting. The README's Results records both as attested. None of those runs was recorded
-with a date or a repository. The next one gets its own line in Results.
+quitting. Later the same day the owner added that the runs happen on most days of most
+weeks, including 29 and 30 October, across several private repositories for different
+projects developed at the same time, and that each picked up where the last session left
+off. The README's Results records all of it as attested. No run was recorded with its
+repository or with whether `NEXT.md` was stale. The next one gets its own line in Results.
 
 **A second claim-review run.** It needs its own ground truth, written down before anyone is
 asked, checked against GitHub rather than a local copy. The discrepancies found so far are
@@ -285,19 +291,19 @@ all known and cannot be reused.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-10-30 23:31 UTC, re-checked against the remote at that time.
+As of 2026-10-31 00:27 UTC, re-checked against the remote at that time.
 
 **Uncommitted.** Nothing apart from this file's edit, which is in the commit carrying it.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
-Snapshot, not to be trusted: at 23:31 UTC GitHub `main` was `967ac7b`, and local `main` had
-`7370899` through `973cf51` ahead of it, plus the commit carrying this sentence. The owner
+Snapshot, not to be trusted: at 00:27 UTC GitHub `main` and local `main` were both
+`f39bd63`, and the commit carrying this sentence is the only one ahead of it. The owner
 pushes, so this moves with no commit here to record it. A commit ID written into this file
 is the ID at the time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
-GitHub releases, no issues and no pull requests, each read at 23:31 UTC.
+GitHub releases, no issues and no pull requests, each read at 00:27 UTC.
 
 ## Open, not blocking
 
