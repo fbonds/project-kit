@@ -1,12 +1,36 @@
 # project-kit
 
-Three files you copy into a new repo on day one, plus the reasoning behind them. They change 
-what counts as an answer when an agent tells you it checked something.
+Three files you copy into a new repo on day one, plus the reasoning behind them. They give an
+AI coding agent a written record of where the project stands and a strict standard for what
+counts as checked. With them in place, a project carries from one session to the next for
+weeks. Each session picks up where the last one stopped, and the agent re-checks a fact
+before it reports it as current.
 
-The failure this addresses is not that the agent is unreliable. It is that it is confidently
-wrong in a small number of recognisable shapes, and almost every one reduces to a claim
-checked against a description of a thing rather than against the thing.
+## Before and after
 
+Before the kit, every working day started the same way. I opened Claude Code in the repo,
+told it to read everything, and got it ready to add features. Then the same problems came
+back, and each one now has a file or a rule against it:
+
+| What kept going wrong | What the kit puts in its place |
+| :- | :- |
+| Nothing recorded why a decision was made, so a new session questioned logic an earlier one had written and wanted to redo it. | The Decided section of `NEXT.md`: each decision with its reasoning and what was ruled out. |
+| Feature work was whack-a-mole, driven by whatever broke that day, with no roadmap to resume. | The In flight and Queued sections, and a rule against starting queued work unprompted. |
+| It wrote tests of its own output that could not fail. | Rule 1: no check counts until it has been shown failing on deliberately broken input. |
+| It stated things from memory instead of from the thing itself. | Rule 3, check claims against the artifact, and rule 9, check stored memories against the repo. |
+| It reported a past status as current without re-checking it. | Every fact in `NEXT.md` is dated, and the file opens with the commands that re-check the moving parts. |
+
+I have used the kit since 16 September 2026 on a wide range of projects: a Chrome extension,
+an overhaul of SharePoint Power Automate workflows, mobile games and home automation, several
+of them in development at the same time. That whole list of headaches is gone. I start a
+session, it reads `NEXT.md`, and we carry on from where the last session stopped. I do not
+bring it up to speed, and it does not re-evaluate the repo from scratch first. The one
+condition is that the session before was told to save state before it ended.
+
+## Where the rules came from
+
+The agent's mistakes come in a small number of recognisable shapes, and almost every one
+reduces to a claim checked against a description of a thing rather than against the thing.
 Four from one project, over three days:
 
 A release shipped a binary the shell could not execute. It had been verified four separate
@@ -32,11 +56,9 @@ The first three were caught by asking a narrower question than "did the check pa
 The session that arrived afterward paid for it, went looking for a list that was not there,
 and had to rebuild it from the README, the changelog and the git log.
 
-Those four happened in a private repository. You cannot check them from here, and neither can
-I. They are attested by the author rather than verifiable by a reader, which makes them the
-weakest evidence in this file, and a file about checking claims should say so rather than let
-a reader assume the examples were open to inspection. The claims about this repository, its
-files and its history are a different matter: those are checkable.
+These four, like the before and after above, come from private repositories. You cannot
+check them from here, and neither can I, so they are my account. The claims this repository
+makes about its own files and history are checkable.
 
 Each rule in the kit is written with its reason attached, because a rule without its reason
 reads as taste and gets dropped the first time it is inconvenient.
@@ -119,26 +141,17 @@ git diff --cached --stat
 git commit -m 'Add the working-state files'
 ```
 
-The `grep` finds the placeholder strings: `PROJECT`, `PROJECT_OWNER` and `YYYY-MM-DD`. The
-first pattern matches the second, which is why two patterns cover three strings. One more
-fill-in is a commented line in the block at the top of `NEXT.md`, reading "add the command
-that checks what this project publishes or deploys". Replace it with that command. Until it
-exists, the staleness warning has nothing behind it.
+The `grep` prints every line holding a placeholder: `PROJECT`, `PROJECT_OWNER` or
+`YYYY-MM-DD`, where the first pattern also matches the second. Fill each one in. Two more
+fill-ins carry no placeholder: the commented line at the top of `NEXT.md` that reads "add the
+command that checks what this project publishes or deploys", and the commands for the same
+thing in `HOWTOSAVESTATE.md`. Until the first is filled, the staleness warning has nothing
+behind it.
 
-One further fill-in carries no placeholder string, so the `grep` will not find it: in
-`HOWTOSAVESTATE.md`, the commands for whatever the project publishes or deploys. The list of
-the project's own files, in the same file, does carry one. It is the single line the `grep`
-prints there.
-
-The `CLAUDE.md` and `NEXT.md` at the root of this repository are its own working files,
-filled in for it, and are not the kit. Run the `grep` straight after copying, before filling
-anything in: if it prints no lines for `CLAUDE.md` or `NEXT.md`, you copied this repository's
-files rather than the ones in `template/`. Once the placeholders are filled it prints nothing
-either way, so the check only works at the start.
-
-Those two root files are also the only worked example of the kit in use. This repository is a
-documentation repository with nothing to build, so they are what the method looks like
-applied to something small, rather than what it looks like on a product.
+Run the `grep` before filling anything in. If it prints nothing for `CLAUDE.md` or `NEXT.md`,
+you copied this repository's own working files from its root instead of the ones in
+`template/`. Those root files are the kit applied to this repository, a small documentation
+project, and they are the only worked example here.
 
 The optional settings file goes in `.claude/`:
 
@@ -152,7 +165,8 @@ list and the `SessionStart` hook into it by hand. The hook assumes a remote name
 branch named `main`, and a line in `NEXT.md` starting `Updated`.
 
 End every session by asking it to save state. `HOWTOSAVESTATE.md` is the procedure it
-follows, and the cold-session runs under Results passed only when it had been done.
+follows, and the cold-session runs under Results passed only when it had been done. If the
+conversation is compacted mid-session, tell it to read `CLAUDE.md` again and comply.
 
 Delete any rule you will not enforce. A rule nobody enforces teaches the next reader that the
 rest are optional. Leave the gap in the numbering rather than closing it, so rule 7 still
@@ -188,71 +202,39 @@ though it were the state, acts on a dated fact without re-checking it, or presen
 fact as current without saying when it was checked.
 
 That last one is the criterion that matters. Every expensive failure behind this kit was a
-stale claim being trusted, not a missing one. A session can recite the state file perfectly,
-be correct as of the date on every line, and still be wrong about the world right now.
-Reciting is not the skill being tested.
-
-Record the result below, pass or fail, with the date and what was missing. A fail is worth
-more than a pass, because it names what the template does not prompt for.
+stale claim that someone trusted. A session can recite the state file perfectly, be correct
+as of the date on every line, and still be wrong about the world right now. Reciting is not
+the skill being tested.
 
 ## Results
 
-Cold-session runs since 17 September 2026: dozens, on most days of most weeks, including 29
+Cold-session runs since 16 September 2026: dozens, on most days of most weeks, including 29
 and 30 October, across several private repositories for different projects, all in
-development at the same time. All passed, on one condition: the session before had been
-told to save state before it ended. Each picked up where the last session left off, without
-the owner bringing the agent up to speed or having it evaluate the whole repo first. That is
-the owner's report, made on 26 and 30 October 2026, and like the four failures at the top of
-this file it is attested rather than checkable. It also lacks the detail asked for below:
-dates for most runs, the repositories, which are private, and whether `NEXT.md` was stale at
-the time. Runs from 26 October 2026 onward get one line each.
+development at the same time. All passed when the session before had been told to save state
+before it ended. Each picked up where the last session left off. That is my report, and it
+lacks dates for most runs, the repositories, which are private, and whether `NEXT.md` was
+stale at the time.
 
 Record each run here, one line: the date, the repo, pass or fail, what it got wrong, and
 whether anything in `NEXT.md` was actually stale at the time. A run against a file written
 hours earlier proves much less than one a week later, when the registry or the deploy has
-moved underneath it, so say which it was.
+moved underneath it, so say which it was. A fail is worth more than a pass, because it names
+what the template does not prompt for.
 
 ## What the kit cannot carry
 
-The kit is the method. It is not the knowledge, and on day one a new project has none of the
-second thing.
+The kit is the method. A new project starts without the knowledge, and the kit cannot copy
+that in.
 
-**The traps list is empty, and it is earned rather than copied.** Every entry in a mature one
-is a specific lie a specific tool told: a publish command that rewrites a file it was only
-supposed to read, a build that leaves a stale artifact in place so a failed compile reads as
-a pass, a page that redirects so a naive fetch compares against an empty body and reports a
-false difference. None of those transfer. What transfers is the habit of writing one down the
-same session it bites, while the detail is still exact.
+On day one the Traps section is empty. Every entry in a mature one is a specific lie a
+specific tool told, such as a publish command that rewrites a file it was only supposed to
+read, and none of those transfer. The Decided section is empty too, so the first month will
+re-argue things until each decision is written down with its reasoning and the alternative
+it beat. Which dashboards lag, which caches serve yesterday, which checks are cheap and which
+will not run in this environment at all are each learned by being burned.
 
-**The Decided section is empty, so the first month will re-litigate.** A decision written as
-its conclusion alone does not survive contact with a session that has a different opinion.
-Write the reasoning and the alternative that was rejected, because that is what makes it a
-decision rather than a preference.
-
-**Nobody knows yet which external systems lie, and how.** Dashboards lag. Listings show the
-published state and not the pending one. Registries report metadata that is not the artifact.
-Caches serve yesterday. Which of those apply here is learned by being burned, and until then
-"verified" is softer than it sounds.
-
-**Nobody knows which checks are cheap.** In a mature project the cost of each verification is
-known, so the expensive ones run at the right moments and the cheap ones run constantly. On
-day one every check looks equally expensive, and the temptation is to skip all of them.
-
-**The environment's own limits are unmapped.** Some checks will not run where the agent runs:
-a browser that will not start, a remote that rejects the key, a sandbox that blocks a port.
-Each has to be discovered, then written down as "not checkable here" rather than rediscovered
-every session.
-
-**And the part that is not a file at all:** a shared sense of what "checked" means. That came
-from doing it together, being caught being wrong, and tightening the standard each time. The
-kit can tell a new session to show a check failing before believing it. It cannot supply the
-history that makes the instruction feel obvious rather than pedantic.
-
-So the honest expectation for day one: the kit is aimed at the structural failures, a session
-resuming blind, state living in a chat log, a list of unpushed commits that rots. The
-cold-session runs under Results are the evidence for the first of those, and they are
-attested rather than recorded. It certainly does not prevent the first ten specific
-mistakes. It gives them somewhere to be written down.
+What transfers is the habit of writing each of those down the session it is learned, while
+the detail is still exact. The kit gives every one of them a place to go.
 
 ## License
 
