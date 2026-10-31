@@ -276,8 +276,8 @@ with approval. All of it is done. The two earlier passes, both on 2026-09-17, en
 2026-10-26 that it has been run at least once a week since 2026-09-17, in repositories using
 the kit, all passing, and on 2026-10-30 that it has been used dozens of times and "works
 flawlessly", with the condition that the session before it was told to save state before
-quitting. The README's Results records both as attested. None of those runs was recorded with a date or a repository. The next one gets
-its own line in Results.
+quitting. The README's Results records both as attested. None of those runs was recorded
+with a date or a repository. The next one gets its own line in Results.
 
 **A second claim-review run.** It needs its own ground truth, written down before anyone is
 asked, checked against GitHub rather than a local copy. The discrepancies found so far are
