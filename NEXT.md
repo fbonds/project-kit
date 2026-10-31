@@ -282,7 +282,14 @@ with approval. All of it is done. The two earlier passes, both on 2026-09-17, en
 13. The claim-review test and "What I am asking for" removed from the README. `5e3415c`.
 14. The README rewritten to lead with what the kit does, with the owner's before and after.
     `e2a3eb4`.
-15. This file brought up to date. Done in the commit carrying this line.
+15. This file brought up to date. `58071ad`.
+16. The GitHub description replaced again, because it quoted the README opening that
+    `e2a3eb4` removed, and four topics added. Both are outside the repository and were read
+    back from the API at 00:56 UTC on 2026-10-31. The description now reads "Three files for
+    Claude Code that keep a project's state and decisions in the repo, so each session picks
+    up where the last one stopped and checks facts before calling them current." The topics
+    are `ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`. Recorded
+    in the commit carrying this line.
 
 ## Queued, unscheduled, and not to be started unprompted
 
