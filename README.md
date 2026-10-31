@@ -222,12 +222,15 @@ manufacture a defect that is not there. For this repository the artifact is the 
 
 ## Results
 
-Cold-session runs since 17 September 2026: dozens, at least once a week, in repositories
-using the kit. All passed, on one condition: the session before had been told to save state
-before it ended. That is the owner's report, made on 26 and 30 October 2026, and like the
-four failures at the top of this file it is attested rather than checkable. It also lacks
-the detail asked for below: no dates, no repositories named, and no note of whether
-`NEXT.md` was stale at the time. Runs from 26 October 2026 onward get one line each.
+Cold-session runs since 17 September 2026: dozens, on most days of most weeks, including 29
+and 30 October, across several private repositories for different projects, all in
+development at the same time. All passed, on one condition: the session before had been
+told to save state before it ended. Each picked up where the last session left off, without
+the owner bringing the agent up to speed or having it evaluate the whole repo first. That is
+the owner's report, made on 26 and 30 October 2026, and like the four failures at the top of
+this file it is attested rather than checkable. It also lacks the detail asked for below:
+dates for most runs, the repositories, which are private, and whether `NEXT.md` was stale at
+the time. Runs from 26 October 2026 onward get one line each.
 
 No claim-review run either. An external AI review on 17 September 2026 missed three defects
 in what this repository said about its own files, but its ground truth was written
