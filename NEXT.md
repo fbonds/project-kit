@@ -156,6 +156,12 @@ auto-mode classifier refused `claude -p --permission-mode bypassPermissions`, ru
 session here, as creating an unsafe agent. The owner ran the same command with `!` instead.
 Recognise it: any test that needs a second Claude session goes to the owner.
 
+**Loading `CLAUDE.md` does not mean it is followed.** Claude Code put this repository's
+`CLAUDE.md` into the 2026-10-30 session's context, and the session neither said so nor read
+`NEXT.md` first. It read `NEXT.md` later, as part of an evaluation the owner asked for.
+Recognise it: a session whose first reply does not say it has read `NEXT.md` and what is in
+flight. The owner's opener, "Read CLAUDE.md and comply", is the fix (`1b902ff`).
+
 ## Decided, do not redo
 
 **No explicit state model or `verified: true` field.** Proposed by the external review and
@@ -289,7 +295,10 @@ with approval. All of it is done. The two earlier passes, both on 2026-09-17, en
     Claude Code that keep a project's state and decisions in the repo, so each session picks
     up where the last one stopped and checks facts before calling them current." The topics
     are `ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`. Recorded
-    in the commit carrying this line.
+    in `d7fbc56`.
+17. The start-of-session step, "Read CLAUDE.md and comply", added to the README, the
+    template's `CLAUDE.md` and this repository's `CLAUDE.md`. `1b902ff`.
+18. This file brought up to date. Done in the commit carrying this line.
 
 ## Queued, unscheduled, and not to be started unprompted
 
