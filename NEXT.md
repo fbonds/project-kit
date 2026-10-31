@@ -197,8 +197,8 @@ and `docs/result-2026-09-17-claim-review.md` says so.
 
 **The external review is not a run of the claim-review test.** The test asks for ground
 truth written down before anyone is asked. Here it was written afterwards and moved three
-times, so calling it a run is the overclaim the rest of these files avoid. The README's
-heading and its Results section say so, and the question is off the open list.
+times, so calling it a run is the overclaim the rest of these files avoid. The result doc
+says so.
 
 **The README tells the guard, and the template tells the test of the guard.** Two moments in
 one attested incident: the guard could not fail, and separately a test of that guard ran
@@ -243,9 +243,12 @@ instead (`973cf51`).
 **The 2026-09-17 result doc still says the cold-session test is unrun**, as a dated record,
 with a note pointing at the README's Results (`ba231a4`).
 
-**The README carries one paragraph on the September review, and `docs/` carries the rest**
-(`e473d0a`). Cutting the README further was not done: what remains is the pitch, the setup,
-the two tests and the limits.
+**The README no longer mentions the September review, and `docs/` carries all of it.**
+`e473d0a` cut it to one paragraph, and item 13 under In flight removed that.
+
+**The README presents the kit as complete** (2026-10-31, owner's decision). The claim-review
+test, never run, and "What I am asking for", which invited issues and pull requests, were
+removed. The result and both reviews stay in `docs/` as the record.
 
 ## In flight
 
@@ -271,7 +274,9 @@ with approval. All of it is done. The two earlier passes, both on 2026-09-17, en
 9. The save-state pass. `c2fb5f9`, which left one Queued line past the file's width.
 10. That line rewrapped. `08f9410`.
 11. The owner's fuller report on the cold-session runs, in the README's Results. `f39bd63`.
-12. This file brought up to date again. Done in the commit carrying this list.
+12. This file brought up to date again. `29d503c`.
+13. The claim-review test and "What I am asking for" removed from the README. Done in the
+    commit carrying this line.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -284,10 +289,6 @@ weeks, including 29 and 30 October, across several private repositories for diff
 projects developed at the same time, and that each picked up where the last session left
 off. The README's Results records all of it as attested. No run was recorded with its
 repository or with whether `NEXT.md` was stale. The next one gets its own line in Results.
-
-**A second claim-review run.** It needs its own ground truth, written down before anyone is
-asked, checked against GitHub rather than a local copy. The discrepancies found so far are
-all known and cannot be reused.
 
 ## Committed, pushed, released: three separate questions
 

@@ -36,8 +36,7 @@ Those four happened in a private repository. You cannot check them from here, an
 I. They are attested by the author rather than verifiable by a reader, which makes them the
 weakest evidence in this file, and a file about checking claims should say so rather than let
 a reader assume the examples were open to inspection. The claims about this repository, its
-files and its history are a different matter: those are checkable, and the claim-review
-test below exists to have them checked.
+files and its history are a different matter: those are checkable.
 
 Each rule in the kit is written with its reason attached, because a rule without its reason
 reads as taste and gets dropped the first time it is inconvenient.
@@ -196,30 +195,6 @@ Reciting is not the skill being tested.
 Record the result below, pass or fail, with the date and what was missing. A fail is worth
 more than a pass, because it names what the template does not prompt for.
 
-## The claim-review test, which has not been run
-
-This one can run today, on any repo using the kit, and it does not need a fresh session. It
-has not been run here.
-
-Give an agent the repository and ask it to audit every externally verifiable claim in the
-README against the artifact that claim describes. Do not say which claims are suspect, do not
-say how many discrepancies there are, and do not say whether there are any.
-
-A claim is externally verifiable when something in or reachable from the repo settles it: a
-description of what a file contains, a count, a statement about what the template holds, a
-command that is supposed to work, a link that is supposed to resolve.
-
-It passes if it finds the discrepancies that are there and says, for each claim it clears,
-which artifact it opened. It fails if it reports the README as accurate without opening the
-files, reviews the argument instead of the claims, or accepts a claim because the document
-around it is coherent.
-
-**Scoring needs ground truth you establish before you ask.** Go through the README claim by
-claim yourself, against the files, and write down which ones are wrong. Check the artifact
-the reviewer will see rather than a copy of it: a stale zip or an unpushed working tree will
-manufacture a defect that is not there. For this repository the artifact is the tip of
-`main` at https://github.com/fbonds/project-kit.
-
 ## Results
 
 Cold-session runs since 17 September 2026: dozens, on most days of most weeks, including 29
@@ -231,11 +206,6 @@ the owner's report, made on 26 and 30 October 2026, and like the four failures a
 this file it is attested rather than checkable. It also lacks the detail asked for below:
 dates for most runs, the repositories, which are private, and whether `NEXT.md` was stale at
 the time. Runs from 26 October 2026 onward get one line each.
-
-No claim-review run either. An external AI review on 17 September 2026 missed three defects
-in what this repository said about its own files, but its ground truth was written
-afterwards, so it does not count as a run. The write-up, the review and the exchange after
-it are in [docs/](docs/README.md).
 
 Record each run here, one line: the date, the repo, pass or fail, what it got wrong, and
 whether anything in `NEXT.md` was actually stale at the time. A run against a file written
@@ -289,25 +259,3 @@ mistakes. It gives them somewhere to be written down.
 MIT-0, which is MIT with the attribution clause removed. Copy these files into your own
 repo, change them, ship them, and carry no notice. The point is that nobody has to think
 about it before pasting a `CLAUDE.md` into a project.
-
-## What I am asking for
-
-Three things, from anyone who has run agents against real repos long enough to have their own
-list.
-
-**Which standards are missing.** These ten came out of one project, so the list has the shape
-of that project. The failures you hit are the ones I have not.
-
-**Which you would cut.** Some may be ceremony that survived because nobody tested whether
-dropping them cost anything. Rule 10 is the one I would defend least: it is the only one that
-says outright that nothing went wrong to produce it, and it is there because it suits how I
-review. Rule 4 is the next weakest on that test, since what it carries is two occasions where
-it caught something rather than a failure that produced it.
-
-**Whether anyone has a better answer for what the kit admits it cannot carry**, particularly
-the first two. If you have found a way to give a new project a useful traps list on day one,
-or to make a decision record survive a session that disagrees with it, that is worth more
-than the ten rules.
-
-Issues and pull requests are fine. So is a comment saying the framing is wrong, if it says
-what you do instead.

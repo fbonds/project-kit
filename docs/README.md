@@ -7,7 +7,6 @@ it is in the repository README.
 AI review that verified the argument and missed three defects in what the repository said
 about its own files, plus a charge that it missed a fourth, which the README had never
 published. It also records that the count of real misses changed three times on the way.
-Linked from the README's Results section.
 
 **`review-2026-09-17-original.md`** is that review, preserved in full rather than summarised,
 so anyone can see what was read and what was concluded. One tracking parameter was stripped
