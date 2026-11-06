@@ -128,6 +128,11 @@ project produces one.
    state file.
 10. One item at a time: show the diff, wait for approval.
 
+Rule 1 is the step test-driven development requires of a unit test: watch it fail before
+trusting it. The rule extends that to anything else that reports a pass, such as a build
+guard, a release check or a script that checks a published doc. The build guard under "Where
+the rules came from" is the case for it.
+
 Numbering is stable, so a rule can be named by number across projects.
 
 ## How to use it
