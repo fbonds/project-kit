@@ -83,9 +83,9 @@ Write it out where it belongs, or record in plain words that it is lost.
 
 **9. Check stored memories against the repo.** They load before any file is read, so a stale
 memory outranks a correct `NEXT.md`. Anything a memory asserts about a file, a branch, a flag
-or a version is checkable; check it rather than assuming it still holds. Two were wrong within
-one week: one described a branch rebase that had never been done, and the other a tool setup
-that had been replaced months earlier.
+or a version is checkable; check it rather than assuming it still holds. Two were wrong
+within one week: one described a branch rebase that had never been done, and the other a tool
+setup that had been replaced months earlier.
 
 **10. One item at a time: show the diff, wait for approval.** Commit and push only when
 asked. **No failure sits behind this one.** It is a working agreement rather than a scar: it
