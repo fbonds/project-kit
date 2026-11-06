@@ -38,6 +38,18 @@ explicitly; never point at the conversation, since a cold session reads files an
 check stored memories against the repo, because they load first and a stale one outranks a
 correct `NEXT.md`; and one item at a time.
 
+**Report a check in this shape.** Each line holds the evidence in words. A yes or a tick in
+place of it leaves the line unanswered. If the check was never shown failing, write that on
+its line, and the result does not count as verified.
+
+```
+Result: what the output showed, pasted or quoted.
+Shown failing: what was broken, and what the check then reported.
+Path: the path used, resolved.
+Artifact: the thing checked, and where it came from.
+Not checked: each thing, named.
+```
+
 ## Working rules
 
 **How to work.** One item at a time: show the diff and wait for approval before applying
