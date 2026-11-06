@@ -278,6 +278,7 @@ removed. The result and both reviews stay in `docs/` as the record.
 **The README speaks in the owner's first person and states the private-repository caveat
 once** (`e2a3eb4`). Its success claims are the owner's experience. Repeating the caveat in
 every section made them read as doubted.
+Replaced on 2026-11-06 by "The README's opening speaks to the reader as a pitch", below.
 
 **`NEXT.md` is not split** (2026-11-06, owner's decision). Moving Standards and Decided into
 their own files was rejected. A session has to read Decided before acting, so a split saves
@@ -305,6 +306,13 @@ results exist, one commit will:
 - put the harness results in Results,
 - rewrite the sentence in the README's How to use it that points at the attested runs, "The
   cold-session runs under Results passed with both habits in place."
+
+**The README's opening speaks to the reader as a pitch** (2026-11-06, owner's decision). It
+replaces "The README speaks in the owner's first person and states the private-repository
+caveat once". The opening should make a newcomer want to try the kit and find out for
+themselves how it works. The reference half, from "Where the rules came from" on, keeps the
+owner's first person and the single private-repository caveat. The opening it replaced,
+including the Before and after section, is at `b9b192e:README.md`.
 
 ## In flight
 
@@ -335,31 +343,42 @@ wrong count, a pointer to the conversation, a commit message that contradicts th
 stale stored memory where the environment allows, and true facts as controls. Each fixture
 runs with and without the kit, several times, in an environment with no stored memories.
 Grading is mechanical where the tool log can show it, and against the cold-session criteria
-where it cannot. Not designed in detail. Open: scripted or manual, and how many runs.
+where it cannot. Scripted, not manual: settled in github.com/fbonds/project-kit-harness,
+under Decided in its `NEXT.md`. The design is `docs/DESIGN.md` there. Open: how many runs,
+which that design leaves unset until the owner has read the cost of its smoke run. Read from
+GitHub on 2026-11-06 at `ae35382`, when nothing there was built and no session had been run.
+
+**The rule 10 conflict in the template** (2026-11-06, owner's request). Its own item, not
+fixed in the pass that found it. Rule 10 in `template/NEXT.md` says "Commit and push only
+when asked", which allows a push when asked. `template/CLAUDE.md` says "Never push",
+`template/HOWTOSAVESTATE.md` says "Do not push: the owner pushes", and the README's pitch
+says "The agent never pushes." Any fix is a change to a template file, so it re-reads the
+README's description of that file.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-11-06 20:11 UTC, re-checked against the remote at that time.
+As of 2026-11-06 22:56 UTC, re-checked against the remote at that time.
 
 **Uncommitted.** Nothing apart from this file's edit, which is in the commit carrying it.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
-Snapshot, not to be trusted: at that time GitHub `main` was `909766e`, and local `main` had
-`56d533a` through `c800d72` ahead of it, plus the commit carrying this sentence. The owner
+Snapshot, not to be trusted: at that time GitHub `main` was `b9b192e`, and local `main` had
+`2040b50` and `882a749` ahead of it, plus the commit carrying this sentence. The owner
 pushes, so this moves with no commit here to record it. A commit ID written into this file
 is the ID at the time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published, so what is
-unpushed above is what is unpublished. Last published: `909766e`, pushed at 01:15:31 UTC on
-2026-10-31, read from the activity log and `git ls-remote`. No tags, no GitHub releases, no
+unpushed above is what is unpublished. Last published: `b9b192e`, pushed at 20:16:23 UTC on
+2026-11-06, read from the activity log and `git ls-remote`. No tags, no GitHub releases, no
 issues and no pull requests, each read at the time above.
 
-**Outside the repository.** The GitHub description and topics change with no commit here.
-Read from the API at the time above, the description is "Three files for Claude Code that
-keep a project's state and decisions in the repo, so each session picks up where the last one
-stopped and checks facts before calling them current." The topics are `ai-assisted-coding`,
-`claude-code`, `claude-md` and `developer-workflow`.
+**Outside the repository.** The GitHub description and topics change with no commit here. Set
+on the owner's instruction and read back from the API at 22:55:19 UTC on 2026-11-06, the
+description is "Three Markdown files for Claude Code. Start each session with one sentence
+and the agent reports where your project stands. Nothing counts as verified until it has
+shown the check can fail." The topics, unchanged and read at the same time, are
+`ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`.
 
 ## Open, not blocking
 
