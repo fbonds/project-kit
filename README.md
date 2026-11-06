@@ -87,10 +87,11 @@ of what every file in the repo is for, which is what stops a document written on
 from being invisible by Friday.
 
 **`NEXT.md`** is the working state, and the only file that answers "where were we". The
-template ships with the ten standards written out and the other sections empty apart from
-instructions: Traps, Decided, In flight, Queued, a section answering committed, pushed and
-released as three separate questions, and Open. At the top is a block saying every fact below
-is dated, with the commands that re-check the moving parts.
+template ships with the ten standards written out and the other sections holding only
+instructions, plus questions to answer under Traps. The sections are Traps, Decided, In
+flight, Queued, a section answering committed, pushed and released as three separate
+questions, and Open. At the top is a block saying every fact below is dated, with the
+commands that re-check the moving parts.
 
 **`.claude/settings.json`** is optional, and is the one part that does not depend on the
 agent choosing to comply. Its deny rules block `git push`, `git add -A`, `git add --all`,
@@ -237,12 +238,12 @@ what the template does not prompt for.
 The kit is the method. A new project starts without the knowledge, and the kit cannot copy
 that in.
 
-On day one the Traps section is empty. Every entry in a mature one is a specific lie a
-specific tool told, such as a publish command that rewrites a file it was only supposed to
-read, and none of those transfer. The Decided section is empty too, so the first month will
-re-argue things until each decision is written down with its reasoning and the alternative
-it beat. Which dashboards lag, which caches serve yesterday, which checks are cheap and which
-will not run in this environment at all are each learned by being burned.
+On day one the Traps section holds questions and no answers. Every entry in a mature one is a
+specific lie a specific tool told, such as a publish command that rewrites a file it was only
+supposed to read, and none of those transfer. The Decided section is empty, so the first
+month will re-argue things until each decision is written down with its reasoning and the
+alternative it beat. The answers to those questions are learned by being burned, and so are
+which checks are cheap and which will not run in this environment at all.
 
 What transfers is the habit of writing each of those down the session it is learned, while
 the detail is still exact. The kit gives every one of them a place to go.
