@@ -45,6 +45,8 @@ Delete any rule you won't enforce. Keep the rest.
 Copy the three files into whatever you're building today, fill in the placeholders, start
 your next session with "Read CLAUDE.md and comply," and watch what it tells you.
 
+The rest of this file is the detail behind all of that.
+
 ## Where the rules came from
 
 The agent's mistakes come in a small number of recognisable shapes, and almost every one
@@ -89,12 +91,11 @@ Three files, in `template/`, and an optional fourth.
 the only reliable place to put anything. It says to read the state file first and report
 what it found, and to treat its facts as dated. It then restates the five standards that
 come up most as bullets, names the other five in a sentence, and points at `NEXT.md` for all
-ten with their reasons. Next is a short shape for reporting a check: the result, what was
-broken to show the check can fail, the path used, the artifact checked and what was not
-checked. Below that sit the working rules: how to work, confirm which repo you are in before
-acting, do not guess, and do not start queued work unprompted. The writing section comes
-last, so it can be deleted without taking anything else with it. The writing rules are
-preferences rather than checks, which is why they are kept out of the standards.
+ten with their reasons. Next is a short shape for reporting a check. Below that sit the
+working rules: how to work, confirm which repo you are in before acting, do not guess, and do
+not start queued work unprompted. The writing section comes last, so it can be deleted
+without taking anything else with it. The writing rules are preferences rather than checks,
+which is why they are kept out of the standards.
 
 **`HOWTOSAVESTATE.md`** is the end-of-session procedure. Check the external world now and
 record each fact with its date and method. Write it into the state file. Check stored
