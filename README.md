@@ -242,8 +242,10 @@ On day one the Traps section holds questions and no answers. Every entry in a ma
 specific lie a specific tool told, such as a publish command that rewrites a file it was only
 supposed to read, and none of those transfer. The Decided section is empty, so the first
 month will re-argue things until each decision is written down with its reasoning and the
-alternative it beat. The answers to those questions are learned by being burned, and so are
-which checks are cheap and which will not run in this environment at all.
+alternative it beat. A decision then changes by being replaced in the open, with the old
+entry kept, which gives a session that disagrees the reasoning it would have to overturn and
+does not stop one from ignoring it. The answers to the Traps questions are learned by being
+burned, and so are which checks are cheap and which will not run in this environment at all.
 
 What transfers is the habit of writing each of those down the session it is learned, while
 the detail is still exact. The kit gives every one of them a place to go.

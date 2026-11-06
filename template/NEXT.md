@@ -115,6 +115,10 @@ What was settled and why, what was ruled out and why, and anything the owner sai
 do. A resumed session that sees only the remaining tasks will rebuild something already
 rejected, or argue for an option already refused.
 
+An entry here is not rewritten. To change a decision, get the owner's approval, then add a
+new entry with its date, its reasoning and the entry it replaces. The only edit to the old
+entry is one added line saying what replaced it and when.
+
 <!-- Empty on day one. Add a decision the day it is made, with its reasoning, not its
      conclusion alone. -->
 

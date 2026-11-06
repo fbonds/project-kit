@@ -44,8 +44,9 @@ every file in the repo and none of the chat, so:
 
 **1. `NEXT.md`, the working state.** What is true right now, with every external fact
 carrying the date it was checked and the method. Read it first, treat its facts as dated,
-update it whenever something ships, is verified, or is decided, and rewrite what went
-stale rather than appending a correction underneath.
+update it whenever something ships, is verified, or is decided, and rewrite what went stale
+rather than appending a correction underneath. The exception is the Decided section, where a
+changed decision is added as a new entry and the old one stays, under the rule written there.
 
 **2. `HOWTOSAVESTATE.md`, this file.** The procedure for ending a session, and the index of
 what every file here is for.
