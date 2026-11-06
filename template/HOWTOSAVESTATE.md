@@ -47,6 +47,7 @@ carrying the date it was checked and the method. Read it first, treat its facts 
 update it whenever something ships, is verified, or is decided, and rewrite what went stale
 rather than appending a correction underneath. The exception is the Decided section, where a
 changed decision is added as a new entry and the old one stays, under the rule written there.
+Remove finished items from In flight, as that section says.
 
 **2. `HOWTOSAVESTATE.md`, this file.** The procedure for ending a session, and the index of
 what every file here is for.
@@ -96,7 +97,8 @@ What the file has to contain:
 - **Uncommitted, unpushed and unreleased as three separate questions.** They have different
   answers. Do not write the unpushed answer as a list of commits: the owner pushes, so it
   goes stale with no commit here to record it. Write the command that answers it and a
-  dated snapshot marked as not to be trusted.
+  dated snapshot marked as not to be trusted. Record what was last released or deployed
+  too, with its date and how it was checked.
 - **Anything that exists only in the chat transcript, written out in full.** A long
   proposal goes in its own file under `docs/`, indexed wherever `docs/` is indexed. A
   pointer to a chat log is worth nothing to the session that reads this next.

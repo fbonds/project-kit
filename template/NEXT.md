@@ -124,7 +124,11 @@ entry is one added line saying what replaced it and when.
 
 ## In flight
 
-What is being worked on now, and what state it is in.
+What is being worked on now, and what state it is in. Remove an item when it is finished,
+because the git log holds it. Before removing it, move what the git log cannot hold: a
+release or deploy goes to the Committed, pushed, released section, with its date and how it
+was checked, and anything else, such as a change made on a hosted service, goes to the
+section it belongs in.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -140,8 +144,8 @@ approved.
 **Unpushed.** The command that answers it, plus a dated snapshot marked as not to be
 trusted, because the owner pushes and that moves with no commit here to record it.
 
-**Unreleased or undeployed.** What is committed but not yet in front of anyone, and how
-that was checked.
+**Unreleased or undeployed.** What is committed but not yet in front of anyone, and how that
+was checked. Also what was last released or deployed, when, and how that was checked.
 
 ## Open, not blocking
 
