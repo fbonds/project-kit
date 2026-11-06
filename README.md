@@ -1,32 +1,49 @@
 # project-kit
 
-Three files you copy into a new repo on day one, plus the reasoning behind them. They give an
-AI coding agent a written record of where the project stands and a strict standard for what
-counts as checked. With them in place, a project carries from one session to the next for
-weeks. Each session picks up where the last one stopped, and the agent re-checks a fact
-before it reports it as current.
+You can build real software with an AI agent now. You can also lose a week to an agent that
+says "done and verified" about something that was never checked.
 
-## Before and after
+project-kit is three Markdown files. You copy them into your repo, and your agent starts
+working like it has a release checklist and a long memory. Nothing to install. Nothing to
+learn but two sentences.
 
-Before the kit, every working day started the same way. I opened Claude Code in the repo,
-told it to read everything, and got it ready to add features. Then the same problems came
-back, and each one now has a file or a rule against it:
+Every session starts by telling you where things stand. You type "Read CLAUDE.md and comply,"
+and the agent reads the state file, checks the remote, and reports what's in flight and
+what's uncommitted before it touches anything. End each session by telling it to save state.
+No more re-explaining your project every morning.
 
-| What kept going wrong | What the kit puts in its place |
-| :- | :- |
-| Nothing recorded why a decision was made, so a new session questioned logic an earlier one had written and wanted to redo it. | The Decided section of `NEXT.md`: each decision with its reasoning and what was ruled out. |
-| Feature work was whack-a-mole, driven by whatever broke that day, with no roadmap to resume. | The In flight and Queued sections, and a rule against starting queued work unprompted. |
-| It wrote tests of its own output that could not fail. | Rule 1: no check counts until it has been shown failing on deliberately broken input. |
-| It stated things from memory instead of from the thing itself. | Rule 3, check claims against the artifact, and rule 9, check stored memories against the repo. |
-| It reported a past status as current without re-checking it. | Every fact in `NEXT.md` is dated, and the file opens with the commands that re-check the moving parts. |
+Decisions stay decided. When you reject an idea, it goes in the Decided list with the reason
+and the alternative it beat. The next session reads it first, so pitching you the same bad
+idea on Thursday means arguing with the written reason. When you do change your mind, the old
+decision stays on the record, marked as replaced, so you can see why it changed.
 
-I have used the kit since 16 September 2026 on a wide range of projects: a Chrome extension,
-an overhaul of SharePoint Power Automate workflows, mobile games and home automation, several
-of them in development at the same time. That whole list of headaches is gone. It takes two
-habits. At the end of a session I tell it to save state. At the start of the next I tell it
-to read `CLAUDE.md` and comply, and it reads `NEXT.md` and tells me what is in flight, what
-is next and what is uncommitted. I do not bring it up to speed, and it does not re-evaluate
-the repo from scratch first.
+You can audit your agent without reading a line of code. Every check comes back in one shape:
+what the result was, what was deliberately broken to prove the check can fail, which path it
+used, what it actually looked at, and what it didn't check. Silence never means "verified."
+If it didn't look, it has to say so.
+
+"Live" means live. Committed, pushed and released are three separate questions with three
+separate answers, each dated. The agent has to answer all three, so a fix still on your
+laptop gets reported as uncommitted or unpushed.
+
+You stay in charge of what goes public. The agent never pushes. You do. It stages files by
+name, so your API keys and scratch files don't ride along in a lazy `git add .`. An optional
+settings file blocks the usual commands that break both rules, and a startup hook shows the
+agent how the branch stands against the remote before it opens your notes.
+
+Your traps get written down once. Most projects have a dashboard that lags or a cache that
+lies. The kit asks about them on day one, and logs each new one the session it bites you.
+
+Your project isn't trapped in a chat window. The working state lives in files in the repo.
+Switch machines, hand it to a friend, come back in a month. The repo knows where you were.
+
+The prose gets better too. There's a writing section that steers the agent away from the
+phrases that make text sound machine-written, so your README stops sounding like a brochure.
+
+Delete any rule you won't enforce. Keep the rest.
+
+Copy the three files into whatever you're building today, fill in the placeholders, start
+your next session with "Read CLAUDE.md and comply," and watch what it tells you.
 
 ## Where the rules came from
 
@@ -57,9 +74,9 @@ The first three were caught by asking a narrower question than "did the check pa
 The session that arrived afterward paid for it, went looking for a list that was not there,
 and had to rebuild it from the README, the changelog and the git log.
 
-These four, like the before and after above, come from private repositories. You cannot
-check them from here, and neither can I, so they are my account. The claims this repository
-makes about its own files and history are checkable.
+These four come from private repositories. You cannot check them from here, and neither can
+I, so they are my account. The claims this repository makes about its own files and history
+are checkable.
 
 Each rule in the kit is written with its reason attached, because a rule without its reason
 reads as taste and gets dropped the first time it is inconvenient.
