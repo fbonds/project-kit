@@ -21,7 +21,7 @@ template.** To use the kit in another repo, copy the three files in `template/`.
 > The end-of-session procedure is `template/HOWTOSAVESTATE.md`. Stored memories load before
 > any file and go stale the same way: check them against the repo rather than trusting them.
 
-Updated 2026-10-31. Working state for project-kit. `README.md` is the public argument and
+Updated 2026-11-06. Working state for project-kit. `README.md` is the public argument and
 the only documentation. `template/` is the kit itself. `docs/` is the record of results,
 indexed in `docs/README.md`. There is no design document and no roadmap; this file holds
 what is queued.
@@ -148,8 +148,10 @@ edit whose success is reported from the writing step rather than by re-reading t
 **An edit inside a wrapped paragraph leaves the wrapping wrong.** `7b83542` replaced the
 first lines of a Results paragraph and left one line far past the file's width, so the
 committed file did not match the approved diff, though the words did. Fixed in `e473d0a`.
-Recognise it: after editing inside a wrapped paragraph, run `awk 'length>93' README.md`
-before staging.
+Recognise it: after editing inside a wrapped paragraph, run
+`awk '!/^\|/ && !/^\[[^]]*\]: / && length>93' README.md` before staging. It skips table rows
+and link definitions, which cannot wrap, and nothing else, because a prose line can start
+with a link.
 
 **A session here cannot start a second Claude session to test with.** On 2026-10-30 the
 auto-mode classifier refused `claude -p --permission-mode bypassPermissions`, run from a
@@ -162,7 +164,24 @@ Recognise it: any test that needs a second Claude session goes to the owner.
 Recognise it: a session whose first reply does not say it has read `NEXT.md` and what is in
 flight. The owner's opener, "Read CLAUDE.md and comply", is the fix (`1b902ff`).
 
+**A source credited for more than it says.** On 2026-11-06 the brief for the README's Prior
+art said Cline's page teaches keeping the active file to current state rather than a log, and
+that Nygard's post says records are never edited. Cline's page does not say that, and lists
+recent changes in that file. Nygard's post says to keep a reversed decision and mark it
+superseded. The never-edit rule was on Fowler's page. Recognise it: a lesson attributed to a
+source before the source has been opened.
+
+**A brief can be staler than the repository.** The same brief asked for edits to README text
+that had gone: "has not been run yet" was removed in `967ac7b` and "What I am asking for" in
+`5e3415c`, by the owner's own decision. Recognise it: any instruction that names existing
+text. Search for the text before planning the edit.
+
 ## Decided, do not redo
+
+**Entries in this section are not rewritten, from 2026-11-06.** To change a decision, get the
+owner's approval, then add a new entry with its date, its reasoning and the entry it
+replaces. The only edit to the old entry is one added line saying what replaced it and when.
+Entries already here are not backfilled. The template carries the same rule (`f8ed21f`).
 
 **No explicit state model or `verified: true` field.** Proposed by the external review and
 rejected: a field produces the appearance of verification without the adversarial question
@@ -250,7 +269,7 @@ instead (`973cf51`).
 with a note pointing at the README's Results (`ba231a4`).
 
 **The README no longer mentions the September review, and `docs/` carries all of it.**
-`e473d0a` cut it to one paragraph, and item 13 under In flight removed that.
+`e473d0a` cut it to one paragraph, and `5e3415c` removed that.
 
 **The README presents the kit as complete** (2026-10-31, owner's decision). The claim-review
 test, never run, and "What I am asking for", which invited issues and pull requests, were
@@ -260,45 +279,40 @@ removed. The result and both reviews stay in `docs/` as the record.
 once** (`e2a3eb4`). Its success claims are the owner's experience. Repeating the caveat in
 every section made them read as doubted.
 
+**`NEXT.md` is not split** (2026-11-06, owner's decision). Moving Standards and Decided into
+their own files was rejected. A session has to read Decided before acting, so a split saves
+no reading, Traps is the largest section here and would stay, and the attested runs all used
+the current layout. Instead a finished item leaves In flight (`cd98ebe`).
+
+**Credit lives in the README only** (2026-11-06, owner's decision). The template files are
+copied under MIT-0 with no notice required, and nothing is quoted from any source. Each
+source is credited only for what it says: Nygard for marking a reversed decision superseded,
+Fowler for the rule that an accepted record is never changed, and Cline for the split that
+was looked at and not taken.
+
+**The attested cold-session runs get no run lines** (2026-11-06, owner's decision). The owner
+has no dates, repositories or details for them and none will be supplied. The owner's notes
+also said the test ran twice in two repositories and that claim-review was attempted. A
+search of this repository's history that day, by commit message and by phrase in the diffs,
+found no record of either. Claim-review stays out of the README. When the first test harness
+results exist, one commit will:
+
+- move the attested paragraph from the README's Results into a dated note in `docs/`, with a
+  line in `docs/README.md`,
+- state in that note that the README says runs began 16 September and
+  `docs/result-2026-09-17-claim-review.md`, at line 26 on 2026-11-06, says none had happened
+  as of 17 September, without picking one,
+- put the harness results in Results,
+- rewrite the sentence in the README's How to use it that points at the attested runs, "The
+  cold-session runs under Results passed with both habits in place."
+
 ## In flight
 
-A pass on 2026-10-30, fixing what a review of the repository found, one item at a time
-with approval. All of it is done. The two earlier passes, both on 2026-09-17, ended at
-`a0f13c0`, and their items are in the git log.
-
-1. "Changed four times" corrected to three in four sentences. `7370899`.
-2. A dated note in the result doc where it says the cold-session test is unrun. `ba231a4`.
-3. The GitHub repository description replaced by the owner's choice, outside the
-   repository, and read back from the API at 23:13 UTC on 2026-10-30. It now reads "Three
-   files for Claude Code that change what counts as an answer when an agent says it checked
-   something, and let a new session resume from the repo's files."
-4. This file brought up to date. `813c289`.
-5. The owner's condition on the cold-session runs in the README's Results, and the
-   instruction it implies in How to use it. `7b83542`, which left one Results line
-   unwrapped; re-wrapped in `e473d0a`.
-6. The September review's history moved out of the README into `docs/`. `e473d0a`.
-7. An optional `template/.claude/settings.json`: deny rules and a SessionStart hook,
-   checked against Claude Code's documentation and tested in a scratch repository.
-   `e1c68ed`.
-8. A portability paragraph in How to use it. The template is unchanged. `973cf51`.
-9. The save-state pass. `c2fb5f9`, which left one Queued line past the file's width.
-10. That line rewrapped. `08f9410`.
-11. The owner's fuller report on the cold-session runs, in the README's Results. `f39bd63`.
-12. This file brought up to date again. `29d503c`.
-13. The claim-review test and "What I am asking for" removed from the README. `5e3415c`.
-14. The README rewritten to lead with what the kit does, with the owner's before and after.
-    `e2a3eb4`.
-15. This file brought up to date. `58071ad`.
-16. The GitHub description replaced again, because it quoted the README opening that
-    `e2a3eb4` removed, and four topics added. Both are outside the repository and were read
-    back from the API at 00:56 UTC on 2026-10-31. The description now reads "Three files for
-    Claude Code that keep a project's state and decisions in the repo, so each session picks
-    up where the last one stopped and checks facts before calling them current." The topics
-    are `ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`. Recorded
-    in `d7fbc56`.
-17. The start-of-session step, "Read CLAUDE.md and comply", added to the README, the
-    template's `CLAUDE.md` and this repository's `CLAUDE.md`. `1b902ff`.
-18. This file brought up to date. Done in the commit carrying this line.
+Nothing. The 2026-11-06 pass, which took lessons from the sources in the README's Prior art,
+is committed one item per commit, and the git log holds it. The finished items that were
+listed here were removed under the rule that pass added to the template (`cd98ebe`). What the
+git log could not hold, the GitHub description and topics, moved to Committed, pushed,
+released.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -310,30 +324,55 @@ quitting. Later the same day the owner added that the runs happen on most days o
 weeks, including 29 and 30 October, across several private repositories for different
 projects developed at the same time, and that each picked up where the last session left
 off. The README's Results records all of it as attested. No run was recorded with its
-repository or with whether `NEXT.md` was stale. The next one gets its own line in Results.
+repository or with whether `NEXT.md` was stale. On 2026-11-06 the owner said none of those
+details exist or will be supplied, and the README's start date had become 16 September in
+`e2a3eb4`. No run lines get written for them. What happens when test harness results exist
+is in Decided.
+
+**Test harness for the kit** (2026-11-06, owner's request). Fixture repositories with
+failures planted before any run, so the ground truth is written first: a stale dated fact, a
+wrong count, a pointer to the conversation, a commit message that contradicts the code, a
+stale stored memory where the environment allows, and true facts as controls. Each fixture
+runs with and without the kit, several times, in an environment with no stored memories.
+Grading is mechanical where the tool log can show it, and against the cold-session criteria
+where it cannot. Not designed in detail. Open: scripted or manual, and how many runs.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-10-31 00:53 UTC, re-checked against the remote at that time.
+As of 2026-11-06 20:11 UTC, re-checked against the remote at that time.
 
 **Uncommitted.** Nothing apart from this file's edit, which is in the commit carrying it.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
-Snapshot, not to be trusted: at 00:53 UTC GitHub `main` was `f39bd63`, and local `main` had
-`29d503c`, `5e3415c` and `e2a3eb4` ahead of it, plus the commit carrying this sentence. The
-owner pushes, so this moves with no commit here to record it. A commit ID written into this
-file is the ID at the time of writing, and a rebase replaces it.
+Snapshot, not to be trusted: at that time GitHub `main` was `909766e`, and local `main` had
+`56d533a` through `c800d72` ahead of it, plus the commit carrying this sentence. The owner
+pushes, so this moves with no commit here to record it. A commit ID written into this file
+is the ID at the time of writing, and a rebase replaces it.
 
-**Unreleased.** Nothing is released separately. Pushed to `main` is published. No tags, no
-GitHub releases, no issues and no pull requests, each read at 00:53 UTC.
+**Unreleased.** Nothing is released separately. Pushed to `main` is published, so what is
+unpushed above is what is unpublished. Last published: `909766e`, pushed at 01:15:31 UTC on
+2026-10-31, read from the activity log and `git ls-remote`. No tags, no GitHub releases, no
+issues and no pull requests, each read at the time above.
+
+**Outside the repository.** The GitHub description and topics change with no commit here.
+Read from the API at the time above, the description is "Three files for Claude Code that
+keep a project's state and decisions in the repo, so each session picks up where the last one
+stopped and checks facts before calling them current." The topics are `ai-assisted-coding`,
+`claude-code`, `claude-md` and `developer-workflow`.
 
 ## Open, not blocking
 
 **Raised by the review, not decided:** whether the memory rule should generalise to any
-external context, whether rule 10 belongs in a separate operating-policy section, and
-whether the ten should split into always-on rules and procedures. The vendor-neutral note
-on the instruction file's name, which the follow-up exchange says the owner proposed, was
-done as item 8 under In flight. The owner's own wording is not in this repository. The only
-version here is the reviewer's paraphrase in `docs/review-2026-09-17-followup.md`. None of
-the other three is queued.
+external context, whether rule 10 belongs in a separate operating-policy section, and whether
+the ten should split into always-on rules and procedures. The vendor-neutral note on the
+instruction file's name, which the follow-up exchange says the owner proposed, was done in
+`973cf51`. The owner's own wording is not in this repository. The only version here is the
+reviewer's paraphrase in `docs/review-2026-09-17-followup.md`. None of the other three is
+queued.
+
+**Whether rule 1 needs scoping** (raised by the owner on 2026-11-06, undecided). Rule 1 does
+not say how it applies to a direct read of the artifact, such as opening a file to confirm a
+line, where there is nothing to break. Under the report shape in `template/CLAUDE.md`, every
+such read reports "not shown failing" and counts as unverified. Rule 1 and the shape stay as
+they are until this is decided.
