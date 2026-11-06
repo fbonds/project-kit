@@ -1,5 +1,7 @@
 # project-kit
 
+For solo developers, not teams.
+
 You can build real software with an AI agent now. You can also lose a week to an agent that
 says "done and verified" about something that was never checked.
 
