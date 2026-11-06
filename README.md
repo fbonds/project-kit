@@ -250,6 +250,42 @@ burned, and so are which checks are cheap and which will not run in this environ
 What transfers is the habit of writing each of those down the session it is learned, while
 the detail is still exact. The kit gives every one of them a place to go.
 
+## Prior art
+
+These sources shaped later additions to the kit. The wording here is the kit's own and
+nothing is quoted. Each link was fetched on 2026-11-06 and confirmed to be the page
+described, and the Superpowers links are pinned to the commit read that day.
+
+**Superpowers, by Jesse Vincent.** Its [verification skill][sp-verify] makes an agent run a
+check fresh and state the result with the evidence attached, and it lists the shortcuts and
+excuses it rejects. The report shape in `template/CLAUDE.md` keeps that requirement and adds
+what was broken, the path, the artifact and what was not checked. The shortcut list was the
+example for seeding Traps with generic questions, and the questions themselves are the kit's
+own. Its [test-driven development skill][sp-tdd] requires watching a test fail before writing
+the code. Rule 1 applies the same step beyond unit tests, as the paragraph after the ten
+standards says.
+
+**Cline's Memory Bank.** The [page][cline] splits a project's state into files by purpose,
+with one that changes most often. I looked at splitting `NEXT.md` the same way and kept one
+file, because a session has to read Decided before acting, so a split saves no reading. The
+instruction to remove finished items from In flight is the kit's own.
+
+**Michael Nygard, "Documenting Architecture Decisions", 2011.** The [post][nygard] keeps a
+reversed decision and marks it superseded. The rule in the template's Decided section takes
+that from it.
+
+**Martin Fowler, "Architecture Decision Record".** The [page][fowler] states the stricter
+rule that an accepted record is superseded and never changed. It credits Nygard with the term
+and with the case for a lightweight document focused on the decision, and does not attribute
+the stricter rule to him or to anyone else. The template takes that rule, and allows one
+added line on the old entry saying what replaced it and when.
+
+[sp-verify]: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/verification-before-completion/SKILL.md
+[sp-tdd]: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md
+[cline]: https://docs.cline.bot/best-practices/memory-bank
+[nygard]: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+[fowler]: https://www.martinfowler.com/bliki/ArchitectureDecisionRecord.html
+
 ## License
 
 MIT-0, which is MIT with the attribution clause removed. Copy these files into your own
