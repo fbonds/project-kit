@@ -176,6 +176,16 @@ that had gone: "has not been run yet" was removed in `967ac7b` and "What I am as
 `5e3415c`, by the owner's own decision. Recognise it: any instruction that names existing
 text. Search for the text before planning the edit.
 
+**A pitch claims what the reference half qualifies.** On 2026-11-06 ten claims in the brief's
+pitch text did not survive being read against the README and the template. "The agent can't
+tell you" and "makes both of those rules mechanical" were absolutes the kit does not enforce,
+and the README itself records `git -C . push` getting through. "Every project has" was a
+universal the template's Traps questions allow an answer of "none" to. "Two sentences" named
+one, and the one missing, save state, is a condition of the attested runs. All ten were
+reworded or cut before commit. Recognise it: any absolute in the opening or the GitHub
+description, such as "can't", "never", "every" or "first day". Read it against "What the kit
+contains" and "What the kit cannot carry".
+
 ## Decided, do not redo
 
 **Entries in this section are not rewritten, from 2026-11-06.** To change a decision, get the
@@ -316,11 +326,10 @@ including the Before and after section, is at `b9b192e:README.md`.
 
 ## In flight
 
-Nothing. The 2026-11-06 pass, which took lessons from the sources in the README's Prior art,
-is committed one item per commit, and the git log holds it. The finished items that were
-listed here were removed under the rule that pass added to the template (`cd98ebe`). What the
-git log could not hold, the GitHub description and topics, moved to Committed, pushed,
-released.
+Nothing. The 2026-11-06 pitch pass rewrote the README's opening and replaced the GitHub
+description, and its commits are `2040b50`, `882a749` and `957603b`. The owner waived one
+item at a time for its last two items, which is why they share a commit. The description is
+under Outside the repository.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -364,9 +373,9 @@ As of 2026-11-06 22:56 UTC, re-checked against the remote at that time.
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
 Snapshot, not to be trusted: at that time GitHub `main` was `b9b192e`, and local `main` had
-`2040b50` and `882a749` ahead of it, plus the commit carrying this sentence. The owner
-pushes, so this moves with no commit here to record it. A commit ID written into this file
-is the ID at the time of writing, and a rebase replaces it.
+`2040b50`, `882a749` and `957603b` ahead of it, plus the commit carrying this sentence. The
+owner pushes, so this moves with no commit here to record it. A commit ID written into this
+file is the ID at the time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published, so what is
 unpushed above is what is unpublished. Last published: `b9b192e`, pushed at 20:16:23 UTC on
@@ -394,4 +403,5 @@ queued.
 not say how it applies to a direct read of the artifact, such as opening a file to confirm a
 line, where there is nothing to break. Under the report shape in `template/CLAUDE.md`, every
 such read reports "not shown failing" and counts as unverified. Rule 1 and the shape stay as
-they are until this is decided.
+they are until this is decided. The README's pitch and the GitHub description both depend on
+rule 1 as written, so a change to its scope means re-reading both.
