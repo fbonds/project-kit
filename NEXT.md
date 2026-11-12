@@ -324,6 +324,11 @@ themselves how it works. The reference half, from "Where the rules came from" on
 owner's first person and the single private-repository caveat. The opening it replaced,
 including the Before and after section, is at `b9b192e:README.md`.
 
+**Never push, in every file** (2026-11-12, owner's decision). Rule 10 in `template/NEXT.md`
+said "Commit and push only when asked", which allowed a push when asked, against "Never
+push" in `template/CLAUDE.md`, `template/HOWTOSAVESTATE.md` and the README. Rule 10 now says
+the owner pushes.
+
 ## In flight
 
 Nothing. The 2026-11-06 pitch pass rewrote the README's opening and replaced the GitHub
@@ -356,13 +361,6 @@ where it cannot. Scripted, not manual: settled in github.com/fbonds/project-kit-
 under Decided in its `NEXT.md`. The design is `docs/DESIGN.md` there. Open: how many runs,
 which that design leaves unset until the owner has read the cost of its smoke run. Read from
 GitHub on 2026-11-06 at `ae35382`, when nothing there was built and no session had been run.
-
-**The rule 10 conflict in the template** (2026-11-06, owner's request). Its own item, not
-fixed in the pass that found it. Rule 10 in `template/NEXT.md` says "Commit and push only
-when asked", which allows a push when asked. `template/CLAUDE.md` says "Never push",
-`template/HOWTOSAVESTATE.md` says "Do not push: the owner pushes", and the README's pitch
-says "The agent never pushes." Any fix is a change to a template file, so it re-reads the
-README's description of that file.
 
 ## Committed, pushed, released: three separate questions
 

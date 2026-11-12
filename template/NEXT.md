@@ -87,10 +87,10 @@ or a version is checkable; check it rather than assuming it still holds. Two wer
 within one week: one described a branch rebase that had never been done, and the other a tool
 setup that had been replaced months earlier.
 
-**10. One item at a time: show the diff, wait for approval.** Commit and push only when
-asked. **No failure sits behind this one.** It is a working agreement rather than a scar: it
-keeps a wrong direction visible while it is still cheap to change, and batching removes that
-moment.
+**10. One item at a time: show the diff, wait for approval.** Commit only when asked, and
+never push: the owner pushes. **No failure sits behind this one.** It is a working agreement
+rather than a scar: it keeps a wrong direction visible while it is still cheap to change, and
+batching removes that moment.
 
 <!-- Add project-specific standards here as they are earned, with the reason. -->
 
