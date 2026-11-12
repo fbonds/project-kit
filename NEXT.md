@@ -329,12 +329,17 @@ said "Commit and push only when asked", which allowed a push when asked, against
 push" in `template/CLAUDE.md`, `template/HOWTOSAVESTATE.md` and the README. Rule 10 now says
 the owner pushes.
 
+**The GitHub Pages site is `README.md` alone** (2026-11-12, owner's decision). It is
+published from the root with every other file excluded in `_config.yml`, so there is no
+second copy to drift. The style files are copied from `fbonds/vibe-coding-howto`. A copy in
+`/docs` was rejected, because `/docs` is the record.
+
 ## In flight
 
-Nothing. The 2026-11-06 pitch pass rewrote the README's opening and replaced the GitHub
-description, and its commits are `2040b50`, `882a749` and `957603b`. The owner waived one
-item at a time for its last two items, which is why they share a commit. The description is
-under Outside the repository.
+**The GitHub Pages site** is committed and waits for the owner to push and set Settings >
+Pages to `main`, `/ (root)`. Then check the published page against the README. Not checked
+before commit: the build, since Jekyll is not installed here; whether the page title shows
+the name twice; and the external-link script running inside a frame.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -380,12 +385,12 @@ unpushed above is what is unpublished. Last published: `b9b192e`, pushed at 20:1
 2026-11-06, read from the activity log and `git ls-remote`. No tags, no GitHub releases, no
 issues and no pull requests, each read at the time above.
 
-**Outside the repository.** The GitHub description and topics change with no commit here. Set
-on the owner's instruction and read back from the API at 22:55:19 UTC on 2026-11-06, the
-description is "Three Markdown files for Claude Code. Start each session with one sentence
-and the agent reports where your project stands. Nothing counts as verified until it has
-shown the check can fail." The topics, unchanged and read at the same time, are
-`ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`.
+**Outside the repository.** The GitHub description and topics change with no commit here.
+Read from the API on 2026-11-12, the description is "For solo developers, not teams. Three
+Markdown files for Claude Code. Start each session with one sentence and the agent reports
+where your project stands. Nothing counts as verified until it has shown the check can
+fail." `_config.yml` carries the same text as the site description. The topics, read at the
+same time, are `ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`.
 
 ## Open, not blocking
 

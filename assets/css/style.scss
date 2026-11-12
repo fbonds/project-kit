@@ -1,0 +1,160 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+// Look and feel matched to fletcherbonds.com: near-black background, light gray text,
+// neon gradient headings with a purple glow, and the guide set in a translucent panel.
+// Colors are the ones that site defines in its own stylesheet.
+
+:root {
+  color-scheme: dark;
+  --cyber-darker: #050508;
+  --cyber-dark: #0a0a0f;
+  --text: #f3f4f6;
+  --text-body: #d1d5db;
+  --text-muted: #9ca3af;
+  --purple: #8b5cf6;
+  --purple-500: #a855f7;
+  --pink-500: #ec4899;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --blue: #60a5fa;
+  --line: rgba(255, 255, 255, 0.1);
+  --panel: rgba(255, 255, 255, 0.05);
+}
+
+html,
+body {
+  background-color: var(--cyber-darker);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// The page body becomes the site's "glass panel".
+.markdown-body {
+  color: var(--text-body);
+  font-family: inherit;
+  font-size: 17px;
+  line-height: 1.625;
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+// The theme's container carries a padding utility marked !important, so this has to be too.
+.container-lg.markdown-body {
+  padding: 2rem !important;
+}
+
+@media (min-width: 768px) {
+  .container-lg.markdown-body {
+    padding: 3rem !important;
+  }
+}
+
+// The theme's footer line is drawn by a border utility marked !important.
+.markdown-body .footer {
+  border-top-color: var(--line) !important;
+  color: var(--text-muted) !important;
+}
+
+// Headings: gradient text with a glow, as on the site's name and section titles.
+// fit-content keeps the gradient the width of the words, not the width of the page.
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom: none;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.markdown-body h1 {
+  background-image: linear-gradient(to right, var(--purple-500), var(--pink-500), var(--cyan-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.55));
+}
+
+.markdown-body h2 {
+  background-image: linear-gradient(to right, var(--cyan-400), var(--purple-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.6));
+}
+
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--cyan-400);
+}
+
+.markdown-body strong {
+  color: var(--text);
+}
+
+// Links
+.markdown-body a {
+  color: var(--blue);
+}
+
+.markdown-body a:hover {
+  color: var(--cyan-400);
+}
+
+// Code. Beginners will copy commands from these, so they stay plain and readable.
+.markdown-body code {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border-radius: 4px;
+}
+
+.markdown-body pre,
+.markdown-body .highlight pre {
+  background-color: var(--cyber-dark);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 8px;
+  color: var(--text);
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+}
+
+// Code blocks are wrapped in div.highlight, which the theme paints light gray (#f8f8f8).
+.markdown-body .highlight {
+  background-color: transparent;
+}
+
+// Quotes, rules and tables
+.markdown-body blockquote {
+  color: var(--text-muted);
+  border-left-color: var(--purple);
+}
+
+.markdown-body hr {
+  background-color: var(--line);
+}
+
+.markdown-body table tr {
+  background-color: transparent;
+  border-top-color: var(--line);
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  border-color: var(--line);
+}

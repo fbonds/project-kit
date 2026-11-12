@@ -1,0 +1,18 @@
+<!-- Replaces the Primer theme's head-custom.html, whose favicon line is commented out. -->
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+<!-- When the guide is shown inside another site's frame, links to other sites open in a new
+     tab. We chose _blank over _top because _top replaces the embedding page, so a reader sent
+     off to sign up or install something would lose their place in the guide. Many sites also
+     refuse to load inside a frame, so without this those links would show an error. -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.top !== window.self) {
+      document.querySelectorAll('a[href]').forEach(function (a) {
+        if (a.host && a.host !== location.host && !a.target) {
+          a.target = '_blank';
+          a.rel = 'noopener';
+        }
+      });
+    }
+  });
+</script>

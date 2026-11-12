@@ -41,6 +41,12 @@ for them, and that only holds while both files stay free of those strings.
 
 **`LICENSE`** is MIT-0.
 
+**`_config.yml`, `_includes/` and `assets/`** build the GitHub Pages site: `README.md`
+rendered in the style of `fbonds/vibe-coding-howto`, from which the three files under
+`_includes/` and `assets/` are copied unchanged. The site has no text of its own, so a
+pushed README change is a site change. `_config.yml` excludes every other file, and a new
+top-level file or folder is published unless it is added there.
+
 ## Standards
 
 The ten standards are written out in `template/NEXT.md`, and they apply here as written.
