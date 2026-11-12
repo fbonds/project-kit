@@ -21,10 +21,10 @@ template.** To use the kit in another repo, copy the three files in `template/`.
 > The end-of-session procedure is `template/HOWTOSAVESTATE.md`. Stored memories load before
 > any file and go stale the same way: check them against the repo rather than trusting them.
 
-Updated 2026-11-06. Working state for project-kit. `README.md` is the public argument and
-the only documentation. `template/` is the kit itself. `docs/` is the record of results,
-indexed in `docs/README.md`. There is no design document and no roadmap; this file holds
-what is queued.
+Updated 2026-11-12. Working state for project-kit. `README.md` is the public argument and
+the only documentation, and the GitHub Pages site renders it. `template/` is the kit
+itself. `docs/` is the record of results, indexed in `docs/README.md`. There is no design
+document and no roadmap; this file holds what is queued.
 
 ## Standards
 
@@ -186,6 +186,12 @@ reworded or cut before commit. Recognise it: any absolute in the opening or the 
 description, such as "can't", "never", "every" or "first day". Read it against "What the kit
 contains" and "What the kit cannot carry".
 
+**A result recorded before the check ran.** On 2026-11-12 the owner asked for the framed-link
+test of the Pages site to be marked tested and passed by another session, in the same message
+that said that session would run it. It was not written. The owner then reported it had run
+and passed, and the record says it was reported and not seen here. Recognise it: "mark it
+passed" or "record it as done" about something described in the future tense.
+
 ## Decided, do not redo
 
 **Entries in this section are not rewritten, from 2026-11-06.** To change a decision, get the
@@ -334,14 +340,18 @@ published from the root with every other file excluded in `_config.yml`, so ther
 second copy to drift. The style files are copied from `fbonds/vibe-coding-howto`. A copy in
 `/docs` was rejected, because `/docs` is the record.
 
+**The README's first line links the repository with an absolute URL** (2026-11-12, owner's
+decision, `7d77342`). The site has no other way to reach the files. On GitHub the link points
+at the page the reader is on, which is redundant there and left in, because the site has no
+text of its own. A relative link was rejected: when the page is framed, the script in
+`_includes/head-custom.html` only sends links to another host to a new tab, so a relative
+link would open the repository inside the frame.
+
 ## In flight
 
-Nothing. The GitHub Pages site went live on 2026-11-12 at
-https://fbonds.github.io/project-kit/, built from `b2e5ddd`. Its headings, links and words
-matched the README, and the excluded files returned 404. The external-link script running
-inside a frame was tested and passed on 2026-11-12 by the Claude Code session updating
-fletcherbonds.com, as the owner reported. This session did not see that test. Not checked:
-how it looks, and phone width.
+Nothing. The 2026-11-12 session made rule 10 say never push (`08c471b`) and published the
+GitHub Pages site (`b2e5ddd`, `7d77342`, `6ab6386`). The site's state is under Committed,
+pushed, released.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -371,21 +381,31 @@ GitHub on 2026-11-06 at `ae35382`, when nothing there was built and no session h
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-11-06 22:56 UTC, re-checked against the remote at that time.
+As of 2026-11-12 23:44 UTC, re-checked against the remote at that time.
 
 **Uncommitted.** Nothing apart from this file's edit, which is in the commit carrying it.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
-Snapshot, not to be trusted: at that time GitHub `main` was `b9b192e`, and local `main` had
-`2040b50`, `882a749` and `957603b` ahead of it, plus the commit carrying this sentence. The
+Snapshot, not to be trusted: at that time GitHub `main` and local `main` were both
+`6ab6386`, so the only unpushed commit is the one carrying this sentence. The
 owner pushes, so this moves with no commit here to record it. A commit ID written into this
 file is the ID at the time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published, so what is
-unpushed above is what is unpublished. Last published: `b9b192e`, pushed at 20:16:23 UTC on
-2026-11-06, read from the activity log and `git ls-remote`. No tags, no GitHub releases, no
+unpushed above is what is unpublished. Last published: `6ab6386`, pushed at 23:30:17 UTC on
+2026-11-12, read from the activity log and `git ls-remote`. No tags, no GitHub releases, no
 issues and no pull requests, each read at the time above.
+
+The GitHub Pages site at https://fbonds.github.io/project-kit/ is set to `main`, `/ (root)`.
+Its latest build was `built` on `6ab6386` at 23:31:06 UTC, read from the Pages API. At 23:44
+UTC the page, fetched with a cache buster, had the README's 10 headings in order, all 6 of
+its links, and the same 3,129 words with none differing; a planted change to one word was
+reported as a difference. Excluded files returned 404 on 2026-11-12. The external-link script
+running inside a frame was tested and passed on 2026-11-12 by the Claude Code session
+updating fletcherbonds.com, as the owner reported; this session did not see it. The owner
+reported the page looks right on desktop and phone the same day; this session did not view
+it.
 
 **Outside the repository.** The GitHub description and topics change with no commit here.
 Read from the API on 2026-11-12, the description is "For solo developers, not teams. Three
