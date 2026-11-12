@@ -338,8 +338,10 @@ second copy to drift. The style files are copied from `fbonds/vibe-coding-howto`
 
 Nothing. The GitHub Pages site went live on 2026-11-12 at
 https://fbonds.github.io/project-kit/, built from `b2e5ddd`. Its headings, links and words
-matched the README, and the excluded files returned 404. Not checked: how it looks, the
-external-link script running inside a frame, and phone width.
+matched the README, and the excluded files returned 404. The external-link script running
+inside a frame was tested and passed on 2026-11-12 by the Claude Code session updating
+fletcherbonds.com, as the owner reported. This session did not see that test. Not checked:
+how it looks, and phone width.
 
 ## Queued, unscheduled, and not to be started unprompted
 
