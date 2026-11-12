@@ -336,10 +336,10 @@ second copy to drift. The style files are copied from `fbonds/vibe-coding-howto`
 
 ## In flight
 
-**The GitHub Pages site** is committed and waits for the owner to push and set Settings >
-Pages to `main`, `/ (root)`. Then check the published page against the README. Not checked
-before commit: the build, since Jekyll is not installed here; whether the page title shows
-the name twice; and the external-link script running inside a frame.
+Nothing. The GitHub Pages site went live on 2026-11-12 at
+https://fbonds.github.io/project-kit/, built from `b2e5ddd`. Its headings, links and words
+matched the README, and the excluded files returned 404. Not checked: how it looks, the
+external-link script running inside a frame, and phone width.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -389,7 +389,8 @@ issues and no pull requests, each read at the time above.
 Read from the API on 2026-11-12, the description is "For solo developers, not teams. Three
 Markdown files for Claude Code. Start each session with one sentence and the agent reports
 where your project stands. Nothing counts as verified until it has shown the check can
-fail." `_config.yml` carries the same text as the site description. The topics, read at the
+fail." The site's description in `_config.yml` is "A solo vibe coding methodology", the
+owner's wording, and it appears in the browser tab after the title. The topics, read at the
 same time, are `ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`.
 
 ## Open, not blocking

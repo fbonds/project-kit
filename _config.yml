@@ -1,5 +1,5 @@
 title: project-kit
-description: "For solo developers, not teams. Three Markdown files for Claude Code. Start each session with one sentence and the agent reports where your project stands. Nothing counts as verified until it has shown the check can fail."
+description: A solo vibe coding methodology
 theme: jekyll-theme-primer
 # The site is README.md alone. Everything else here stays on GitHub.
 exclude:

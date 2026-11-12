@@ -1,5 +1,7 @@
 # project-kit
 
+Get the files at [github.com/fbonds/project-kit](https://github.com/fbonds/project-kit).
+
 For solo developers, not teams.
 
 You can build real software with an AI agent now. You can also lose a week to an agent that
