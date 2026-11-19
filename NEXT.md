@@ -429,9 +429,8 @@ remote at that time.
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
 Snapshot, not to be trusted: GitHub `main` was still `23edcce` when re-read on 2026-11-19,
 so the unpushed commits are `3d56ac0`, the first save of this session, and the one carrying
-this sentence. The owner pushes,
-so this moves with no commit here to record it. A commit ID written into this file is the
-ID at the time of writing, and a rebase replaces it.
+this sentence. The owner pushes, so this moves with no commit here to record it. A commit
+ID written into this file is the ID at the time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published, so what is
 unpushed above is what is unpublished. Last published: `23edcce`, pushed at 23:53:19 UTC on
