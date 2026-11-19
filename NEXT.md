@@ -21,7 +21,7 @@ template.** To use the kit in another repo, copy the three files in `template/`.
 > The end-of-session procedure is `template/HOWTOSAVESTATE.md`. Stored memories load before
 > any file and go stale the same way: check them against the repo rather than trusting them.
 
-Updated 2026-11-12. Working state for project-kit. `README.md` is the public argument and
+Updated 2026-11-18. Working state for project-kit. `README.md` is the public argument and
 the only documentation, and the GitHub Pages site renders it. `template/` is the kit
 itself. `docs/` is the record of results, indexed in `docs/README.md`. There is no design
 document and no roadmap; this file holds what is queued.
@@ -347,11 +347,55 @@ text of its own. A relative link was rejected: when the page is framed, the scri
 `_includes/head-custom.html` only sends links to another host to a new tab, so a relative
 link would open the repository inside the frame.
 
+**A five-item proposal from a benchmark article was not taken** (2026-11-18, owner's
+decision). On 2026-11-18 the owner pasted a proposal prompted by a Surge AI benchmark of
+coding-agent harnesses: amend rule 4 to cover who sees a change and when, make rule 1
+re-run the original reproduction for a fix, add guidance on thinking effort, write a
+four-arm evaluation plan in `docs/`, and queue a word budget for a filled-in `NEXT.md`. A
+session checked it against this file and found four conflicts: naming the source in the
+template reverses "Credit lives in the README only", a borrowed failure on rule 4 breaks the
+README's "Eight of the ten", a change to rule 1 runs into the open question on its scoping,
+and an evaluation plan here would be a second copy of the harness design. The owner then
+said not to do any of it and to forget the article. Nothing was written.
+
+**The "best" iteration is a new repository, vibe-kit, not a change here** (2026-11-18,
+owner's decision). It starts fresh from `template/`, without this repository's history,
+root working files or `docs/`, at `~/code/vibe-kit`, and will be public on GitHub. The owner
+creates the GitHub repository and pushes. A GitHub fork was not used: the owner reported that
+GitHub's fork dialog would not offer their own account as the owner. That was not checked
+here.
+
 ## In flight
 
-Nothing. The 2026-11-12 session made rule 10 say never push (`08c471b`) and published the
-GitHub Pages site (`b2e5ddd`, `7d77342`, `6ab6386`). The site's state is under Committed,
-pushed, released.
+**vibe-kit, which lives outside this repository.** It is recorded here only because vibe-kit
+has no working files of its own yet. Move this entry to vibe-kit's `NEXT.md` once that
+exists, and then delete it here. As of 2026-11-19 01:12 UTC:
+
+- `~/code/vibe-kit` exists, made with `git init -b main`. It has no commits and no remote.
+  `template/` in it holds the four files copied from this repository's `template/` at
+  `23edcce`, and `diff -r` against them printed nothing. That diff was not shown failing.
+  `gh repo view fbonds/vibe-kit` reported that no such repository exists.
+- An evaluation of project-kit, written for vibe-kit to start from, is drafted and **not
+  approved**. It is at
+  `/private/tmp/claude-501/-Users-fletcher-code-project-kit/d87a076c-3b4f-40eb-a854-cf6327b95f00/scratchpad/evaluation-2026-11-18.md`,
+  1,468 words. The source pages it quotes were saved in `raw/` in the same folder. That
+  folder is session scratch space that a reboot or routine cleanup can empty, and if it has
+  been emptied, both are lost and the evaluation has to be redone. The draft judges the kit
+  for a creative person with QA or adjacent skills who cannot build what they envision
+  alone, against plain Claude Code and eight published methods: Anthropic's Claude Code
+  documentation, Cline Memory Bank, GitHub Spec Kit, Kiro, AGENTS.md, BMAD, Agent OS, Harper
+  Reed's workflow and Simon Willison's "Designing agentic loops". Its seven gaps, in order:
+  no method for building, only for state and checks; rules in prose that Claude may decide
+  do not apply, where hooks could hold some; examples from one project's release
+  engineering; rule 10's diff approval against the README's "without reading a line of
+  code"; no measured evidence; no size limit on the state file; Claude Code features such as
+  plan mode, checkpoints and sandboxing unused.
+- Waiting on the owner: approval of step 2, which copies the draft to
+  `~/code/vibe-kit/docs/evaluation-2026-11-18.md`, creates `~/code/vibe-kit/docs/README.md`
+  with one line indexing it, and, if the owner wants them kept, copies the saved source pages
+  to `~/code/vibe-kit/docs/sources-2026-11-18/`. Nothing is committed in vibe-kit. The owner
+  chose to keep working from a session here until the evaluation is on disk in vibe-kit, and
+  then to start a session there.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -381,37 +425,40 @@ GitHub on 2026-11-06 at `ae35382`, when nothing there was built and no session h
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-11-12 23:44 UTC, re-checked against the remote at that time.
+As of 2026-11-19 01:12 UTC, the evening of 2026-11-18 locally, re-checked against the
+remote at that time.
 
 **Uncommitted.** Nothing apart from this file's edit, which is in the commit carrying it.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
 Snapshot, not to be trusted: at that time GitHub `main` and local `main` were both
-`6ab6386`, so the only unpushed commit is the one carrying this sentence. The
-owner pushes, so this moves with no commit here to record it. A commit ID written into this
-file is the ID at the time of writing, and a rebase replaces it.
+`23edcce`, so the only unpushed commit is the one carrying this sentence. The owner pushes,
+so this moves with no commit here to record it. A commit ID written into this file is the
+ID at the time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published, so what is
-unpushed above is what is unpublished. Last published: `6ab6386`, pushed at 23:30:17 UTC on
+unpushed above is what is unpublished. Last published: `23edcce`, pushed at 23:53:19 UTC on
 2026-11-12, read from the activity log and `git ls-remote`. No tags, no GitHub releases, no
 issues and no pull requests, each read at the time above.
 
 The GitHub Pages site at https://fbonds.github.io/project-kit/ is set to `main`, `/ (root)`.
-Its latest build was `built` on `6ab6386` at 23:31:06 UTC, read from the Pages API. At 23:44
-UTC the page, fetched with a cache buster, had the README's 10 headings in order, all 6 of
-its links, and the same 3,129 words with none differing; a planted change to one word was
-reported as a difference. Excluded files returned 404 on 2026-11-12. The external-link script
-running inside a frame was tested and passed on 2026-11-12 by the Claude Code session
-updating fletcherbonds.com, as the owner reported; this session did not see it. The owner
-reported the page looks right on desktop and phone the same day; this session did not view
-it.
+Its latest build was `built` on `23edcce` at 23:53:53 UTC on 2026-11-12, read from the Pages
+API at the time above. `23edcce` changed only this file, which the site excludes, so the
+README it renders is the one in `6ab6386`. The page itself was not fetched on 2026-11-18.
+On 2026-11-12 at 23:44 UTC the page, fetched with a cache buster, had the README's 10
+headings in order, all 6 of its links, and the same 3,129 words with none differing; a
+planted change to one word was reported as a difference. Excluded files returned 404 on
+2026-11-12. The external-link script running inside a frame was tested and passed on
+2026-11-12 by the Claude Code session updating fletcherbonds.com, as the owner reported; no
+session here saw it. The owner reported the page looks right on desktop and phone the same
+day; no session here viewed it.
 
 **Outside the repository.** The GitHub description and topics change with no commit here.
-Read from the API on 2026-11-12, the description is "For solo developers, not teams. Three
-Markdown files for Claude Code. Start each session with one sentence and the agent reports
-where your project stands. Nothing counts as verified until it has shown the check can
-fail." The site's description in `_config.yml` is "A solo vibe coding methodology", the
+Read from the API at the time above, the description is "For solo developers, not teams.
+Three Markdown files for Claude Code. Start each session with one sentence and the agent
+reports where your project stands. Nothing counts as verified until it has shown the check
+can fail." The site's description in `_config.yml` is "A solo vibe coding methodology", the
 owner's wording, and it appears in the browser tab after the title. The topics, read at the
 same time, are `ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`.
 
