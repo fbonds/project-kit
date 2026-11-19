@@ -375,27 +375,22 @@ exists, and then delete it here. As of 2026-11-19 01:12 UTC:
   `template/` in it holds the four files copied from this repository's `template/` at
   `23edcce`, and `diff -r` against them printed nothing. That diff was not shown failing.
   `gh repo view fbonds/vibe-kit` reported that no such repository exists.
-- An evaluation of project-kit, written for vibe-kit to start from, is drafted and **not
-  approved**. It is at
-  `/private/tmp/claude-501/-Users-fletcher-code-project-kit/d87a076c-3b4f-40eb-a854-cf6327b95f00/scratchpad/evaluation-2026-11-18.md`,
-  1,468 words. The source pages it quotes were saved in `raw/` in the same folder. That
-  folder is session scratch space that a reboot or routine cleanup can empty, and if it has
-  been emptied, both are lost and the evaluation has to be redone. The draft judges the kit
-  for a creative person with QA or adjacent skills who cannot build what they envision
-  alone, against plain Claude Code and eight published methods: Anthropic's Claude Code
-  documentation, Cline Memory Bank, GitHub Spec Kit, Kiro, AGENTS.md, BMAD, Agent OS, Harper
-  Reed's workflow and Simon Willison's "Designing agentic loops". Its seven gaps, in order:
-  no method for building, only for state and checks; rules in prose that Claude may decide
-  do not apply, where hooks could hold some; examples from one project's release
-  engineering; rule 10's diff approval against the README's "without reading a line of
-  code"; no measured evidence; no size limit on the state file; Claude Code features such as
-  plan mode, checkpoints and sandboxing unused.
-- Waiting on the owner: approval of step 2, which copies the draft to
-  `~/code/vibe-kit/docs/evaluation-2026-11-18.md`, creates `~/code/vibe-kit/docs/README.md`
-  with one line indexing it, and, if the owner wants them kept, copies the saved source pages
-  to `~/code/vibe-kit/docs/sources-2026-11-18/`. Nothing is committed in vibe-kit. The owner
-  chose to keep working from a session here until the evaluation is on disk in vibe-kit, and
-  then to start a session there.
+- An evaluation of project-kit, written for vibe-kit to start from, was approved for copying
+  on 2026-11-19 and is at `~/code/vibe-kit/docs/evaluation-2026-11-18.md`, 1,468 words,
+  untracked. The 47 source pages it quotes, saved with curl on 2026-11-18, are in
+  `~/code/vibe-kit/docs/sources-2026-11-18/`, and `~/code/vibe-kit/docs/README.md` indexes
+  both. `cmp` and `diff -r` against the originals printed nothing, and `cmp` was shown
+  failing on a copy with one byte added. The draft judges the kit for a creative person with
+  QA or adjacent skills who cannot build what they envision alone, against plain Claude Code
+  and eight published methods: Anthropic's Claude Code documentation, Cline Memory Bank,
+  GitHub Spec Kit, Kiro, AGENTS.md, BMAD, Agent OS, Harper Reed's workflow and Simon
+  Willison's "Designing agentic loops". Its seven gaps, in order: no method for building,
+  only for state and checks; rules in prose that Claude may decide do not apply, where hooks
+  could hold some; examples from one project's release engineering; rule 10's diff approval
+  against the README's "without reading a line of code"; no measured evidence; no size limit
+  on the state file; Claude Code features such as plan mode, checkpoints and sandboxing
+  unused.
+- Next: start a Claude Code session in `~/code/vibe-kit`. Nothing is committed there yet.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -432,8 +427,9 @@ remote at that time.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
 fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
-Snapshot, not to be trusted: at that time GitHub `main` and local `main` were both
-`23edcce`, so the only unpushed commit is the one carrying this sentence. The owner pushes,
+Snapshot, not to be trusted: GitHub `main` was still `23edcce` when re-read on 2026-11-19,
+so the unpushed commits are `3d56ac0`, the first save of this session, and the one carrying
+this sentence. The owner pushes,
 so this moves with no commit here to record it. A commit ID written into this file is the
 ID at the time of writing, and a rebase replaces it.
 
