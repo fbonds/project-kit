@@ -367,30 +367,7 @@ here.
 
 ## In flight
 
-**vibe-kit, which lives outside this repository.** It is recorded here only because vibe-kit
-has no working files of its own yet. Move this entry to vibe-kit's `NEXT.md` once that
-exists, and then delete it here. As of 2026-11-19 01:12 UTC:
-
-- `~/code/vibe-kit` exists, made with `git init -b main`. It has no commits and no remote.
-  `template/` in it holds the four files copied from this repository's `template/` at
-  `23edcce`, and `diff -r` against them printed nothing. That diff was not shown failing.
-  `gh repo view fbonds/vibe-kit` reported that no such repository exists.
-- An evaluation of project-kit, written for vibe-kit to start from, was approved for copying
-  on 2026-11-19 and is at `~/code/vibe-kit/docs/evaluation-2026-11-18.md`, 1,468 words,
-  untracked. The 47 source pages it quotes, saved with curl on 2026-11-18, are in
-  `~/code/vibe-kit/docs/sources-2026-11-18/`, and `~/code/vibe-kit/docs/README.md` indexes
-  both. `cmp` and `diff -r` against the originals printed nothing, and `cmp` was shown
-  failing on a copy with one byte added. The draft judges the kit for a creative person with
-  QA or adjacent skills who cannot build what they envision alone, against plain Claude Code
-  and eight published methods: Anthropic's Claude Code documentation, Cline Memory Bank,
-  GitHub Spec Kit, Kiro, AGENTS.md, BMAD, Agent OS, Harper Reed's workflow and Simon
-  Willison's "Designing agentic loops". Its seven gaps, in order: no method for building,
-  only for state and checks; rules in prose that Claude may decide do not apply, where hooks
-  could hold some; examples from one project's release engineering; rule 10's diff approval
-  against the README's "without reading a line of code"; no measured evidence; no size limit
-  on the state file; Claude Code features such as plan mode, checkpoints and sandboxing
-  unused.
-- Next: start a Claude Code session in `~/code/vibe-kit`. Nothing is committed there yet.
+Nothing.
 
 ## Queued, unscheduled, and not to be started unprompted
 
