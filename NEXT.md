@@ -364,6 +364,20 @@ root working files or `docs/`, at `~/code/vibe-kit`, and will be public on GitHu
 creates the GitHub repository and pushes. A GitHub fork was not used: the owner reported that
 GitHub's fork dialog would not offer their own account as the owner. That was not checked
 here.
+Replaced on 2026-11-21 by "project-kit is the owner's personal methodology", below.
+
+**project-kit is the owner's personal methodology** (2026-11-21, owner's decision). It
+replaces the entry above. The kit is the method the owner uses, offered to people who work
+the same way. A full overhaul goes on a `version2` branch and draws on nine published
+methods, read again from their live pages: Anthropic's Claude Code documentation, Cline
+Memory Bank, GitHub Spec Kit, Kiro, AGENTS.md, BMAD, Agent OS, Harper Reed's workflow and
+Simon Willison's "Designing agentic loops". Copies saved on 2026-11-18, outside this
+repository, are the fallback. Version 2 also covers seven gaps found in the kit on
+2026-11-18, where they apply. Two of them were written for a reader who does not build. Of
+those, the gap that the Traps questions ask only about publishing still applies. The gap that
+approving a diff is a formality does not, because the owner reads diffs. The overhaul may
+change the rule that entries here are not rewritten, so that a superseded entry can leave
+this file for the git history.
 
 ## In flight
 
