@@ -381,7 +381,49 @@ this file for the git history.
 
 ## In flight
 
-Nothing.
+**The version 2 overhaul, on the `version2` branch** (from 2026-11-21). The decision is under
+Decided, "project-kit is the owner's personal methodology". The first seven gaps below were
+found on 2026-11-18. Every quotation or paraphrase of a source in them comes from that day's
+reading, not from a page opened here, and is re-read from the live page before anything
+relies on it. Gaps found during the work are added at the end with their date.
+
+1. Nothing in the kit covers building. It keeps state and checks work, but nothing takes an
+   idea to a specification, a plan and a list of tasks, and nothing says how tests are
+   written or run. Spec Kit, Kiro, BMAD, Agent OS and Harper Reed's workflow all start there.
+2. Almost all of it is prose that Claude may decide does not apply. Anthropic's
+   best-practices page was read as saying that `CLAUDE.md` holds guidelines Claude may set
+   aside, and that what must happen every time belongs in a hook, a deny rule or a managed
+   setting. `template/.claude/settings.json` has six deny rules and one SessionStart hook.
+   Both daily habits, "Read CLAUDE.md and comply" and "save state", depend on the owner
+   typing them. Claude Code also has PreCompact, PostCompact, Stop and SessionEnd hooks, and
+   the kit uses none of them. Whether each can carry part of a habit is untested.
+3. The examples come from one project's release engineering, and the Traps questions in
+   `template/NEXT.md` ask only about publishing: dashboards, registries, caches. None asks
+   about failures such as a feature that works only with the developer's data, or a fix that
+   passes its own test and breaks something else. The original gap also said a new builder
+   may not recognise the release examples. That part was written for a reader who does not
+   build, and is dropped.
+4. The gap that approving a diff is a formality is dropped, because it was written for a
+   reader who does not read diffs. What stays is the tension it found: rule 10 asks for diff
+   approval, and the README says at line 24 "You can audit your agent without reading a line
+   of code."
+5. There is no measured evidence. The README's Results are the owner's account of runs in
+   private repositories. The harness in github.com/fbonds/project-kit-harness is queued and
+   not built. The 2026-11-18 reading found no measured evidence for any of the nine sources
+   either.
+6. The state file has no size limit. This file was 5,178 words, 466 lines and 31,273 bytes
+   on 2026-11-21 by `wc`, against 3,691 words for the three Markdown files in `template/`
+   together. The 2026-11-18 evaluation's 4,758 words matches `23edcce:NEXT.md`, the version
+   before that day's save. Anthropic's memory page was read as loading only the first 200
+   lines or 25KB of `MEMORY.md`. That limit is for a different file. Its best-practices page
+   was read as saying to write down only what Claude cannot find by reading the repo.
+7. The kit does not use what Claude Code provides: plan mode, checkpoints and `/rewind`,
+   sandboxing, and auto memory, which the kit treats only as something that goes stale.
+   Willison argues that approving every command makes an agent much less effective and that
+   the answer is a sandbox. The kit takes no position on any of these.
+8. The re-check assumes `main` (found 2026-11-21). The block at the top of this file and the
+   SessionStart hook in `template/.claude/settings.json` both count `origin/main...main`. On
+   `version2` they report on `main`, not on the branch in use.
 
 ## Queued, unscheduled, and not to be started unprompted
 
