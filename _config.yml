@@ -5,6 +5,8 @@ theme: jekyll-theme-primer
 exclude:
   - CLAUDE.md
   - NEXT.md
+  - DECISIONS.md
+  - TRAPS.md
   - LICENSE
   - docs
   - template

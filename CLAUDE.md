@@ -5,9 +5,11 @@ template.** To use the kit in another repo, copy the three files in `template/`,
 README's "How to use it" section shows.
 
 **Read `NEXT.md` first**, the one in this directory. It is this repository's working state:
-what is pushed, what is in flight, what is decided, the traps, and what is open. Every fact
-in it is dated. Re-check with the block at its top before acting on any of them. Then say
-that you have, and report what is in flight and what is uncommitted.
+what is pushed, what is in flight, what is queued, and what is open. Every fact in it is
+dated. Re-check with the block at its top before acting on any of them. Then read
+`DECISIONS.md` and `TRAPS.md`, which hold what was decided and the traps. Then say that you
+have, and report what is in flight and what is uncommitted. After compaction, re-read
+`NEXT.md`: this file is re-injected then, and `NEXT.md` is not.
 
 ## What this repository is
 
@@ -34,10 +36,12 @@ verbatim, and any edit to it is declared in its header. A result that went badly
 corrected with the correction stated, never rewritten to look as though it went well. A new
 file gets a line in `docs/README.md` in the same commit.
 
-**`CLAUDE.md` and `NEXT.md` in this directory** are this repository's own working files.
-Neither may contain the template's placeholder strings, even when quoting the template. The
-README tells someone who copied these two by mistake that the setup grep will print no lines
-for them, and that only holds while both files stay free of those strings.
+**`CLAUDE.md`, `NEXT.md`, `DECISIONS.md` and `TRAPS.md` in this directory** are this
+repository's own working files. None may contain the template's placeholder strings, even
+when quoting the template. The README tells someone who copied `CLAUDE.md` and `NEXT.md` by
+mistake that the setup grep will print no lines for them, and that only holds while both
+stay free of those strings. `NEXT.md`, `DECISIONS.md` and `TRAPS.md` each stay under 5,000
+tokens, the size Claude Code brings back in full after compaction.
 
 **`LICENSE`** is MIT-0.
 
@@ -50,7 +54,7 @@ top-level file or folder is published unless it is added there.
 ## Standards
 
 The ten standards are written out in `template/NEXT.md`, and they apply here as written.
-`NEXT.md` in this directory records this repository's own failures against them.
+`TRAPS.md` in this directory records this repository's own failures against them.
 
 The end-of-session procedure is `template/HOWTOSAVESTATE.md`. There is no copy here, because
 two copies drift. Where it asks for a list of the project's files, that list is the section
