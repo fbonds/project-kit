@@ -70,16 +70,6 @@ by asking whether the check had been shown failing, and the notices count by ope
 published file. No single question covers all three, so the README keeps "such as" and no
 question is invented for the third.
 
-**Root working files are named `CLAUDE.md` and `NEXT.md`**, the names the kit tells users to
-use, so this repository uses the kit the way a copier would. Each opens with a visible
-notice that it is not the template, in plain text rather than an HTML comment, which Claude
-Code strips and GitHub hides. Neither contains the template's placeholder strings, so the
-README's setup grep prints no lines for them if they are copied by mistake. It still prints
-one for `HOWTOSAVESTATE.md`, because there is no root copy of that file and whoever copies
-these two by mistake has to take it from `template/`. Renaming, and moving `CLAUDE.md` to
-`.claude/CLAUDE.md`, were rejected: both mean the repository does not use its own kit as
-written.
-
 **No `claudeMdExcludes` setting for `template/CLAUDE.md`.** Claude Code loads a
 subdirectory's `CLAUDE.md` when a session reads files there, so a session editing
 `template/` gets both files. Excluding it was rejected: it mitigates something that has not
@@ -194,3 +184,23 @@ untested. Keeping one file and pruning it was rejected, because Decided and Trap
 about 3,860 words. A SessionStart hook printing part of the file after compaction was
 rejected as the main fix, because it is untested and does nothing for a file too long to
 read well. The template takes the same shape in a later item.
+
+**The template takes the same shape as this repository** (2026-11-23, owner's decision).
+It has five Markdown files. `CLAUDE.md` carries the ten standards in full, replacing its
+five-bullet summary, because Claude Code re-injects it after compaction. `NEXT.md` holds
+current state only, kept under 2,000 words by `wc -w`. `DECISIONS.md` and `TRAPS.md` hold
+the decisions and the traps, and `HOWTOSAVESTATE.md` saves to all three state files and
+checks their sizes. The word limit stands in for the 5,000-token limit, at the 2.0 to 2.2
+tokens per word measured here, which is an inference for any other project. The settings
+hook takes the fix for gap 8. Each new template file carries a placeholder, so the setup
+grep still catches a root file copied by mistake.
+
+**Root working files use the names the kit tells users to use** (2026-11-23, owner's
+decision). They are `CLAUDE.md`, `NEXT.md`, `DECISIONS.md` and `TRAPS.md`, so this
+repository uses the kit the way a copier would. Each opens with a visible notice that it is
+not the template, in plain text, because Claude Code strips HTML comments and GitHub hides
+them. None contains the template's placeholder strings, so the setup grep prints no lines
+for them if they are copied by mistake. `HOWTOSAVESTATE.md` has no root copy. Renaming the
+files, and moving `CLAUDE.md` to `.claude/CLAUDE.md`, were rejected: both mean the
+repository does not use its own kit as written. This replaces the entry that named two
+files.
