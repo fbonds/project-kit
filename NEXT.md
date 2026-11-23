@@ -9,7 +9,7 @@ template.** To use the kit in another repo, copy the three files in `template/`.
 >
 > ```sh
 > git ls-remote --heads --tags origin                    # what GitHub actually has
-> git fetch -q origin && git rev-list --left-right --count origin/main...main   # left = behind, right = unpushed
+> git fetch -q origin && git rev-list --left-right --count '@{upstream}...HEAD'   # current branch: left = behind, right = unpushed
 > git status -sb
 > gh api repos/fbonds/project-kit/activity --jq '.[] | [.timestamp, .activity_type, .after[0:7]] | @tsv' | head
 > gh issue list --state all; gh pr list --state all
@@ -421,9 +421,13 @@ relies on it. Gaps found during the work are added at the end with their date.
    sandboxing, and auto memory, which the kit treats only as something that goes stale.
    Willison argues that approving every command makes an agent much less effective and that
    the answer is a sandbox. The kit takes no position on any of these.
-8. The re-check assumes `main` (found 2026-11-21). The block at the top of this file and the
-   SessionStart hook in `template/.claude/settings.json` both count `origin/main...main`. On
-   `version2` they report on `main`, not on the branch in use.
+8. The re-check assumed `main` (found 2026-11-21). The block at the top of this file counted
+   `origin/main...main`, so on `version2` it reported on `main`. It now counts the current
+   branch against its upstream, and so does the Unpushed paragraph below. The same
+   `origin/main...main` is still in the SessionStart hook in
+   `template/.claude/settings.json`, in `template/NEXT.md` line 9 and in
+   `template/HOWTOSAVESTATE.md` line 68. The README's description of the hook, at line 121,
+   says it counts against `origin/main`.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -458,8 +462,8 @@ remote at that time.
 
 **Uncommitted.** Nothing apart from this file's edit, which is in the commit carrying it.
 
-**Unpushed.** Answer it with `git rev-list --left-right --count origin/main...main` after a
-fetch, or `git ls-remote --heads origin main` when the remote-tracking ref may be stale.
+**Unpushed.** Answer it with `git rev-list --left-right --count '@{upstream}...HEAD'` after a
+fetch, or `git ls-remote --heads origin` when the remote-tracking ref may be stale.
 Snapshot, not to be trusted: GitHub `main` was still `23edcce` when re-read on 2026-11-19,
 so the unpushed commits are `3d56ac0`, the first save of this session, and the one carrying
 this sentence. The owner pushes, so this moves with no commit here to record it. A commit
