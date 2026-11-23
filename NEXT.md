@@ -21,7 +21,7 @@ template.** To use the kit in another repo, copy the three files in `template/`.
 > The end-of-session procedure is `template/HOWTOSAVESTATE.md`. Stored memories load before
 > any file and go stale the same way: check them against the repo rather than trusting them.
 
-Updated 2026-11-18. Working state for project-kit. `README.md` is the public argument and
+Updated 2026-11-22. Working state for project-kit. `README.md` is the public argument and
 the only documentation, and the GitHub Pages site renders it. `template/` is the kit
 itself. `docs/` is the record of results, indexed in `docs/README.md`. There is no design
 document and no roadmap; this file holds what is queued.
@@ -191,6 +191,13 @@ test of the Pages site to be marked tested and passed by another session, in the
 that said that session would run it. It was not written. The owner then reported it had run
 and passed, and the record says it was reported and not seen here. Recognise it: "mark it
 passed" or "record it as done" about something described in the future tense.
+
+**A claim called wrong before it was measured against the version it described.** On
+2026-11-21 a draft of gap 6 said the 2026-11-18 evaluation's count of 4,758 words for this
+file was wrong, because `wc -w` on `3d56ac0:NEXT.md` gave 5,341. `23edcce:NEXT.md`, the
+version before that day's save, gives exactly 4,758. It was caught before commit. Recognise
+it: a number from an earlier reading checked against a later commit than the one it was
+taken from.
 
 ## Decided, do not redo
 
@@ -429,6 +436,15 @@ relies on it. Gaps found during the work are added at the end with their date.
    `template/HOWTOSAVESTATE.md` line 68. The README's description of the hook, at line 121,
    says it counts against `origin/main`.
 
+Next, proposed on 2026-11-22 and not yet approved: one research agent re-reads the nine live
+pages and records, for each of the eight gaps, what each page says, with exact quotations
+and URLs, and where a page differs from the copy saved on 2026-11-18 or could not be
+fetched. The saved copies are in `~/code/vibe-kit/docs/sources-2026-11-18/`, 47 files,
+counted on 2026-11-21. That folder is ignored by vibe-kit's git, so the copies exist only on
+this machine. The agent writes nothing in this repository. A sample of its quotations is
+then opened directly before anything relies on them, and nothing goes into `NEXT.md` or
+`docs/` without an approved diff. Ask the owner to approve this before starting it.
+
 ## Queued, unscheduled, and not to be started unprompted
 
 **Recording cold-session runs.** The README defines the test. The owner reported on
@@ -457,27 +473,29 @@ GitHub on 2026-11-06 at `ae35382`, when nothing there was built and no session h
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-11-19 01:12 UTC, the evening of 2026-11-18 locally, re-checked against the
+As of 2026-11-23 03:52 UTC, the evening of 2026-11-22 locally, re-checked against the
 remote at that time.
 
 **Uncommitted.** Nothing apart from this file's edit, which is in the commit carrying it.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count '@{upstream}...HEAD'` after a
-fetch, or `git ls-remote --heads origin` when the remote-tracking ref may be stale.
-Snapshot, not to be trusted: GitHub `main` was still `23edcce` when re-read on 2026-11-19,
-so the unpushed commits are `3d56ac0`, the first save of this session, and the one carrying
-this sentence. The owner pushes, so this moves with no commit here to record it. A commit
-ID written into this file is the ID at the time of writing, and a rebase replaces it.
+fetch, on each branch, or `git ls-remote --heads origin` when the remote-tracking ref may be
+stale. Snapshot, not to be trusted: GitHub had `main` and `version2` both at `2f30d9f`.
+`main` had nothing unpushed. `version2` had `2e12e31`, `a3fa913` and the commit carrying
+this sentence unpushed. The owner pushes, so this moves with no commit here to record it. A
+commit ID written into this file is the ID at the time of writing, and a rebase replaces it.
 
-**Unreleased.** Nothing is released separately. Pushed to `main` is published, so what is
-unpushed above is what is unpublished. Last published: `23edcce`, pushed at 23:53:19 UTC on
-2026-11-12, read from the activity log and `git ls-remote`. No tags, no GitHub releases, no
-issues and no pull requests, each read at the time above.
+**Unreleased.** Nothing is released separately. Pushed to `main` is published, and
+`version2` is not published by the site. Last published: `2f30d9f`, pushed to `main` at
+23:01:51 UTC on 2026-11-21. `version2` was created on GitHub at 23:02:15 UTC the same day.
+Both read from the activity log, and the IDs from `git ls-remote`. No tags, no GitHub
+releases, no issues and no pull requests, each read at the time above.
 
 The GitHub Pages site at https://fbonds.github.io/project-kit/ is set to `main`, `/ (root)`.
-Its latest build was `built` on `23edcce` at 23:53:53 UTC on 2026-11-12, read from the Pages
-API at the time above. `23edcce` changed only this file, which the site excludes, so the
-README it renders is the one in `6ab6386`. The page itself was not fetched on 2026-11-18.
+Its latest build was `built` on `2f30d9f` at 23:02:25 UTC on 2026-11-21, read from the Pages
+API at the time above. Every commit from `23edcce` to `2f30d9f` changed only this file, which
+the site excludes, so the README it renders is the one in `6ab6386`. The page itself was not
+fetched on 2026-11-18 or 2026-11-22.
 On 2026-11-12 at 23:44 UTC the page, fetched with a cache buster, had the README's 10
 headings in order, all 6 of its links, and the same 3,129 words with none differing; a
 planted change to one word was reported as a difference. Excluded files returned 404 on
@@ -487,12 +505,12 @@ session here saw it. The owner reported the page looks right on desktop and phon
 day; no session here viewed it.
 
 **Outside the repository.** The GitHub description and topics change with no commit here.
-Read from the API at the time above, the description is "For solo developers, not teams.
-Three Markdown files for Claude Code. Start each session with one sentence and the agent
-reports where your project stands. Nothing counts as verified until it has shown the check
-can fail." The site's description in `_config.yml` is "A solo vibe coding methodology", the
-owner's wording, and it appears in the browser tab after the title. The topics, read at the
-same time, are `ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`.
+Read from the API at the time above, and unchanged since 2026-11-18, the description is "For
+solo developers, not teams. Three Markdown files for Claude Code. Start each session with
+one sentence and the agent reports where your project stands. Nothing counts as verified
+until it has shown the check can fail." The site's description in `_config.yml` is "A solo
+vibe coding methodology", the owner's wording, and it appears in the browser tab after the
+title. The topics, read at the same time, are `ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`.
 
 ## Open, not blocking
 
