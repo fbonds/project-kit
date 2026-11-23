@@ -41,10 +41,11 @@ through are in `docs/version2-plan.md`, and what each source says about them is 
 In progress: gaps 6 and 10, the size of the state files and what survives compaction.
 Done: `NEXT.md` measured, and the split decided (`43e4d08`) and made (`9d524e0`). On
 2026-11-23 `/context` measured the three files at `9d524e0`: `NEXT.md` 5.2k tokens,
-`DECISIONS.md` 4.8k and `TRAPS.md` 4k, so the gap list moved to the plan. Still to do:
-re-measure; change the rule that Decided entries are not rewritten, since `DECISIONS.md` is
-near the limit; then give the template the same shape, with the README's description of it,
-including `README.md:291-292`, which says the kit kept one file.
+`DECISIONS.md` 4.8k and `TRAPS.md` 4k, so the gap list moved to the plan (`ef0197f`), after
+which `NEXT.md` measured 3.1k the same way. Still to do: change the rule that Decided
+entries are not rewritten, since `DECISIONS.md` is near the limit; then give the template
+the same shape, with the README's description of it, including `README.md:291-292`, which
+says the kit kept one file.
 
 ## Queued, unscheduled, and not to be started unprompted
 
