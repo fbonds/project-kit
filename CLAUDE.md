@@ -34,7 +34,8 @@ claim that appears in two places gets corrected in one of them and survives in t
 **`docs/`** is the record: results, and the reviews behind them. A preserved review stays
 verbatim, and any edit to it is declared in its header. A result that went badly is
 corrected with the correction stated, never rewritten to look as though it went well. A new
-file gets a line in `docs/README.md` in the same commit.
+file gets a line in `docs/README.md` in the same commit. The one exception to "record" is
+`docs/version2-plan.md`, the working plan for version 2, which is edited as gaps close.
 
 **`CLAUDE.md`, `NEXT.md`, `DECISIONS.md` and `TRAPS.md` in this directory** are this
 repository's own working files. None may contain the template's placeholder strings, even

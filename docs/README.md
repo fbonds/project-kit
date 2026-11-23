@@ -21,5 +21,9 @@ methods for working with coding agents, quoted against the gaps found in this ki
 version 2. It is kept as the agent wrote it apart from two local paths, and its header says
 which of its quotations were checked.
 
+**`version2-plan.md`** is the working plan for version 2: the gaps found in the kit, in the
+order they were found. Unlike the files above it is edited as the work goes, and gaps leave
+it as they close.
+
 New material here gets a line in this file in the same commit, which is what the kit's own
 `HOWTOSAVESTATE.md` asks of every project that copies it.
