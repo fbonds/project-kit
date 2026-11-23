@@ -510,7 +510,8 @@ solo developers, not teams. Three Markdown files for Claude Code. Start each ses
 one sentence and the agent reports where your project stands. Nothing counts as verified
 until it has shown the check can fail." The site's description in `_config.yml` is "A solo
 vibe coding methodology", the owner's wording, and it appears in the browser tab after the
-title. The topics, read at the same time, are `ai-assisted-coding`, `claude-code`, `claude-md` and `developer-workflow`.
+title. The topics, read at the same time, are `ai-assisted-coding`, `claude-code`,
+`claude-md` and `developer-workflow`.
 
 ## Open, not blocking
 
