@@ -16,5 +16,10 @@ from a link, noted in the file's header. The prompt that produced it is not reco
 missed, including the write-up it drafted for recording the result. The recorded version
 departs from that draft in four ways, all listed in the result file.
 
+**`research-2026-11-23-sources.md`** is a research agent's re-reading of nine published
+methods for working with coding agents, quoted against the gaps found in this kit for
+version 2. It is kept as the agent wrote it apart from two local paths, and its header says
+which of its quotations were checked.
+
 New material here gets a line in this file in the same commit, which is what the kit's own
 `HOWTOSAVESTATE.md` asks of every project that copies it.
