@@ -18,14 +18,6 @@ kept as replaced were removed on 2026-11-23, and the file as it stood before is
 `git show 6d50128:DECISIONS.md`. An entry still here that names a removed one is left as
 written. `template/NEXT.md` carries the old rule until the template is changed.
 
-**No explicit state model or `verified: true` field.** Proposed by the external review and
-rejected: a field produces the appearance of verification without the adversarial question
-("have you shown that failing") that catches the problem. The reviewer agreed on reflection.
-Recorded in `docs/result-2026-09-17-claim-review.md`.
-
-**Not positioned as a protocol.** Also proposed by the review and rejected: "protocol"
-promises a specification, semantics and conformance that do not exist.
-
 **The review's model and vendor are not named in the prose**, because naming them turns a
 methodology note into a model comparison. That is a scope, not anonymity: the stripped
 tracking parameter that named the vendor is still in the diff of `e6dbdb9`, in a public
@@ -33,32 +25,12 @@ repository, and the files now say so. Rewriting the history to remove it was rej
 would change every commit ID from `e6dbdb9` onward, invalidate the IDs cited throughout
 these files, need a force push, and still not reach clones, forks or caches.
 
-**The failed review is preserved verbatim, not corrected.** Any edit is declared in its
-header. The prompt that produced it was not kept, and the files say so rather than
-reconstructing it.
-
 **The README's four failures, under "Where the rules came from", are stated as attested,
 not checkable.** They happened in a private repository (`70aa935`).
 
 **The template's exception sentences say "in this template".** A sentence naming rules 4
 and 10 as exceptions goes stale in every copy once its examples are replaced, and that
 sentence is not itself an example, so replacing examples does not fix it (`239226f`).
-
-**The review saw `9b89bbb`**, on the basis of its own "five commits", assuming it counted
-correctly (`029310d`).
-
-**The review missed three real defects and was charged with one it did not miss.** The three
-are the README's description of `template/CLAUDE.md`, the README's "Nine of the ten", and
-the template's claim that every standard carries its failure. Separate findings count
-separately even when they touch the same claim. The false charge stays false: it named the
-README and gave a count of three, and both were wrong, and a similar claim elsewhere does
-not make a wrong charge right. The count moved from two to one to two to three before this,
-and `docs/result-2026-09-17-claim-review.md` says so.
-
-**The external review is not a run of the claim-review test.** The test asks for ground
-truth written down before anyone is asked. Here it was written afterwards and moved three
-times, so calling it a run is the overclaim the rest of these files avoid. The result doc
-says so.
 
 **The README tells the guard, and the template tells the test of the guard.** Two moments in
 one attested incident: the guard could not fail, and separately a test of that guard ran
@@ -89,9 +61,6 @@ There is no root copy, for the reason there is no root `HOWTOSAVESTATE.md` (`e1c
 `CLAUDE.md` importing it, was considered and not done: it adds a file and changes the setup
 grep and the check for copying the root files by mistake. The README says what to rename
 instead (`973cf51`).
-
-**The 2026-09-17 result doc still says the cold-session test is unrun**, as a dated record,
-with a note pointing at the README's Results (`ba231a4`).
 
 **The README no longer mentions the September review, and `docs/` carries all of it.**
 `e473d0a` cut it to one paragraph, and `5e3415c` removed that.
@@ -204,3 +173,11 @@ for them if they are copied by mistake. `HOWTOSAVESTATE.md` has no root copy. Re
 files, and moving `CLAUDE.md` to `.claude/CLAUDE.md`, were rejected: both mean the
 repository does not use its own kit as written. This replaces the entry that named two
 files.
+
+**Closed entries leave this file when it nears its limit, from 2026-11-23** (owner's
+decision). An entry about a closed matter, whose substance a file in `docs/` already
+records, may be deleted when this file nears 5,000 tokens. The commit that deletes it names
+the file that covers it. Seven entries about the September 2026 review left on 2026-11-23.
+`docs/result-2026-09-17-claim-review.md` covers six, and the rule that a preserved review
+stays verbatim is in `CLAUDE.md`. The file as it stood before is
+`git show 541663b:DECISIONS.md`.
