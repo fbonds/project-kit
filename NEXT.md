@@ -307,6 +307,7 @@ Replaced on 2026-11-06 by "The README's opening speaks to the reader as a pitch"
 their own files was rejected. A session has to read Decided before acting, so a split saves
 no reading, Traps is the largest section here and would stay, and the attested runs all used
 the current layout. Instead a finished item leaves In flight (`cd98ebe`).
+Replaced on 2026-11-23 by "`NEXT.md` is split into state, decisions and traps", below.
 
 **Credit lives in the README only** (2026-11-06, owner's decision). The template files are
 copied under MIT-0 with no notice required, and nothing is quoted from any source. Each
@@ -385,6 +386,21 @@ those, the gap that the Traps questions ask only about publishing still applies.
 approving a diff is a formality does not, because the owner reads diffs. The overhaul may
 change the rule that entries here are not rewritten, so that a superseded entry can leave
 this file for the git history.
+
+**`NEXT.md` is split into state, decisions and traps** (2026-11-23, owner's decision). It
+replaces "`NEXT.md` is not split". After compaction Claude Code re-reads up to five recent
+files and brings back any file over 5,000 tokens as a path only, and this file measured about
+13,000 tokens on 2026-11-23, as gap 6 records. `NEXT.md` keeps the re-check block and the
+current state: In flight, Queued, the three questions and Open. Decided moves to
+`DECISIONS.md` and Traps, with Standards, to `TRAPS.md`, both at the root. `NEXT.md` names
+both, and a session reads both at the start, so the old entry's reason, that a session must
+read Decided before acting, still holds. Each of the three files stays under 5,000 tokens.
+`CLAUDE.md` tells a session to re-read `NEXT.md` after compaction, because `CLAUDE.md` is
+re-injected after compaction and `NEXT.md` is not. Whether that instruction is followed is
+untested. Keeping one file and pruning it was rejected, because Decided and Traps alone are
+about 3,860 words. A SessionStart hook printing part of the file after compaction was
+rejected as the main fix, because it is untested and does nothing for a file too long to
+read well. The template takes the same shape in a later item.
 
 ## In flight
 
