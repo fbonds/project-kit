@@ -390,9 +390,11 @@ this file for the git history.
 
 **The version 2 overhaul, on the `version2` branch** (from 2026-11-21). The decision is under
 Decided, "project-kit is the owner's personal methodology". The first seven gaps below were
-found on 2026-11-18. Every quotation or paraphrase of a source in them comes from that day's
-reading, not from a page opened here, and is re-read from the live page before anything
-relies on it. Gaps found during the work are added at the end with their date.
+found on 2026-11-18. On 2026-11-23 a research agent re-read the nine sources from their live
+pages against gaps 1 to 8. Its report, with exact quotations and URLs, is
+`docs/research-2026-11-23-sources.md`, and its header says which quotations were checked.
+Gaps 9 to 17 come from that report. Gaps found during the work are added at the end with
+their date.
 
 1. Nothing in the kit covers building. It keeps state and checks work, but nothing takes an
    idea to a specification, a plan and a list of tasks, and nothing says how tests are
@@ -421,9 +423,12 @@ relies on it. Gaps found during the work are added at the end with their date.
 6. The state file has no size limit. This file was 5,178 words, 466 lines and 31,273 bytes
    on 2026-11-21 by `wc`, against 3,691 words for the three Markdown files in `template/`
    together. The 2026-11-18 evaluation's 4,758 words matches `23edcce:NEXT.md`, the version
-   before that day's save. Anthropic's memory page was read as loading only the first 200
-   lines or 25KB of `MEMORY.md`. That limit is for a different file. Its best-practices page
-   was read as saying to write down only what Claude cannot find by reading the repo.
+   before that day's save. On 2026-11-23, at `44f09a7`, it was 6,011 words, 531 lines and
+   36,427 bytes. The 200-line figure on Anthropic's memory page is a target for `CLAUDE.md`
+   and a load limit for `MEMORY.md`, and neither applies to this file. A limit that does
+   apply is on the context-window page: right after compaction Claude Code re-reads up to
+   five recently used files, and "A file over 5,000 tokens comes back as a path reference
+   without its content". This file's token count has not been measured.
 7. The kit does not use what Claude Code provides: plan mode, checkpoints and `/rewind`,
    sandboxing, and auto memory, which the kit treats only as something that goes stale.
    Willison argues that approving every command makes an agent much less effective and that
@@ -435,15 +440,35 @@ relies on it. Gaps found during the work are added at the end with their date.
    `template/.claude/settings.json`, in `template/NEXT.md` line 9 and in
    `template/HOWTOSAVESTATE.md` line 68. The README's description of the hook, at line 121,
    says it counts against `origin/main`.
+9. The deny rules stop only the usual spelling (found 2026-11-23). The README already says
+   so, at lines 123 and 124. The permissions page adds the alternative it names: a
+   PreToolUse hook that inspects the full command text before it runs. Untested.
+10. This file does not survive compaction the way the root `CLAUDE.md` does (found
+    2026-11-23). The root `CLAUDE.md` is re-injected from disk after compaction. This file
+    comes back only if it was used recently and is under 5,000 tokens, as gap 6 says. The
+    hooks guide names a SessionStart hook with the `compact` matcher for re-injecting
+    context. The template's hook has no matcher, which the hooks reference says matches
+    compaction too. Untested.
+11. Hooks do not run until the workspace trust dialog is accepted (found 2026-11-23). The
+    setup steps do not say that the SessionStart re-check is silent until then.
+12. Nothing checks that the instruction files loaded (found 2026-11-23). The kit asks Claude
+    to say it has read `NEXT.md`, which is a claim. `/context all` lists the memory files
+    that loaded, and the owner can run it.
+13. No rule for when to start a fresh session (found 2026-11-23). The kit covers ending one.
+    Anthropic's best practices say to `/clear` between unrelated tasks and after two failed
+    corrections.
+14. No marker for an assumption written into a file (found 2026-11-23). Spec Kit uses
+    `[NEEDS CLARIFICATION: ...]` and BMAD an `[ASSUMPTION]` tag. Rule 7 covers what a report
+    leaves unchecked, not what a saved file assumes.
+15. No independent review step (found 2026-11-23). Anthropic's best practices describe a
+    second session or a subagent reviewing a diff against the spec.
+16. The kit is written for `CLAUDE.md` only (found 2026-11-23). Claude Code can read
+    `AGENTS.md` as project instructions. Low priority, since Decided keeps the kit written for
+    Claude Code, unless the owner uses a second tool.
+17. Personal preferences may belong in `CLAUDE.local.md`, kept out of git (found 2026-11-23).
+    The report marks this as its own inference. The owner decides.
 
-Next, proposed on 2026-11-22 and not yet approved: one research agent re-reads the nine live
-pages and records, for each of the eight gaps, what each page says, with exact quotations
-and URLs, and where a page differs from the copy saved on 2026-11-18 or could not be
-fetched. The saved copies are in `~/code/vibe-kit/docs/sources-2026-11-18/`, 47 files,
-counted on 2026-11-21. That folder is ignored by vibe-kit's git, so the copies exist only on
-this machine. The agent writes nothing in this repository. A sample of its quotations is
-then opened directly before anything relies on them, and nothing goes into `NEXT.md` or
-`docs/` without an approved diff. Ask the owner to approve this before starting it.
+Next: not chosen. The owner picks which gap to take first.
 
 ## Queued, unscheduled, and not to be started unprompted
 
