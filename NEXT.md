@@ -42,10 +42,11 @@ In progress: gaps 6 and 10, the size of the state files and what survives compac
 Done: `NEXT.md` measured, and the split decided (`43e4d08`) and made (`9d524e0`). On
 2026-11-23 `/context` measured the three files at `9d524e0`: `NEXT.md` 5.2k tokens,
 `DECISIONS.md` 4.8k and `TRAPS.md` 4k, so the gap list moved to the plan (`ef0197f`), after
-which `NEXT.md` measured 3.1k the same way. Still to do: change the rule that Decided
-entries are not rewritten, since `DECISIONS.md` is near the limit; then give the template
-the same shape, with the README's description of it, including `README.md:291-292`, which
-says the kit kept one file.
+which `NEXT.md` measured 3.1k the same way. The rule that Decided entries are never
+rewritten was replaced by one under which superseded entries leave `DECISIONS.md`, and three
+were removed. Still to do: give the template the same shape, with the README's description
+of it, including `README.md:291-292`, which says the kit kept one file, and the README's
+credit to Fowler for the never-changed record.
 
 ## Queued, unscheduled, and not to be started unprompted
 

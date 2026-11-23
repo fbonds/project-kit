@@ -2,15 +2,21 @@
 
 **This is project-kit's own record of decisions, filled in for this repository. It is not
 the template.** It was moved here from `NEXT.md` on 2026-11-23, as the last entry below
-records, and the entries are unchanged. In an entry written before 2026-11-23, "this file"
-means `NEXT.md`.
+records, and the entries were moved unchanged. In an entry written before 2026-11-23, "this
+file" means `NEXT.md`.
 
 ## Decided, do not redo
 
-**Entries in this section are not rewritten, from 2026-11-06.** To change a decision, get the
-owner's approval, then add a new entry with its date, its reasoning and the entry it
-replaces. The only edit to the old entry is one added line saying what replaced it and when.
-Entries already here are not backfilled. The template carries the same rule (`f8ed21f`).
+**Superseded entries leave this file, from 2026-11-23** (owner's decision). An entry in
+force is not rewritten. To change a decision, get the owner's approval, then add a new entry
+with its date, its reasoning and what it replaces, and delete the entry it replaces in the
+same commit. The git history keeps the old text. This replaces the rule from 2026-11-06 that
+entries were never rewritten and a replaced one stayed with a line saying what replaced it.
+This file outgrew that rule: on 2026-11-23 it measured 4.8k tokens, near the 5,000 that
+Claude Code brings back in full after compaction. That rule and the three entries it had
+kept as replaced were removed on 2026-11-23, and the file as it stood before is
+`git show 6d50128:DECISIONS.md`. An entry still here that names a removed one is left as
+written. `template/NEXT.md` carries the old rule until the template is changed.
 
 **No explicit state model or `verified: true` field.** Proposed by the external review and
 rejected: a field produces the appearance of verification without the adversarial question
@@ -104,17 +110,6 @@ with a note pointing at the README's Results (`ba231a4`).
 test, never run, and "What I am asking for", which invited issues and pull requests, were
 removed. The result and both reviews stay in `docs/` as the record.
 
-**The README speaks in the owner's first person and states the private-repository caveat
-once** (`e2a3eb4`). Its success claims are the owner's experience. Repeating the caveat in
-every section made them read as doubted.
-Replaced on 2026-11-06 by "The README's opening speaks to the reader as a pitch", below.
-
-**`NEXT.md` is not split** (2026-11-06, owner's decision). Moving Standards and Decided into
-their own files was rejected. A session has to read Decided before acting, so a split saves
-no reading, Traps is the largest section here and would stay, and the attested runs all used
-the current layout. Instead a finished item leaves In flight (`cd98ebe`).
-Replaced on 2026-11-23 by "`NEXT.md` is split into state, decisions and traps", below.
-
 **Credit lives in the README only** (2026-11-06, owner's decision). The template files are
 copied under MIT-0 with no notice required, and nothing is quoted from any source. Each
 source is credited only for what it says: Nygard for marking a reversed decision superseded,
@@ -171,14 +166,6 @@ template reverses "Credit lives in the README only", a borrowed failure on rule 
 README's "Eight of the ten", a change to rule 1 runs into the open question on its scoping,
 and an evaluation plan here would be a second copy of the harness design. The owner then
 said not to do any of it and to forget the article. Nothing was written.
-
-**The "best" iteration is a new repository, vibe-kit, not a change here** (2026-11-18,
-owner's decision). It starts fresh from `template/`, without this repository's history,
-root working files or `docs/`, at `~/code/vibe-kit`, and will be public on GitHub. The owner
-creates the GitHub repository and pushes. A GitHub fork was not used: the owner reported that
-GitHub's fork dialog would not offer their own account as the owner. That was not checked
-here.
-Replaced on 2026-11-21 by "project-kit is the owner's personal methodology", below.
 
 **project-kit is the owner's personal methodology** (2026-11-21, owner's decision). It
 replaces the entry above. The kit is the method the owner uses, offered to people who work
