@@ -428,7 +428,13 @@ their date.
    and a load limit for `MEMORY.md`, and neither applies to this file. A limit that does
    apply is on the context-window page: right after compaction Claude Code re-reads up to
    five recently used files, and "A file over 5,000 tokens comes back as a path reference
-   without its content". This file's token count has not been measured.
+   without its content". On 2026-11-23 this file measured about 13,000 tokens, roughly 2.6
+   times that limit. Method: a copy of it at `62dc27d`, byte-identical by `cmp`, was the only
+   `CLAUDE.md` in a new folder under the home directory, and `/context` in a Claude Code
+   session there showed 13.2k tokens of memory files, less the 223 of the owner's global
+   `CLAUDE.md`. `/context` calls its figures estimates and rounds to 0.1k. The same copy in a
+   folder under `/private/tmp/claude-501` did not load at all, and `/context` showed only the
+   223. No per-file figure was read, and no file of known size was measured.
 7. The kit does not use what Claude Code provides: plan mode, checkpoints and `/rewind`,
    sandboxing, and auto memory, which the kit treats only as something that goes stale.
    Willison argues that approving every command makes an agent much less effective and that
