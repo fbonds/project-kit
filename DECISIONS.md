@@ -69,12 +69,6 @@ instead (`973cf51`).
 test, never run, and "What I am asking for", which invited issues and pull requests, were
 removed. The result and both reviews stay in `docs/` as the record.
 
-**Credit lives in the README only** (2026-11-06, owner's decision). The template files are
-copied under MIT-0 with no notice required, and nothing is quoted from any source. Each
-source is credited only for what it says: Nygard for marking a reversed decision superseded,
-Fowler for the rule that an accepted record is never changed, and Cline for the split that
-was looked at and not taken.
-
 **The attested cold-session runs get no run lines** (2026-11-06, owner's decision). The owner
 has no dates, repositories or details for them and none will be supplied. The owner's notes
 also said the test ran twice in two repositories and that claim-review was attempted. A
@@ -181,3 +175,11 @@ the file that covers it. Seven entries about the September 2026 review left on 2
 `docs/result-2026-09-17-claim-review.md` covers six, and the rule that a preserved review
 stays verbatim is in `CLAUDE.md`. The file as it stood before is
 `git show 541663b:DECISIONS.md`.
+
+**Credit lives in the README only** (2026-11-24, owner's decision). The template files are
+copied under MIT-0 with no notice required, and nothing in them is quoted from any source.
+Each source is credited only for what it says: Nygard for marking a reversed decision
+superseded, Fowler for the rule that an accepted record is never changed, and Cline for
+splitting state into files by how often they change, which the kit took on 2026-11-23 after
+first rejecting it. This replaces the 2026-11-06 entry of the same name, which credited Cline
+for a split looked at and not taken.

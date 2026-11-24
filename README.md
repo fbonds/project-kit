@@ -17,9 +17,10 @@ what's uncommitted before it touches anything. End each session by telling it to
 No more re-explaining your project every morning.
 
 Decisions stay decided. When you reject an idea, it goes in the Decided list with the reason
-and the alternative it beat. The next session reads it first, so pitching you the same bad
-idea on Thursday means arguing with the written reason. When you do change your mind, the old
-decision stays on the record, marked as replaced, so you can see why it changed.
+and the alternative it beat. The next session reads it before starting work, so pitching you
+the same bad idea on Thursday means arguing with the written reason. When you do change your
+mind, the new decision says what it replaced and why, and the old one stays in the git
+history.
 
 You can audit your agent without reading a line of code. Every check comes back in one shape:
 what the result was, what was deliberately broken to prove the check can fail, which path it
@@ -295,19 +296,24 @@ the code. Rule 1 applies the same step beyond unit tests, as the paragraph after
 standards says.
 
 **Cline's Memory Bank.** The [page][cline] splits a project's state into files by purpose,
-with one that changes most often. I looked at splitting `NEXT.md` the same way and kept one
-file, because a session has to read Decided before acting, so a split saves no reading. The
-instruction to remove finished items from In flight is the kit's own.
+with one that changes most often. The kit now does the same: `NEXT.md` holds what changes
+most often, and `DECISIONS.md` and `TRAPS.md` what changes slowly. An earlier version kept
+one file, because a session has to read Decided before acting, so a split saves no reading.
+It was split when that file measured about 13,000 tokens, past the 5,000 that Claude Code
+brings back in full after compaction. The instruction to remove finished items from In flight
+is the kit's own.
 
 **Michael Nygard, "Documenting Architecture Decisions", 2011.** The [post][nygard] keeps a
-reversed decision and marks it superseded. The rule in the template's Decided section takes
-that from it.
+reversed decision and marks it superseded. The template took that from it, and has since let
+a superseded entry leave `DECISIONS.md`, because the git history keeps its text and the file
+has to stay short enough to read in full.
 
 **Martin Fowler, "Architecture Decision Record".** The [page][fowler] states the stricter
 rule that an accepted record is superseded and never changed. It credits Nygard with the term
 and with the case for a lightweight document focused on the decision, and does not attribute
-the stricter rule to him or to anyone else. The template takes that rule, and allows one
-added line on the old entry saying what replaced it and when.
+the stricter rule to him or to anyone else. The template takes the half of that rule that an
+entry in force is never changed. A superseded entry is deleted rather than kept, and the
+commit that deletes it names it.
 
 [sp-verify]: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/verification-before-completion/SKILL.md
 [sp-tdd]: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md
