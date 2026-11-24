@@ -37,21 +37,17 @@ their date.
    private repositories. The harness in github.com/fbonds/project-kit-harness is queued and
    not built. The 2026-11-18 reading found no measured evidence for any of the nine sources
    either.
-6. The state file has no size limit. This file was 5,178 words, 466 lines and 31,273 bytes
-   on 2026-11-21 by `wc`, against 3,691 words for the three Markdown files in `template/`
-   together. The 2026-11-18 evaluation's 4,758 words matches `23edcce:NEXT.md`, the version
-   before that day's save. On 2026-11-23, at `44f09a7`, it was 6,011 words, 531 lines and
-   36,427 bytes. The 200-line figure on Anthropic's memory page is a target for `CLAUDE.md`
-   and a load limit for `MEMORY.md`, and neither applies to this file. A limit that does
-   apply is on the context-window page: right after compaction Claude Code re-reads up to
-   five recently used files, and "A file over 5,000 tokens comes back as a path reference
-   without its content". On 2026-11-23 this file measured about 13,000 tokens, roughly 2.6
-   times that limit. Method: a copy of it at `62dc27d`, byte-identical by `cmp`, was the only
-   `CLAUDE.md` in a new folder under the home directory, and `/context` in a Claude Code
-   session there showed 13.2k tokens of memory files, less the 223 of the owner's global
-   `CLAUDE.md`. `/context` calls its figures estimates and rounds to 0.1k. The same copy in a
-   folder under `/private/tmp/claude-501` did not load at all, and `/context` showed only the
-   223. No per-file figure was read, and no file of known size was measured.
+6. The state file had no size limit (found 2026-11-18, closed 2026-11-24). Root `NEXT.md`
+   measured about 13,000 tokens on 2026-11-23, against the 5,000 above which Claude Code
+   brings a file back after compaction as a path only. It was split into `NEXT.md`,
+   `DECISIONS.md` and `TRAPS.md` (`9d524e0`), the template followed (`127e5fc`), and the
+   template's `NEXT.md` has a 2,000-word limit (`d122ebf`). To measure a file, copy it as the
+   only `CLAUDE.md` in a new folder under the home directory, start a session there, and read
+   its line in `/context all`. A copy under `/private/tmp/claude-501` does not load. Up to
+   three files load at once, as `CLAUDE.md`, `CLAUDE.local.md` and `.claude/CLAUDE.md`.
+   `/context` calls its figures estimates. Measured on 2026-11-24 at `4032610`:
+   `template/CLAUDE.md` 2.9k tokens for 1,600 words, `template/HOWTOSAVESTATE.md` 2.4k for
+   1,345, and `template/NEXT.md` 898 for 475.
 7. The kit does not use what Claude Code provides: plan mode, checkpoints and `/rewind`,
    sandboxing, and auto memory, which the kit treats only as something that goes stale.
    Willison argues that approving every command makes an agent much less effective and that
@@ -63,12 +59,12 @@ their date.
 9. The deny rules stop only the usual spelling (found 2026-11-23). The README already says
    so, at lines 123 and 124. The permissions page adds the alternative it names: a
    PreToolUse hook that inspects the full command text before it runs. Untested.
-10. This file does not survive compaction the way the root `CLAUDE.md` does (found
-    2026-11-23). The root `CLAUDE.md` is re-injected from disk after compaction. This file
-    comes back only if it was used recently and is under 5,000 tokens, as gap 6 says. The
-    hooks guide names a SessionStart hook with the `compact` matcher for re-injecting
-    context. The template's hook has no matcher, which the hooks reference says matches
-    compaction too. Untested.
+10. `NEXT.md` did not survive compaction the way the root `CLAUDE.md` does (found
+    2026-11-23, closed 2026-11-24). `CLAUDE.md`, which Claude Code re-injects after
+    compaction, now tells the session to re-read `NEXT.md` then, here and in the template,
+    and `NEXT.md` is kept under the size that comes back whole. Still untested: whether a
+    session follows that instruction, and whether the template's SessionStart hook, which
+    has no matcher, runs after compaction.
 11. Hooks do not run until the workspace trust dialog is accepted (found 2026-11-23). The
     setup steps do not say that the SessionStart re-check is silent until then.
 12. Nothing checks that the instruction files loaded (found 2026-11-23). The kit asks Claude

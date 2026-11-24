@@ -38,25 +38,15 @@ file: Claude Code re-injects `CLAUDE.md` then, and not this file.
 through are in `docs/version2-plan.md`, and what each source says about them is in
 `docs/research-2026-11-23-sources.md`.
 
-In progress: gaps 6 and 10, the size of the state files and what survives compaction.
-In this repository it is done: the split (`9d524e0`), the gap list moved to the plan
-(`ef0197f`), superseded entries allowed to leave `DECISIONS.md` (`b61a462`), and closed
-entries moved out under a second rule (`1393ba4`). Measured with `/context` on 2026-11-23:
-`NEXT.md` 3.1k tokens at `ef0197f` and `TRAPS.md` 4k at `9d524e0`. `DECISIONS.md` was 4.8k
-at `9d524e0` and has not been measured since. It was 2,122 words on 2026-11-24, against
-2,294 then. The method is in gap 6 of the plan. In the template: the standards moved into
-`CLAUDE.md` (`6228d1e`), Traps and Decided moved to `TRAPS.md` and `DECISIONS.md` with
-`HOWTOSAVESTATE.md` and the README following (`127e5fc`), and the README's decision and
-Prior art passages updated (`58fd3b0`).
+Closed on 2026-11-24: gaps 6, 8 and 10. The plan says what each changed and what is still
+untested. `DECISIONS.md` and `TRAPS.md` measured 4.8k and 4k tokens at `9d524e0` and have
+not been measured since. On 2026-11-24 they were 2,135 and 2,272 words, against 2,294 and
+2,078 then.
 
-Still to do, proposed on 2026-11-24 and not yet approved as items, in this order: the
-2,000-word limit in `template/NEXT.md`, with a `wc -w` check in Step 2 of
-`template/HOWTOSAVESTATE.md`; the gap 8 fix in `template/.claude/settings.json`,
-`template/NEXT.md` and `template/HOWTOSAVESTATE.md`, with the README's description of the
-hook; the README's advice in How to use it to re-read `CLAUDE.md` after compaction, which
-`template/CLAUDE.md` now partly covers; and re-measuring the template files. When `version2`
-is merged, the GitHub description's "Three Markdown files" becomes wrong, and only the owner
-can change it.
+Next: not chosen. The owner picks the next gap from the plan. One test only the owner can
+run is open: whether the template's SessionStart hook prints into a real session, and
+whether it runs after compaction. When `version2` is merged, the GitHub description's "Three
+Markdown files" becomes wrong, and only the owner can change it.
 
 ## Queued, unscheduled, and not to be started unprompted
 
