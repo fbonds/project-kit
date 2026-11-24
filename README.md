@@ -91,15 +91,15 @@ reads as taste and gets dropped the first time it is inconvenient.
 
 Three files, in `template/`, and an optional fourth.
 
-**`CLAUDE.md`** is read at the start of every session without being asked, which makes it
-the only reliable place to put anything. It says to read the state file first and report
-what it found, and to treat its facts as dated. It then restates the five standards that
-come up most as bullets, names the other five in a sentence, and points at `NEXT.md` for all
-ten with their reasons. Next is a short shape for reporting a check. Below that sit the
-working rules: how to work, confirm which repo you are in before acting, do not guess, and do
-not start queued work unprompted. The writing section comes last, so it can be deleted
-without taking anything else with it. The writing rules are preferences rather than checks,
-which is why they are kept out of the standards.
+**`CLAUDE.md`** is read at the start of every session without being asked, which makes it the
+only reliable place to put anything. It says to read the state file first and report what it
+found, to treat its facts as dated, and to read the state file again after the conversation
+is compacted, because Claude Code re-injects `CLAUDE.md` then and not the state file. It then
+holds the ten standards in full, each with its reason. Next is a short shape for reporting a
+check. Below that sit the working rules: how to work, confirm which repo you are in before
+acting, do not guess, and do not start queued work unprompted. The writing section comes
+last, so it can be deleted without taking anything else with it. The writing rules are
+preferences rather than checks, which is why they are kept out of the standards.
 
 **`HOWTOSAVESTATE.md`** is the end-of-session procedure. Check the external world now and
 record each fact with its date and method. Write it into the state file. Check stored
@@ -109,11 +109,10 @@ of what every file in the repo is for, which is what stops a document written on
 from being invisible by Friday.
 
 **`NEXT.md`** is the working state, and the only file that answers "where were we". The
-template ships with the ten standards written out and the other sections holding only
-instructions, plus questions to answer under Traps. The sections are Traps, Decided, In
-flight, Queued, a section answering committed, pushed and released as three separate
-questions, and Open. At the top is a block saying every fact below is dated, with the
-commands that re-check the moving parts.
+template ships with its sections holding only instructions, plus questions to answer under
+Traps. The sections are Traps, Decided, In flight, Queued, a section answering committed,
+pushed and released as three separate questions, and Open. At the top is a block saying every
+fact below is dated, with the commands that re-check the moving parts.
 
 **`.claude/settings.json`** is optional, and is the one part that does not depend on the
 agent choosing to comply. Its deny rules block `git push`, `git add -A`, `git add --all`,
