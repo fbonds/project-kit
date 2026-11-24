@@ -212,7 +212,10 @@ Start every session by telling it to read `CLAUDE.md` and comply. Claude Code lo
 `NEXT.md` first or saying that it has, and the instruction is what makes it do both. End
 every session by asking it to save state. `HOWTOSAVESTATE.md` is the procedure it follows.
 The cold-session runs under Results passed with both habits in place. If the conversation is
-compacted mid-session, tell it to read `CLAUDE.md` again and comply.
+compacted mid-session, tell it to read `CLAUDE.md` again and comply. `CLAUDE.md` already
+tells it to re-read `NEXT.md` after compaction, because Claude Code re-injects `CLAUDE.md`
+then and not `NEXT.md`. That is an instruction the session may not follow, and whether it
+does has not been tested.
 
 Delete any rule you will not enforce. A rule nobody enforces teaches the next reader that the
 rest are optional. Leave the gap in the numbering rather than closing it, so rule 7 still
