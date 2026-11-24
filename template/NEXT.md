@@ -22,6 +22,11 @@ of them.
 Two more files hold what changes slowly: `DECISIONS.md`, what was decided and ruled out, and
 `TRAPS.md`, what has cost time here before. Read both at the start, after this one.
 
+Keep this file under 2,000 words by `wc -w`. After the conversation is compacted, Claude Code
+re-reads up to five recently used files, and one over 5,000 tokens comes back as a path
+without its content. The word count is a rough stand-in for that: a file heavy with code,
+paths or tables uses more tokens per word.
+
 ## In flight
 
 What is being worked on now, and what state it is in. Remove an item when it is finished,

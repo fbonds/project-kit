@@ -113,6 +113,10 @@ What `NEXT.md`, `DECISIONS.md` and `TRAPS.md` have to contain between them:
   same session it bites, while the detail is still exact.
 - **What not to start unprompted**, where that was said.
 
+Then run `wc -w NEXT.md`. If it prints more than 2,000, move material out before committing:
+a finished item to the git log, a decision to `DECISIONS.md`, a trap to `TRAPS.md`, and a
+long plan or proposal to its own file under `docs/` with a pointer left behind.
+
 ## Step 3: check stored memories against the repo
 
 Stored memories load before any file is read, so a stale memory outranks a correct

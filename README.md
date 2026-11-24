@@ -113,7 +113,8 @@ from being invisible by Friday.
 template ships with its sections holding only instructions. The sections are In flight,
 Queued, a section answering committed, pushed and released as three separate questions, and
 Open. At the top is a block saying every fact below is dated, with the commands that re-check
-the moving parts.
+the moving parts. It asks to be kept under 2,000 words, so that Claude Code can bring it
+back whole after compaction.
 
 **`DECISIONS.md`** holds what was decided and ruled out, with the reasons, and **`TRAPS.md`**
 what has cost time before. A session reads both at the start, after `NEXT.md`. They change
