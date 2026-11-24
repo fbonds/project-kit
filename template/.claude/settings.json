@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cd \"$CLAUDE_PROJECT_DIR\" && echo 'SessionStart re-check, run before NEXT.md is read:' && { GIT_TERMINAL_PROMPT=0 git fetch -q origin || echo 'git fetch failed: the counts below are against the last fetch'; } && git status -sb && echo \"behind, unpushed: $(git rev-list --left-right --count origin/main...main)\" && grep -m1 '^Updated' NEXT.md",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && echo 'SessionStart re-check, run before NEXT.md is read:' && { GIT_TERMINAL_PROMPT=0 git fetch -q origin || echo 'git fetch failed: the counts below are against the last fetch'; } && git status -sb && { u=$(git rev-parse --abbrev-ref '@{upstream}' 2>/dev/null) && echo \"behind, unpushed against $u: $(git rev-list --left-right --count '@{upstream}...HEAD')\" || echo 'this branch has no upstream: behind and unpushed not counted'; } && grep -m1 '^Updated' NEXT.md",
             "timeout": 30
           }
         ]

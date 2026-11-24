@@ -125,13 +125,16 @@ decision.
 **`.claude/settings.json`** is optional, and is the one part that does not depend on the
 agent choosing to comply. Its deny rules block `git push`, `git add -A`, `git add --all`,
 `git add .`, `git commit -a` and `git commit -am`. Its SessionStart hook fetches from
-`origin` and prints the branch status, the behind and unpushed counts against `origin/main`,
-and the `Updated` line of `NEXT.md`, and Claude Code adds that output to the session's
-context. A deny rule matches the command as written, so `git -C . push` gets past it: it
-stops the usual form and is not a security boundary. Tested on 2026-10-30 in a scratch
-repository: the hook's output reached the session; `git push`, the same after `cd . &&`,
-`git add -A`, `git add .` and `git commit -am` were blocked; `git -C . push` went through.
-The `--all` and `-a` rules were not tested.
+`origin` and prints the branch status, the behind and unpushed counts against the current
+branch's upstream, or a line saying the branch has none, and the `Updated` line of `NEXT.md`,
+and Claude Code adds that output to the session's context. A deny rule matches the command as
+written, so `git -C . push` gets past it: it stops the usual form and is not a security
+boundary. Tested on 2026-10-30 in a scratch repository: the hook's output reached the
+session; `git push`, the same after `cd . &&`, `git add -A`, `git add .` and `git commit -am`
+were blocked; `git -C . push` went through. The `--all` and `-a` rules were not tested. The
+hook then counted against `origin/main`. The present form was tested on 2026-11-24 from `sh`,
+`bash` and `zsh` in a scratch repository, on a branch with an upstream, a branch without one,
+and a feature branch, where the earlier form failed; it was not run in a session.
 
 ### The ten standards
 
@@ -201,8 +204,8 @@ cp -n /path/to/project-kit/template/.claude/settings.json .claude/
 ```
 
 `cp -n` will not overwrite. If the repo already has `.claude/settings.json`, merge the deny
-list and the `SessionStart` hook into it by hand. The hook assumes a remote named `origin`, a
-branch named `main`, and a line in `NEXT.md` starting `Updated`.
+list and the `SessionStart` hook into it by hand. The hook assumes a remote named `origin`
+and a line in `NEXT.md` starting `Updated`.
 
 Start every session by telling it to read `CLAUDE.md` and comply. Claude Code loads
 `CLAUDE.md` into every session by itself, but a session can still start work without reading

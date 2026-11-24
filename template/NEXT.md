@@ -6,7 +6,7 @@
 >
 > ```sh
 > git ls-remote --heads --tags origin | tail -5   # what the remote actually has
-> git rev-list --left-right --count origin/main...main   # left = behind, right = unpushed
+> git rev-list --left-right --count '@{upstream}...HEAD'   # left = behind, right = unpushed
 > git status -sb
 > # add the command that checks what this project publishes or deploys
 > ```

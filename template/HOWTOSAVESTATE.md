@@ -71,7 +71,7 @@ date with each fact, and say which checks could not run.
 
 ```sh
 git ls-remote --heads --tags origin | tail -10
-git rev-list --left-right --count origin/main...main   # left = behind, right = unpushed
+git rev-list --left-right --count '@{upstream}...HEAD'   # left = behind, right = unpushed
 git status -sb && git worktree list
 ```
 

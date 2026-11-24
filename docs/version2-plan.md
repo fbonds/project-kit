@@ -56,13 +56,10 @@ their date.
    sandboxing, and auto memory, which the kit treats only as something that goes stale.
    Willison argues that approving every command makes an agent much less effective and that
    the answer is a sandbox. The kit takes no position on any of these.
-8. The re-check assumed `main` (found 2026-11-21). The block at the top of this file counted
-   `origin/main...main`, so on `version2` it reported on `main`. It now counts the current
-   branch against its upstream, and so does the Unpushed paragraph below. The same
-   `origin/main...main` is still in the SessionStart hook in
-   `template/.claude/settings.json`, in `template/NEXT.md` line 9 and in
-   `template/HOWTOSAVESTATE.md` line 68. The README's description of the hook, at line 121,
-   says it counts against `origin/main`.
+8. The re-check assumed `main` (found 2026-11-21, closed 2026-11-24). The re-check block,
+   the Unpushed paragraph, the template's SessionStart hook, `template/NEXT.md` and
+   `template/HOWTOSAVESTATE.md` all count the current branch against its upstream, and the
+   README says so. The hook prints a line instead of a count on a branch with no upstream.
 9. The deny rules stop only the usual spelling (found 2026-11-23). The README already says
    so, at lines 123 and 124. The permissions page adds the alternative it names: a
    PreToolUse hook that inspects the full command text before it runs. Untested.
