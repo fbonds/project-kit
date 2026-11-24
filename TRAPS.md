@@ -196,3 +196,9 @@ arithmetic. Measure before stating it.
 copy under `/private/tmp/claude-501` did not load and `/context` listed only the global file.
 The same copy under the home directory loaded. Recognise it: a `/context` measurement that
 lists only `~/.claude/CLAUDE.md`.
+
+**A root file naming a template placeholder.** On 2026-11-24 a draft Decided entry named the
+new test-command placeholder, which would have made the setup grep print a line for
+`DECISIONS.md` and broken the check for root files copied by mistake. The grep caught it
+before commit. Recognise it: any root file that describes a template fill-in by its name.
+Run the setup grep on the four root files before staging.

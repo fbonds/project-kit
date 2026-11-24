@@ -43,10 +43,22 @@ untested. `DECISIONS.md` and `TRAPS.md` measured 4.8k and 4k tokens at `9d524e0`
 not been measured since. On 2026-11-24 they were 2,135 and 2,272 words, against 2,294 and
 2,078 then.
 
-Next: not chosen. The owner picks the next gap from the plan. One test only the owner can
-run is open: whether the template's SessionStart hook prints into a real session, and
-whether it runs after compaction. When `version2` is merged, the GitHub description's "Three
-Markdown files" becomes wrong, and only the owner can change it.
+In progress since 2026-11-24: gap 1, a building procedure. The design is the Decided entry
+"The kit gets a building procedure, `HOWTOBUILD.md`" (`f04373b`). The first file item was
+drafted and tested on 2026-11-24 and not yet approved, so nothing of it is committed. It adds
+`template/HOWTOBUILD.md` (675 words), a pointer to it and a test-command line with a new
+placeholder in `template/CLAUDE.md`, a `HOWTOBUILD.md` entry in the file list of
+`template/HOWTOSAVESTATE.md`, and in the README six files instead of five, a paragraph on
+`HOWTOBUILD.md`, the new file in the setup commands, and the new placeholder in the grep's
+list. The README's setup commands were run against it in a scratch repository and copied,
+grepped and staged all six files. The draft is in this session's scratchpad, under `g1a/`,
+which a reboot can clear. If it is gone, redraft it from the Decided entry and show it for
+approval again. After that item: the README's Prior art credits for the new sources, then
+closing gaps 1, 13, 14 and 15 in the plan.
+
+Also open: a test only the owner can run, whether the template's SessionStart hook prints
+into a real session and runs after compaction. When `version2` is merged, the GitHub
+description's "Three Markdown files" becomes wrong, and only the owner can change it.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -76,20 +88,22 @@ GitHub on 2026-11-06 at `ae35382`, when nothing there was built and no session h
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-11-24 21:08 UTC, re-checked against the remote at that time.
+As of 2026-11-24 23:55 UTC, re-checked against the remote at that time.
 
 **Uncommitted.** Nothing apart from this save's edits, which are in the commit carrying them.
+The unapproved draft above is outside the repository.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count '@{upstream}...HEAD'` after a
 fetch, on each branch, or `git ls-remote --heads origin` when the remote-tracking ref may be
 stale. Snapshot, not to be trusted: GitHub had `main` at `2f30d9f` and `version2` at
-`58fd3b0`, and only the commit carrying this sentence was unpushed. The owner pushes, so this
-moves with no commit here to record it. A commit ID written into this file is the ID at the
-time of writing, and a rebase replaces it.
+`454509a`. Unpushed on `version2`: `18bc1c0`, `d122ebf`, `e3e3c73`, `4032610`, `97c6579`,
+`f04373b` and the commit carrying this sentence. The owner pushes, so this moves with no
+commit here to record it. A commit ID written into this file is the ID at the time of
+writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published, and
 `version2` is not published by the site. Last published: `2f30d9f`, pushed to `main` at
-23:01:51 UTC on 2026-11-21. The last push to `version2` was `58fd3b0` at 21:07:54 UTC on
+23:01:51 UTC on 2026-11-21. The last push to `version2` was `454509a` at 21:09:25 UTC on
 2026-11-24. Both read from the activity log, and the IDs from `git ls-remote`. No tags, no
 GitHub releases, no issues and no pull requests, each read at the time above.
 
@@ -97,7 +111,7 @@ The GitHub Pages site at https://fbonds.github.io/project-kit/ is set to `main`,
 Its latest build was `built` on `2f30d9f` at 23:02:25 UTC on 2026-11-21, read from the Pages
 API at the time above. Every commit from `23edcce` to `2f30d9f` changed only this file, which
 the site excludes, so the README it renders is the one in `6ab6386`. The page itself was not
-fetched on 2026-11-18, 2026-11-22 or 2026-11-24.
+fetched on 2026-11-18, 2026-11-22 or 2026-11-24, at either save.
 On 2026-11-12 at 23:44 UTC the page, fetched with a cache buster, had the README's 10
 headings in order, all 6 of its links, and the same 3,129 words with none differing; a
 planted change to one word was reported as a difference. Excluded files returned 404 on
