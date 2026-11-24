@@ -184,3 +184,13 @@ superseded, Fowler for the rule that an accepted record is never changed, and Cl
 splitting state into files by how often they change, which the kit took on 2026-11-23 after
 first rejecting it. This replaces the 2026-11-06 entry of the same name, which credited Cline
 for a split looked at and not taken.
+
+**The kit gets a building procedure, `HOWTOBUILD.md`** (2026-11-24, owner's decision). It
+takes an idea through an interview, one question at a time, to a dated spec under
+`docs/specs/`, approved before code, then small tasks built in a fresh session, each
+starting from a check shown failing. A spec says what must not change and marks open
+questions `Open:`. A small fix skips the interview and tasks but still starts from a failing
+check. A second session reviews multi-task work against the spec. Tests come first where
+one can run. `CLAUDE.md` names the test command, behind a placeholder the setup grep finds.
+Putting the procedure in `CLAUDE.md`, and one `SPEC.md` for all work, were rejected: the
+first would pass 200 lines, and the second grows without end.
