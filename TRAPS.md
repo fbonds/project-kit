@@ -7,7 +7,7 @@ cannot stop what it is checking", "this file" now reads `NEXT.md`.
 
 ## Standards
 
-The ten are in `template/NEXT.md` and apply here as written. This repository's own failures
+The ten are in `template/CLAUDE.md` and apply here as written. This repository's own failures
 against them, where it has one:
 
 **Rule 2, never verify through a path that can resolve to your own development copy.** A

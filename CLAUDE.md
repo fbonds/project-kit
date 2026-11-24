@@ -54,7 +54,7 @@ top-level file or folder is published unless it is added there.
 
 ## Standards
 
-The ten standards are written out in `template/NEXT.md`, and they apply here as written.
+The ten standards are written out in `template/CLAUDE.md`, and they apply here as written.
 `TRAPS.md` in this directory records this repository's own failures against them.
 
 The end-of-session procedure is `template/HOWTOSAVESTATE.md`. There is no copy here, because

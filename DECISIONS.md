@@ -16,7 +16,8 @@ This file outgrew that rule: on 2026-11-23 it measured 4.8k tokens, near the 5,0
 Claude Code brings back in full after compaction. That rule and the three entries it had
 kept as replaced were removed on 2026-11-23, and the file as it stood before is
 `git show 6d50128:DECISIONS.md`. An entry still here that names a removed one is left as
-written. `template/NEXT.md` carries the old rule until the template is changed.
+written. `template/DECISIONS.md` carries the same rule since `127e5fc`. This replaces the
+first version of this entry, which said `template/NEXT.md` still carried the old rule.
 
 **The review's model and vendor are not named in the prose**, because naming them turns a
 methodology note into a model comparison. That is a scope, not anonymity: the stripped
