@@ -21,7 +21,7 @@ template.** To use the kit in another repo, copy the three files in `template/`.
 > The end-of-session procedure is `template/HOWTOSAVESTATE.md`. Stored memories load before
 > any file and go stale the same way: check them against the repo rather than trusting them.
 
-Updated 2026-11-22. Working state for project-kit. `README.md` is the public argument and
+Updated 2026-11-24. Working state for project-kit. `README.md` is the public argument and
 the only documentation, and the GitHub Pages site renders it. `template/` is the kit
 itself. `docs/` is the record of results, indexed in `docs/README.md`. There is no design
 document. The version 2 plan is `docs/version2-plan.md`, and this file holds what is queued.
@@ -39,14 +39,24 @@ through are in `docs/version2-plan.md`, and what each source says about them is 
 `docs/research-2026-11-23-sources.md`.
 
 In progress: gaps 6 and 10, the size of the state files and what survives compaction.
-Done: `NEXT.md` measured, and the split decided (`43e4d08`) and made (`9d524e0`). On
-2026-11-23 `/context` measured the three files at `9d524e0`: `NEXT.md` 5.2k tokens,
-`DECISIONS.md` 4.8k and `TRAPS.md` 4k, so the gap list moved to the plan (`ef0197f`), after
-which `NEXT.md` measured 3.1k the same way. The rule that Decided entries are never
-rewritten was replaced by one under which superseded entries leave `DECISIONS.md`, and three
-were removed. Still to do: give the template the same shape, with the README's description
-of it, including `README.md:291-292`, which says the kit kept one file, and the README's
-credit to Fowler for the never-changed record.
+In this repository it is done: the split (`9d524e0`), the gap list moved to the plan
+(`ef0197f`), superseded entries allowed to leave `DECISIONS.md` (`b61a462`), and closed
+entries moved out under a second rule (`1393ba4`). Measured with `/context` on 2026-11-23:
+`NEXT.md` 3.1k tokens at `ef0197f` and `TRAPS.md` 4k at `9d524e0`. `DECISIONS.md` was 4.8k
+at `9d524e0` and has not been measured since. It was 2,122 words on 2026-11-24, against
+2,294 then. The method is in gap 6 of the plan. In the template: the standards moved into
+`CLAUDE.md` (`6228d1e`), Traps and Decided moved to `TRAPS.md` and `DECISIONS.md` with
+`HOWTOSAVESTATE.md` and the README following (`127e5fc`), and the README's decision and
+Prior art passages updated (`58fd3b0`).
+
+Still to do, proposed on 2026-11-24 and not yet approved as items, in this order: the
+2,000-word limit in `template/NEXT.md`, with a `wc -w` check in Step 2 of
+`template/HOWTOSAVESTATE.md`; the gap 8 fix in `template/.claude/settings.json`,
+`template/NEXT.md` and `template/HOWTOSAVESTATE.md`, with the README's description of the
+hook; the README's advice in How to use it to re-read `CLAUDE.md` after compaction, which
+`template/CLAUDE.md` now partly covers; and re-measuring the template files. When `version2`
+is merged, the GitHub description's "Three Markdown files" becomes wrong, and only the owner
+can change it.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -76,29 +86,28 @@ GitHub on 2026-11-06 at `ae35382`, when nothing there was built and no session h
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-11-23 03:52 UTC, the evening of 2026-11-22 locally, re-checked against the
-remote at that time.
+As of 2026-11-24 21:08 UTC, re-checked against the remote at that time.
 
-**Uncommitted.** Nothing apart from this file's edit, which is in the commit carrying it.
+**Uncommitted.** Nothing apart from this save's edits, which are in the commit carrying them.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count '@{upstream}...HEAD'` after a
 fetch, on each branch, or `git ls-remote --heads origin` when the remote-tracking ref may be
-stale. Snapshot, not to be trusted: GitHub had `main` and `version2` both at `2f30d9f`.
-`main` had nothing unpushed. `version2` had `2e12e31`, `a3fa913` and the commit carrying
-this sentence unpushed. The owner pushes, so this moves with no commit here to record it. A
-commit ID written into this file is the ID at the time of writing, and a rebase replaces it.
+stale. Snapshot, not to be trusted: GitHub had `main` at `2f30d9f` and `version2` at
+`58fd3b0`, and only the commit carrying this sentence was unpushed. The owner pushes, so this
+moves with no commit here to record it. A commit ID written into this file is the ID at the
+time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published, and
 `version2` is not published by the site. Last published: `2f30d9f`, pushed to `main` at
-23:01:51 UTC on 2026-11-21. `version2` was created on GitHub at 23:02:15 UTC the same day.
-Both read from the activity log, and the IDs from `git ls-remote`. No tags, no GitHub
-releases, no issues and no pull requests, each read at the time above.
+23:01:51 UTC on 2026-11-21. The last push to `version2` was `58fd3b0` at 21:07:54 UTC on
+2026-11-24. Both read from the activity log, and the IDs from `git ls-remote`. No tags, no
+GitHub releases, no issues and no pull requests, each read at the time above.
 
 The GitHub Pages site at https://fbonds.github.io/project-kit/ is set to `main`, `/ (root)`.
 Its latest build was `built` on `2f30d9f` at 23:02:25 UTC on 2026-11-21, read from the Pages
 API at the time above. Every commit from `23edcce` to `2f30d9f` changed only this file, which
 the site excludes, so the README it renders is the one in `6ab6386`. The page itself was not
-fetched on 2026-11-18 or 2026-11-22.
+fetched on 2026-11-18, 2026-11-22 or 2026-11-24.
 On 2026-11-12 at 23:44 UTC the page, fetched with a cache buster, had the README's 10
 headings in order, all 6 of its links, and the same 3,129 words with none differing; a
 planted change to one word was reported as a difference. Excluded files returned 404 on

@@ -177,3 +177,22 @@ file was wrong, because `wc -w` on `3d56ac0:NEXT.md` gave 5,341. `23edcce:NEXT.m
 version before that day's save, gives exactly 4,758. It was caught before commit. Recognise
 it: a number from an earlier reading checked against a later commit than the one it was
 taken from.
+
+**A draft written into the repository before it was approved.** On 2026-11-23 the proposed
+`docs/` record was written into `docs/` while it was being shown for approval. It was moved
+back to the scratchpad when noticed. Recognise it: a draft whose path is inside the
+repository. Draft in the scratchpad and copy on approval.
+
+**A check's warning explained away.** In `62dc27d` a 94-character line went in because the
+line-length check flagged it and the flag was put down to the diff's `+` prefix. Fixed in
+`9d524e0`. Recognise it: any reason given for ignoring what a check printed. Read the number.
+
+**A limit written in the same commit as an estimate of meeting it.** `9d524e0` told
+`CLAUDE.md` that each state file stays under 5,000 tokens, on an estimate of about 4,800 for
+`NEXT.md`. `/context` measured 5.2k. Recognise it: a size rule whose only evidence is
+arithmetic. Measure before stating it.
+
+**Claude Code did not load a `CLAUDE.md` from its own scratchpad folder.** On 2026-11-23 a
+copy under `/private/tmp/claude-501` did not load and `/context` listed only the global file.
+The same copy under the home directory loaded. Recognise it: a `/context` measurement that
+lists only `~/.claude/CLAUDE.md`.
