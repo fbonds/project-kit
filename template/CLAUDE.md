@@ -5,10 +5,11 @@
      next reader that the rest are optional too. -->
 
 **Read `NEXT.md` first, and say that you have.** It is the working state: what shipped, what
-is in flight, what is decided, what is queued. Read it before proposing anything, then report
-what is in flight and what is uncommitted before doing anything else. After the conversation
-is compacted, read it again: Claude Code re-injects this file after compaction, and not
-`NEXT.md`.
+is in flight, what is queued. Then read `DECISIONS.md`, what was decided and ruled out, and
+`TRAPS.md`, what has cost time here before. Read all three before proposing anything, then
+report what is in flight and what is uncommitted before doing anything else. After the
+conversation is compacted, read `NEXT.md` again: Claude Code re-injects this file after
+compaction, and not `NEXT.md`.
 
 **Treat its facts as dated, not current.** Every claim in it records what was true when it
 was checked. Anything outside this repo moves without a commit here to show it. The block
@@ -121,8 +122,8 @@ similar names, or a sibling checkout, are easy to act in by mistake and expensiv
 reasoning your way to a plausible answer and presenting it as one. "I could not verify this"
 is a usable answer; a confident wrong one costs the rest of the session's trust.
 
-**Do not start queued work unprompted.** `NEXT.md` names what is waiting and what was
-deliberately rejected. Raise it rather than beginning it.
+**Do not start queued work unprompted.** `NEXT.md` names what is waiting, and `DECISIONS.md`
+what was deliberately rejected. Raise it rather than beginning it.
 
 ## Writing
 

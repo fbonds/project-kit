@@ -7,7 +7,7 @@ For solo developers, not teams.
 You can build real software with an AI agent now. You can also lose a week to an agent that
 says "done and verified" about something that was never checked.
 
-project-kit is three Markdown files. You copy them into your repo, and your agent starts
+project-kit is five Markdown files. You copy them into your repo, and your agent starts
 working like it has a release checklist and a long memory. Nothing to install. Nothing to
 learn but two sentences.
 
@@ -46,7 +46,7 @@ phrases that make text sound machine-written, so your README stops sounding like
 
 Delete any rule you won't enforce. Keep the rest.
 
-Copy the three files into whatever you're building today, fill in the placeholders, start
+Copy the five files into whatever you're building today, fill in the placeholders, start
 your next session with "Read CLAUDE.md and comply," and watch what it tells you.
 
 The rest of this file is the detail behind all of that.
@@ -89,7 +89,7 @@ reads as taste and gets dropped the first time it is inconvenient.
 
 ## What the kit contains
 
-Three files, in `template/`, and an optional fourth.
+Five files, in `template/`, and an optional sixth.
 
 **`CLAUDE.md`** is read at the start of every session without being asked, which makes it the
 only reliable place to put anything. It says to read the state file first and report what it
@@ -109,10 +109,16 @@ of what every file in the repo is for, which is what stops a document written on
 from being invisible by Friday.
 
 **`NEXT.md`** is the working state, and the only file that answers "where were we". The
-template ships with its sections holding only instructions, plus questions to answer under
-Traps. The sections are Traps, Decided, In flight, Queued, a section answering committed,
-pushed and released as three separate questions, and Open. At the top is a block saying every
-fact below is dated, with the commands that re-check the moving parts.
+template ships with its sections holding only instructions. The sections are In flight,
+Queued, a section answering committed, pushed and released as three separate questions, and
+Open. At the top is a block saying every fact below is dated, with the commands that re-check
+the moving parts.
+
+**`DECISIONS.md`** holds what was decided and ruled out, with the reasons, and **`TRAPS.md`**
+what has cost time before. A session reads both at the start, after `NEXT.md`. They change
+slowly, so they are kept apart from the working state to keep each file short. `TRAPS.md`
+ships with questions to answer, and `DECISIONS.md` empty, with the rule for changing a
+decision.
 
 **`.claude/settings.json`** is optional, and is the one part that does not depend on the
 agent choosing to comply. Its deny rules block `git push`, `git add -A`, `git add --all`,
@@ -165,8 +171,10 @@ Numbering is stable, so a rule can be named by number across projects.
 cp /path/to/project-kit/template/CLAUDE.md .
 cp /path/to/project-kit/template/HOWTOSAVESTATE.md .
 cp /path/to/project-kit/template/NEXT.md .
-grep -n 'PROJECT\|YYYY-MM-DD' CLAUDE.md HOWTOSAVESTATE.md NEXT.md
-git add CLAUDE.md HOWTOSAVESTATE.md NEXT.md
+cp /path/to/project-kit/template/DECISIONS.md .
+cp /path/to/project-kit/template/TRAPS.md .
+grep -n 'PROJECT\|YYYY-MM-DD' CLAUDE.md HOWTOSAVESTATE.md NEXT.md DECISIONS.md TRAPS.md
+git add CLAUDE.md HOWTOSAVESTATE.md NEXT.md DECISIONS.md TRAPS.md
 git diff --cached --stat
 git commit -m 'Add the working-state files'
 ```
@@ -178,10 +186,10 @@ command that checks what this project publishes or deploys", and the commands fo
 thing in `HOWTOSAVESTATE.md`. Until the first is filled, the staleness warning has nothing
 behind it.
 
-Run the `grep` before filling anything in. If it prints nothing for `CLAUDE.md` or `NEXT.md`,
-you copied this repository's own working files from its root instead of the ones in
-`template/`. Those root files are the kit applied to this repository, a small documentation
-project, and they are the only worked example here.
+Run the `grep` before filling anything in. If it prints nothing for `CLAUDE.md`, `NEXT.md`,
+`DECISIONS.md` or `TRAPS.md`, you copied this repository's own working files from its root
+instead of the ones in `template/`. Those root files are the kit applied to this repository,
+a small documentation project, and they are the only worked example here.
 
 The optional settings file goes in `.claude/`:
 

@@ -19,33 +19,8 @@ Updated YYYY-MM-DD. Working state for PROJECT. Say here which file is the design
 the roadmap, and which is the public documentation, so this file is not mistaken for any
 of them.
 
-## Traps
-
-Things that cost time once and would cost it again: a tool that lies, a check that cannot
-fail, an environment that behaves differently here. Add one the same session it bites,
-with enough detail to recognise it, not just to remember it happened.
-
-Start with these questions. Answer each for this project. An answer of "none" is a claim like
-any other fact in this file, so it carries the date and how it was checked. Write "not known
-yet" if you cannot tell. Do not delete one. Specific traps go below them.
-
-- Which dashboard or console here lags, and by how much?
-- Which listing shows the published state and hides the pending one?
-- Which registry reports metadata that differs from the artifact?
-- Which cache can serve an old copy?
-
-## Decided, do not redo
-
-What was settled and why, what was ruled out and why, and anything the owner said not to
-do. A resumed session that sees only the remaining tasks will rebuild something already
-rejected, or argue for an option already refused.
-
-An entry here is not rewritten. To change a decision, get the owner's approval, then add a
-new entry with its date, its reasoning and the entry it replaces. The only edit to the old
-entry is one added line saying what replaced it and when.
-
-<!-- Empty on day one. Add a decision the day it is made, with its reasoning, not its
-     conclusion alone. -->
+Two more files hold what changes slowly: `DECISIONS.md`, what was decided and ruled out, and
+`TRAPS.md`, what has cost time here before. Read both at the start, after this one.
 
 ## In flight
 

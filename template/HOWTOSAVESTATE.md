@@ -38,21 +38,27 @@ every file in the repo and none of the chat, so:
 
 ## The files, and how each session uses them
 
-<!-- Replace this list with the real files as the project grows one. Keep the first two
+<!-- Replace this list with the real files as the project grows one. Keep the first four
      entries: they are the method. Add each new document the session it is created, with
      what it is for and who it is written for. -->
 
 **1. `NEXT.md`, the working state.** What is true right now, with every external fact
 carrying the date it was checked and the method. Read it first, treat its facts as dated,
 update it whenever something ships, is verified, or is decided, and rewrite what went stale
-rather than appending a correction underneath. The exception is the Decided section, where a
-changed decision is added as a new entry and the old one stays, under the rule written there.
-Remove finished items from In flight, as that section says.
+rather than appending a correction underneath. Remove finished items from In flight, as that
+section says.
 
-**2. `HOWTOSAVESTATE.md`, this file.** The procedure for ending a session, and the index of
+**2. `DECISIONS.md`, what was decided.** What was settled and why, what was ruled out and
+why, and anything the owner said not to do. Read it at the start. An entry in force is not
+rewritten; a changed decision is added as a new entry, under the rule written there.
+
+**3. `TRAPS.md`, what has cost time before.** The trap questions and their answers, and each
+trap the project has hit. Read it at the start, and add a trap the same session it bites.
+
+**4. `HOWTOSAVESTATE.md`, this file.** The procedure for ending a session, and the index of
 what every file here is for.
 
-**3. PROJECT files.** List them here: the design document, the roadmap, the public docs,
+**5. PROJECT files.** List them here: the design document, the roadmap, the public docs,
 the generated artifacts and their sources. For each, say what belongs in it and what does
 not, so the next session puts things in the right place rather than in `NEXT.md`.
 
@@ -84,16 +90,16 @@ the real thing rather than a description of it, and keep them here once they wor
 **The test suite**, and anything that can make a green run lie: a stale build directory, a
 runner that silently skips files, a fixture that regenerates what a test stripped.
 
-## Step 2: write it into `NEXT.md`
+## Step 2: write it into the state files
 
-What the file has to contain:
+What `NEXT.md`, `DECISIONS.md` and `TRAPS.md` have to contain between them:
 
 - **Every external fact with its date and how it was checked**, and an explicit list of
   what was not checked.
-- **Decisions and their reasons**, in a section a resumed session reads before starting
-  anything: what was settled, what was ruled out and why, and anything the owner said not
-  to do. Without it, a resumed session redoes rejected work and argues for options already
-  refused.
+- **Decisions and their reasons**, in `DECISIONS.md`, which a resumed session reads before
+  starting anything: what was settled, what was ruled out and why, and anything the owner
+  said not to do. Without it, a resumed session redoes rejected work and argues for options
+  already refused.
 - **Uncommitted, unpushed and unreleased as three separate questions.** They have different
   answers. Do not write the unpushed answer as a list of commits: the owner pushes, so it
   goes stale with no commit here to record it. Write the command that answers it and a
@@ -103,8 +109,8 @@ What the file has to contain:
   proposal goes in its own file under `docs/`, indexed wherever `docs/` is indexed. A
   pointer to a chat log is worth nothing to the session that reads this next.
 - **Approved wording, verbatim.** Not a summary of it.
-- **Traps**, in the section `NEXT.md` reserves for them: anything that cost time once and
-  would cost it again. Add one the same session it bites, while the detail is still exact.
+- **Traps**, in `TRAPS.md`: anything that cost time once and would cost it again. Add one the
+  same session it bites, while the detail is still exact.
 - **What not to start unprompted**, where that was said.
 
 ## Step 3: check stored memories against the repo
