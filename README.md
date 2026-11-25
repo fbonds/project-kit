@@ -300,8 +300,9 @@ the detail is still exact. The kit gives every one of them a place to go.
 ## Prior art
 
 These sources shaped later additions to the kit. The wording here is the kit's own and
-nothing is quoted. Each link was fetched on 2026-11-06 and confirmed to be the page
-described, and the Superpowers links are pinned to the commit read that day.
+nothing is quoted. Each link was fetched and confirmed to be the page described on
+2026-11-06, or on the date its entry gives, and the Superpowers links are pinned to the
+commit read that day.
 
 **Superpowers, by Jesse Vincent.** Its [verification skill][sp-verify] makes an agent run a
 check fresh and state the result with the evidence attached, and it lists the shortcuts and
@@ -332,11 +333,40 @@ the stricter rule to him or to anyone else. The template takes the half of that 
 entry in force is never changed. A superseded entry is deleted rather than kept, and the
 commit that deletes it names it.
 
+**Anthropic, "Best practices for Claude Code".** The [page][anthropic-bp] has the agent
+interview the owner until a spec can be written, save it to a file and build from it in a
+fresh session. It starts a bug fix from a failing test that reproduces the bug, and has a
+second agent review the diff against the spec, warning that a reviewer asked for problems
+always finds some. `HOWTOBUILD.md` takes that sequence. Fetched on 2026-11-25.
+
+**GitHub Spec Kit, "Specification-Driven Development".** The [guide][speckit] has tests
+confirmed failing before any implementation, and marks what a spec leaves unsettled as
+needing clarification. `HOWTOBUILD.md` takes the failing check first, and the marker as its
+`Open:` lines. Fetched on 2026-11-25.
+
+**Kiro, bugfix specs.** The [page][kiro-bug] gives a bug's spec a section for the behaviour
+that must stay unchanged. `HOWTOBUILD.md` asks every spec, and every small fix, what must not
+change. Fetched on 2026-11-25.
+
+**BMad Method, "How BMad Works".** The [page][bmad] scales its process to the size of the
+change, so that a small fix starts at the build, and says a later session treats whatever is
+written as settled. `HOWTOBUILD.md` takes the scaling, and that reason for marking open
+questions. Fetched on 2026-11-25.
+
+**Harper Reed, "My LLM codegen workflow atm", 2025.** The [post][harper] builds a spec by
+asking one question at a time, then plans from it. `HOWTOBUILD.md` takes the one question at
+a time. Fetched on 2026-11-25.
+
 [sp-verify]: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/verification-before-completion/SKILL.md
 [sp-tdd]: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md
 [cline]: https://docs.cline.bot/best-practices/memory-bank
 [nygard]: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
 [fowler]: https://www.martinfowler.com/bliki/ArchitectureDecisionRecord.html
+[anthropic-bp]: https://code.claude.com/docs/en/best-practices
+[speckit]: https://github.com/github/spec-kit/blob/main/spec-driven.md
+[kiro-bug]: https://kiro.dev/docs/specs/bugfix-specs/
+[bmad]: https://docs.bmad-method.org/start/how-bmad-works/
+[harper]: https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/
 
 ## License
 
