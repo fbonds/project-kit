@@ -19,6 +19,37 @@
             "timeout": 30
           }
         ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'The conversation was compacted. Re-read NEXT.md, DECISIONS.md and TRAPS.md before acting on anything.'"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "grep -Eq '(^|[^[:alnum:]_-])git([[:space:]]+(-[Cc][[:space:]]+(\\\\\\\"[^\\\\]*\\\\\\\"|[^[:space:]]+)|-[^[:space:]]+))*[[:space:]]+push([^[:alnum:]_.-]|$)' && { echo 'Blocked by the project hook: never push. The owner pushes.' >&2; exit 2; } || exit 0",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Keep in the summary: the item in progress and its state; anything shown to the owner and not yet approved, with its text; anything approved and not yet applied or committed. Say that NEXT.md, DECISIONS.md and TRAPS.md must be re-read before acting.'"
+          }
+        ]
       }
     ]
   }
