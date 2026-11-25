@@ -121,34 +121,6 @@ README's "Eight of the ten", a change to rule 1 runs into the open question on i
 and an evaluation plan here would be a second copy of the harness design. The owner then
 said not to do any of it and to forget the article. Nothing was written.
 
-**project-kit is the owner's personal methodology** (2026-11-21, owner's decision). It
-replaces the entry above. The kit is the method the owner uses, offered to people who work
-the same way. A full overhaul goes on a `version2` branch and draws on nine published
-methods, read again from their live pages: Anthropic's Claude Code documentation, Cline
-Memory Bank, GitHub Spec Kit, Kiro, AGENTS.md, BMAD, Agent OS, Harper Reed's workflow and
-Simon Willison's "Designing agentic loops". Copies saved on 2026-11-18, outside this
-repository, are the fallback. Version 2 also covers seven gaps found in the kit on
-2026-11-18, where they apply. Two of them were written for a reader who does not build. Of
-those, the gap that the Traps questions ask only about publishing still applies. The gap that
-approving a diff is a formality does not, because the owner reads diffs. The overhaul may
-change the rule that entries here are not rewritten, so that a superseded entry can leave
-this file for the git history.
-
-**`NEXT.md` is split into state, decisions and traps** (2026-11-23, owner's decision). It
-replaces "`NEXT.md` is not split". After compaction Claude Code re-reads up to five recent
-files and brings back any file over 5,000 tokens as a path only, and this file measured about
-13,000 tokens on 2026-11-23, as gap 6 records. `NEXT.md` keeps the re-check block and the
-current state: In flight, Queued, the three questions and Open. Decided moves to
-`DECISIONS.md` and Traps, with Standards, to `TRAPS.md`, both at the root. `NEXT.md` names
-both, and a session reads both at the start, so the old entry's reason, that a session must
-read Decided before acting, still holds. Each of the three files stays under 5,000 tokens.
-`CLAUDE.md` tells a session to re-read `NEXT.md` after compaction, because `CLAUDE.md` is
-re-injected after compaction and `NEXT.md` is not. Whether that instruction is followed is
-untested. Keeping one file and pruning it was rejected, because Decided and Traps alone are
-about 3,860 words. A SessionStart hook printing part of the file after compaction was
-rejected as the main fix, because it is untested and does nothing for a file too long to
-read well. The template takes the same shape in a later item.
-
 **The template takes the same shape as this repository** (2026-11-23, owner's decision).
 It has five Markdown files. `CLAUDE.md` carries the ten standards in full, replacing its
 five-bullet summary, because Claude Code re-injects it after compaction. `NEXT.md` holds
@@ -194,3 +166,27 @@ check. A second session reviews multi-task work against the spec. Tests come fir
 one can run. `CLAUDE.md` names the test command, behind a placeholder the setup grep finds.
 Putting the procedure in `CLAUDE.md`, and one `SPEC.md` for all work, were rejected: the
 first would pass 200 lines, and the second grows without end.
+
+**project-kit is the owner's personal methodology** (2026-11-21, owner's decision). The kit
+is the method the owner uses, offered to people who work the same way. Version 2 is worked on
+the `version2` branch, against nine published methods re-read from their live pages and the
+gaps in `docs/version2-plan.md`, kept where they apply to a reader who builds and reads
+diffs. Shortened on 2026-11-25 to make room here. The longer entry is in
+`git show 6dff0b1:DECISIONS.md`.
+
+**`NEXT.md` is split into state, decisions and traps** (2026-11-23, owner's decision).
+`NEXT.md` measured about 13,000 tokens, and after compaction a file over 5,000 comes back as
+a path only. `NEXT.md` keeps the current state, `DECISIONS.md` and `TRAPS.md` take what
+changes slowly, a session reads all three at the start, and each stays under 5,000 tokens.
+Keeping one file and pruning it was rejected: Decided and Traps alone were about 3,860 words.
+Shortened on 2026-11-25 to make room here. The longer entry is in
+`git show 6dff0b1:DECISIONS.md`.
+
+**Hooks enforce only rules with no exceptions** (2026-11-25, owner's decision). The
+template's optional settings add a PreToolUse hook that blocks `git` followed by `push` in
+any spelling. It checks the hook's input with `grep`, so nothing has to be installed, at the
+cost of also blocking a command that only mentions both words. The SessionStart hook says to
+re-read the three state files when the session was compacted, and a PreCompact hook tells the
+summary what to keep. A Stop hook for "save state" was rejected, because it fires every turn
+and the tree is often dirty while a diff waits for approval. SessionEnd was rejected, because
+Claude never sees its output.
