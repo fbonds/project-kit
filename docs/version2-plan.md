@@ -13,9 +13,12 @@ pages against gaps 1 to 8. Its report, with exact quotations and URLs, is
 Gaps 9 to 17 come from that report. Gaps found during the work are added at the end with
 their date.
 
-1. Nothing in the kit covers building. It keeps state and checks work, but nothing takes an
-   idea to a specification, a plan and a list of tasks, and nothing says how tests are
-   written or run. Spec Kit, Kiro, BMAD, Agent OS and Harper Reed's workflow all start there.
+1. Nothing in the kit covered building (found 2026-11-18, closed 2026-11-25).
+   `template/HOWTOBUILD.md` (`094b894`) takes new work from an interview to an approved spec
+   under `docs/specs/`, then to small tasks built in a fresh session, each starting from a
+   check shown failing, with a review for multi-task work and a lighter path for small
+   fixes. The README credits its sources (`c45bb4c`). Untested: it has not been used on real
+   work, so whether it helps is not known.
 2. Almost all of it is prose that Claude may decide does not apply. Anthropic's
    best-practices page was read as saying that `CLAUDE.md` holds guidelines Claude may set
    aside, and that what must happen every time belongs in a hook, a deny rule or a managed
@@ -23,12 +26,14 @@ their date.
    Both daily habits, "Read CLAUDE.md and comply" and "save state", depend on the owner
    typing them. Claude Code also has PreCompact, PostCompact, Stop and SessionEnd hooks, and
    the kit uses none of them. Whether each can carry part of a habit is untested.
-3. The examples come from one project's release engineering, and the Traps questions in
-   `template/NEXT.md` ask only about publishing: dashboards, registries, caches. None asks
-   about failures such as a feature that works only with the developer's data, or a fix that
-   passes its own test and breaks something else. The original gap also said a new builder
-   may not recognise the release examples. That part was written for a reader who does not
-   build, and is dropped.
+3. The examples come from one project's release engineering, and the Traps questions, now in
+   `template/TRAPS.md`, ask only about publishing: dashboards, registries, caches (partly
+   closed 2026-11-25). `HOWTOBUILD.md` covers a fix that passes its own check and breaks
+   something else, by asking every spec and small fix what must not change. Still open: a
+   Traps question for a feature that works only with the developer's data, and examples
+   from outside release engineering. The original gap also said a new builder may not
+   recognise the release examples. That part was written for a reader who does not build,
+   and is dropped.
 4. The gap that approving a diff is a formality is dropped, because it was written for a
    reader who does not read diffs. What stays is the tension it found: rule 10 asks for diff
    approval, and the README says at line 24 "You can audit your agent without reading a line
@@ -70,14 +75,17 @@ their date.
 12. Nothing checks that the instruction files loaded (found 2026-11-23). The kit asks Claude
     to say it has read `NEXT.md`, which is a claim. `/context all` lists the memory files
     that loaded, and the owner can run it.
-13. No rule for when to start a fresh session (found 2026-11-23). The kit covers ending one.
-    Anthropic's best practices say to `/clear` between unrelated tasks and after two failed
-    corrections.
-14. No marker for an assumption written into a file (found 2026-11-23). Spec Kit uses
-    `[NEEDS CLARIFICATION: ...]` and BMAD an `[ASSUMPTION]` tag. Rule 7 covers what a report
-    leaves unchecked, not what a saved file assumes.
-15. No independent review step (found 2026-11-23). Anthropic's best practices describe a
-    second session or a subagent reviewing a diff against the spec.
+13. No rule for when to start a fresh session (found 2026-11-23, partly closed 2026-11-25).
+    `HOWTOBUILD.md` starts a fresh session for each build. Still open: a rule for clearing
+    between unrelated tasks, or after corrections keep failing, as Anthropic's best
+    practices advise.
+14. No marker for an assumption written into a file (found 2026-11-23, partly closed
+    2026-11-25). A spec under `HOWTOBUILD.md` marks what is unsettled with `Open:` lines.
+    Still open: a marker for the same thing in `NEXT.md`, `DECISIONS.md` and other saved
+    files.
+15. No independent review step (found 2026-11-23, closed 2026-11-25). `HOWTOBUILD.md` has
+    a second session or a subagent review multi-task work against its spec, for
+    correctness only. Untested.
 16. The kit is written for `CLAUDE.md` only (found 2026-11-23). Claude Code can read
     `AGENTS.md` as project instructions. Low priority, since Decided keeps the kit written
     for Claude Code, unless the owner uses a second tool.

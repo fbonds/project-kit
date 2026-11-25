@@ -43,18 +43,11 @@ untested. `DECISIONS.md` and `TRAPS.md` measured 4.8k and 4k tokens at `9d524e0`
 not been measured since. On 2026-11-24 they were 2,135 and 2,272 words, against 2,294 and
 2,078 then.
 
-In progress since 2026-11-24: gap 1, a building procedure. The design is the Decided entry
-"The kit gets a building procedure, `HOWTOBUILD.md`" (`f04373b`). The first file item was
-drafted and tested on 2026-11-24 and not yet approved, so nothing of it is committed. It adds
-`template/HOWTOBUILD.md` (675 words), a pointer to it and a test-command line with a new
-placeholder in `template/CLAUDE.md`, a `HOWTOBUILD.md` entry in the file list of
-`template/HOWTOSAVESTATE.md`, and in the README six files instead of five, a paragraph on
-`HOWTOBUILD.md`, the new file in the setup commands, and the new placeholder in the grep's
-list. The README's setup commands were run against it in a scratch repository and copied,
-grepped and staged all six files. The draft is in this session's scratchpad, under `g1a/`,
-which a reboot can clear. If it is gone, redraft it from the Decided entry and show it for
-approval again. After that item: the README's Prior art credits for the new sources, then
-closing gaps 1, 13, 14 and 15 in the plan.
+Closed on 2026-11-25: gaps 1 and 15, with gaps 3, 13 and 14 partly closed, by
+`template/HOWTOBUILD.md` (`094b894`) and its Prior art credits (`c45bb4c`). The plan says
+what each still lacks. `HOWTOBUILD.md` has not been used on real work.
+
+Next: not chosen. The owner picks the next gap from the plan.
 
 Also open: a test only the owner can run, whether the template's SessionStart hook prints
 into a real session and runs after compaction. When `version2` is merged, the GitHub
