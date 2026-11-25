@@ -18,7 +18,11 @@ load before any file is read and go stale the same way, so check those against t
 too.
 
 `HOWTOSAVESTATE.md` has the procedure for verifying state and saving it at the end of a
-session, plus what each file here is for.
+session, plus what each file here is for. `HOWTOBUILD.md` has the procedure for building
+something new, from the first question to done. Read it before starting new work.
+
+**The tests run with `PROJECT_TEST_COMMAND`.** Run it before calling any change done, and
+say what it printed.
 
 ## Standards
 

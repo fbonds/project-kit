@@ -38,7 +38,7 @@ every file in the repo and none of the chat, so:
 
 ## The files, and how each session uses them
 
-<!-- Replace this list with the real files as the project grows one. Keep the first four
+<!-- Replace this list with the real files as the project grows one. Keep the first five
      entries: they are the method. Add each new document the session it is created, with
      what it is for and who it is written for. -->
 
@@ -55,10 +55,13 @@ rewritten; a changed decision is added as a new entry, under the rule written th
 **3. `TRAPS.md`, what has cost time before.** The trap questions and their answers, and each
 trap the project has hit. Read it at the start, and add a trap the same session it bites.
 
-**4. `HOWTOSAVESTATE.md`, this file.** The procedure for ending a session, and the index of
+**4. `HOWTOBUILD.md`, how new work is built.** The procedure from the first question to
+done. Each piece of work gets a spec under `docs/specs/`.
+
+**5. `HOWTOSAVESTATE.md`, this file.** The procedure for ending a session, and the index of
 what every file here is for.
 
-**5. PROJECT files.** List them here: the design document, the roadmap, the public docs,
+**6. PROJECT files.** List them here: the design document, the roadmap, the public docs,
 the generated artifacts and their sources. For each, say what belongs in it and what does
 not, so the next session puts things in the right place rather than in `NEXT.md`.
 

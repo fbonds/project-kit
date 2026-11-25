@@ -7,7 +7,7 @@ For solo developers, not teams.
 You can build real software with an AI agent now. You can also lose a week to an agent that
 says "done and verified" about something that was never checked.
 
-project-kit is five Markdown files. You copy them into your repo, and your agent starts
+project-kit is six Markdown files. You copy them into your repo, and your agent starts
 working like it has a release checklist and a long memory. Nothing to install. Nothing to
 learn but two sentences.
 
@@ -47,7 +47,7 @@ phrases that make text sound machine-written, so your README stops sounding like
 
 Delete any rule you won't enforce. Keep the rest.
 
-Copy the five files into whatever you're building today, fill in the placeholders, start
+Copy the six files into whatever you're building today, fill in the placeholders, start
 your next session with "Read CLAUDE.md and comply," and watch what it tells you.
 
 The rest of this file is the detail behind all of that.
@@ -90,7 +90,7 @@ reads as taste and gets dropped the first time it is inconvenient.
 
 ## What the kit contains
 
-Five files, in `template/`, and an optional sixth.
+Six files, in `template/`, and an optional seventh.
 
 **`CLAUDE.md`** is read at the start of every session without being asked, which makes it the
 only reliable place to put anything. It says to read the state file first and report what it
@@ -108,6 +108,14 @@ memories against the repo, because they load before any file does and a stale on
 correct state file. Commit, then report what could not be verified. It also holds the index
 of what every file in the repo is for, which is what stops a document written on Tuesday
 from being invisible by Friday.
+
+**`HOWTOBUILD.md`** is the procedure for new work. The agent asks one question at a time
+until it can write a spec: what should be true, what must not change, what is out of scope,
+the checks, small tasks, and anything still open, marked as open. The owner approves the spec
+before any code. A fresh session builds it a task at a time, each from a check shown failing
+first, and a second session reviews work of more than one task against the spec. A small fix
+keeps only what must not change, a failing check first, and a run of the whole suite.
+`CLAUDE.md` names the command that runs the tests.
 
 **`NEXT.md`** is the working state, and the only file that answers "where were we". The
 template ships with its sections holding only instructions. The sections are In flight,
@@ -175,21 +183,23 @@ Numbering is stable, so a rule can be named by number across projects.
 ```
 cp /path/to/project-kit/template/CLAUDE.md .
 cp /path/to/project-kit/template/HOWTOSAVESTATE.md .
+cp /path/to/project-kit/template/HOWTOBUILD.md .
 cp /path/to/project-kit/template/NEXT.md .
 cp /path/to/project-kit/template/DECISIONS.md .
 cp /path/to/project-kit/template/TRAPS.md .
-grep -n 'PROJECT\|YYYY-MM-DD' CLAUDE.md HOWTOSAVESTATE.md NEXT.md DECISIONS.md TRAPS.md
-git add CLAUDE.md HOWTOSAVESTATE.md NEXT.md DECISIONS.md TRAPS.md
+grep -n 'PROJECT\|YYYY-MM-DD' CLAUDE.md HOWTOSAVESTATE.md HOWTOBUILD.md \
+  NEXT.md DECISIONS.md TRAPS.md
+git add CLAUDE.md HOWTOSAVESTATE.md HOWTOBUILD.md NEXT.md DECISIONS.md TRAPS.md
 git diff --cached --stat
 git commit -m 'Add the working-state files'
 ```
 
-The `grep` prints every line holding a placeholder: `PROJECT`, `PROJECT_OWNER` or
-`YYYY-MM-DD`, where the first pattern also matches the second. Fill each one in. Two more
-fill-ins carry no placeholder: the commented line at the top of `NEXT.md` that reads "add the
-command that checks what this project publishes or deploys", and the commands for the same
-thing in `HOWTOSAVESTATE.md`. Until the first is filled, the staleness warning has nothing
-behind it.
+The `grep` prints every line holding a placeholder: `PROJECT`, `PROJECT_OWNER`,
+`PROJECT_TEST_COMMAND` or `YYYY-MM-DD`, where the first pattern also matches the second and
+third. Fill each one in. Two more fill-ins carry no placeholder: the commented line at the
+top of `NEXT.md` that reads "add the command that checks what this project publishes or
+deploys", and the commands for the same thing in `HOWTOSAVESTATE.md`. Until the first is
+filled, the staleness warning has nothing behind it.
 
 Run the `grep` before filling anything in. If it prints nothing for `CLAUDE.md`, `NEXT.md`,
 `DECISIONS.md` or `TRAPS.md`, you copied this repository's own working files from its root

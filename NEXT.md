@@ -1,7 +1,7 @@
 # Where we are
 
 **This is project-kit's own working state, filled in for this repository. It is not the
-template.** To use the kit in another repo, copy the three files in `template/`.
+template.** To use the kit in another repo, copy the files in `template/`.
 
 > **Read this before acting on anything below.** Every fact in this file is dated and may
 > be stale. It records what was true when it was checked, not what is true now. The owner
