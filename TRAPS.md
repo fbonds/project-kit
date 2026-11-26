@@ -202,3 +202,9 @@ new test-command placeholder, which would have made the setup grep print a line 
 `DECISIONS.md` and broken the check for root files copied by mistake. The grep caught it
 before commit. Recognise it: any root file that describes a template fill-in by its name.
 Run the setup grep on the four root files before staging.
+
+**A guard that stops on a clean result.** On 2026-11-24 a save chained `grep -c` on the
+placeholder strings before `git commit` with `&&`. With no matches `grep -c` prints 0 and
+exits 1, so the chain stopped at the check that had passed, and nothing was committed.
+Recognise it: a `grep` used as a guard where success means no match. Test its output, such
+as `test "$(grep -c ...)" = 0`, rather than its exit status.

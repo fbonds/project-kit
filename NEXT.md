@@ -21,7 +21,7 @@ template.** To use the kit in another repo, copy the files in `template/`.
 > The end-of-session procedure is `template/HOWTOSAVESTATE.md`. Stored memories load before
 > any file and go stale the same way: check them against the repo rather than trusting them.
 
-Updated 2026-11-24. Working state for project-kit. `README.md` is the public argument and
+Updated 2026-11-26. Working state for project-kit. `README.md` is the public argument and
 the only documentation, and the GitHub Pages site renders it. `template/` is the kit
 itself. `docs/` is the record of results, indexed in `docs/README.md`. There is no design
 document. The version 2 plan is `docs/version2-plan.md`, and this file holds what is queued.
@@ -47,11 +47,21 @@ Closed on 2026-11-25: gaps 1 and 15, with gaps 3, 13 and 14 partly closed, by
 `template/HOWTOBUILD.md` (`094b894`) and its Prior art credits (`c45bb4c`). The plan says
 what each still lacks. `HOWTOBUILD.md` has not been used on real work.
 
-Next: not chosen. The owner picks the next gap from the plan.
+In progress since 2026-11-25: gap 2, with gaps 9 and 11. The design is the Decided entry
+"Hooks enforce only rules with no exceptions" (`81796f7`), and `f991e94` added the hooks to
+`template/.claude/settings.json` with the README's description. The owner ran them in a real
+session on 2026-11-26, in a scratch repository at `~/hooktest-scratch/work` whose `origin` is
+the bare repository beside it. Step 1 passed: the session's transcript holds the SessionStart
+re-check, with "behind, unpushed against origin/main: 0 1" and the `Updated` line. Step 2
+passed: the session was asked to run `git -C . push origin HEAD`, and the transcript and the
+session both show "Blocked by the project hook: never push. The owner pushes."; the bare
+remote stayed at `12c2f17`. Step 3, `/compact` in that session, has not been run: as of
+20:08 UTC no `SessionStart:compact` entry was in its transcript.
 
-Also open: a test only the owner can run, whether the template's SessionStart hook prints
-into a real session and runs after compaction. When `version2` is merged, the GitHub
-description's "Three Markdown files" becomes wrong, and only the owner can change it.
+Still to do, in this order: step 3; then a README item, because its sentence "No hook has
+been run in a session since 2026-10-30" is now false; then closing gaps 2, 9 and 11 in the
+plan; then deleting `~/hooktest-scratch`, which is outside the repository and holds nothing
+that matters.
 
 ## Queued, unscheduled, and not to be started unprompted
 
@@ -81,30 +91,28 @@ GitHub on 2026-11-06 at `ae35382`, when nothing there was built and no session h
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-11-24 23:55 UTC, re-checked against the remote at that time.
+As of 2026-11-26 20:08 UTC, re-checked against the remote at that time.
 
 **Uncommitted.** Nothing apart from this save's edits, which are in the commit carrying them.
-The unapproved draft above is outside the repository.
 
 **Unpushed.** Answer it with `git rev-list --left-right --count '@{upstream}...HEAD'` after a
 fetch, on each branch, or `git ls-remote --heads origin` when the remote-tracking ref may be
 stale. Snapshot, not to be trusted: GitHub had `main` at `2f30d9f` and `version2` at
-`454509a`. Unpushed on `version2`: `18bc1c0`, `d122ebf`, `e3e3c73`, `4032610`, `97c6579`,
-`f04373b` and the commit carrying this sentence. The owner pushes, so this moves with no
-commit here to record it. A commit ID written into this file is the ID at the time of
-writing, and a rebase replaces it.
+`c45bb4c`. Unpushed on `version2`: `6dff0b1`, `81796f7`, `f991e94` and the commit carrying
+this sentence. The owner pushes, so this moves with no commit here to record it. A commit ID
+written into this file is the ID at the time of writing, and a rebase replaces it.
 
 **Unreleased.** Nothing is released separately. Pushed to `main` is published, and
 `version2` is not published by the site. Last published: `2f30d9f`, pushed to `main` at
-23:01:51 UTC on 2026-11-21. The last push to `version2` was `454509a` at 21:09:25 UTC on
-2026-11-24. Both read from the activity log, and the IDs from `git ls-remote`. No tags, no
+23:01:51 UTC on 2026-11-21. The last push to `version2` was `c45bb4c` at 18:36:42 UTC on
+2026-11-25. Both read from the activity log, and the IDs from `git ls-remote`. No tags, no
 GitHub releases, no issues and no pull requests, each read at the time above.
 
 The GitHub Pages site at https://fbonds.github.io/project-kit/ is set to `main`, `/ (root)`.
 Its latest build was `built` on `2f30d9f` at 23:02:25 UTC on 2026-11-21, read from the Pages
 API at the time above. Every commit from `23edcce` to `2f30d9f` changed only this file, which
 the site excludes, so the README it renders is the one in `6ab6386`. The page itself was not
-fetched on 2026-11-18, 2026-11-22 or 2026-11-24, at either save.
+fetched at any save from 2026-11-18 to 2026-11-26.
 On 2026-11-12 at 23:44 UTC the page, fetched with a cache buster, had the README's 10
 headings in order, all 6 of its links, and the same 3,129 words with none differing; a
 planted change to one word was reported as a difference. Excluded files returned 404 on
